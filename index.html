@@ -211,6 +211,57 @@ header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
 .manual-item .remove { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 20px; }
 .manual-item .remove:hover { color: var(--red); }
 
+/* Botão Atualizar agora */
+.atualizar-box {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-light);
+  text-align: center;
+}
+.btn-atualizar {
+  width: 100%;
+  background: var(--lime);
+  color: var(--black);
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-atualizar:hover { background: #91b820; }
+.btn-atualizar:disabled { background: var(--gray); color: white; cursor: not-allowed; }
+.atualizar-status {
+  font-size: 12px;
+  color: var(--orange);
+  margin-top: 6px;
+  font-weight: 600;
+  min-height: 16px;
+}
+.atualizar-info {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.config-link {
+  font-size: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 4px;
+}
+.config-link:hover { color: var(--orange); text-decoration: underline; }
+code {
+  background: var(--gray-light);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
 .news-actions { display: flex; gap: 6px; flex-shrink: 0; }
 .news-actions button {
   padding: 6px 10px;
@@ -429,8 +480,41 @@ header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
           <button class="btn btn-primary" onclick="openModal()" id="generateBtn" disabled>Gerar clipping</button>
           <button class="btn btn-success" onclick="exportarDecisoes()" id="learnBtn">Salvar decisões pro aprendizado</button>
           <button class="btn btn-secondary" onclick="abrirHistorico()" id="histBtn">Histórico (<span id="histCount">0</span>)</button>
+          <div class="atualizar-box">
+            <button class="btn btn-atualizar" onclick="atualizarAgora()" id="atualizarBtn">↻ Atualizar agora</button>
+            <div id="atualizarStatus" class="atualizar-status"></div>
+            <div class="atualizar-info">Última atualização: <span id="ultimaAtualizacao">2026-06-03</span></div>
+            <a href="#" onclick="configurarToken(); return false;" class="config-link">configurar token</a>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal configurar token GitHub -->
+<div class="modal-overlay" id="tokenModal">
+  <div class="modal" style="max-width: 540px;">
+    <div class="modal-header">
+      <h3>Configurar token do GitHub</h3>
+      <button class="modal-close" onclick="fecharTokenModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+        Pra o botão "Atualizar agora" funcionar, precisamos de um token que autorize o dashboard a disparar o workflow no GitHub.
+      </p>
+      <p style="font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+        <strong>Como gerar:</strong> abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" style="color: #FF6200">essa página</a>, escolhe Fine-grained token, escopo só pro repo <code>ibba-re-clipping</code>, permissão <strong>Actions: Read and write</strong>. Validade de 90 dias é ok (você renova depois).
+      </p>
+      <p style="font-size: 13px; line-height: 1.5; margin-bottom: 16px;">
+        Cola o token aqui (começa com <code>github_pat_</code>):
+      </p>
+      <input type="password" id="tokenInput" class="m-input" placeholder="github_pat_..." style="margin-bottom: 8px;">
+      <div style="font-size: 11px; color: var(--muted);">O token fica salvo só no seu navegador, nunca é enviado pra ninguém além do GitHub.</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="salvarToken()">Salvar token</button>
+      <button class="btn btn-secondary" onclick="removerToken()" id="removerTokenBtn" style="display:none;">Remover token salvo</button>
     </div>
   </div>
 </div>
@@ -477,7 +561,7 @@ header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
 </div>
 
 <script>
-const NOTICIAS = [{"i": 0, "t": "Preços explodem em um pedaço de Ipanema", "u": "https://oglobo.globo.com/blogs/capital/post/2026/06/precos-explodem-em-um-pedaco-de-ipanema.ghtml", "s": "O Globo", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 1, "t": "MCMV responde por 70% das vendas de imóveis novos em São Paulo", "u": "https://portas.com.br/dados-inteligencia/relatorios-indices/mcmv-responde-por-70-das-vendas-de-imoveis-novos-em-sao-paulo/", "s": "portas.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 2, "t": "Menos fundos, mais escala: Pátria inicia consolidação de FIIs após aquisições", "u": "https://www.estadao.com.br/einvestidor/direto-da-faria-lima/menos-fundos-mais-escala-patria-inicia-consolidacao-de-fiis-apos-aquisicoes/", "s": "Estadão", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 3, "t": "Multiplan inaugura expansão do BH Shopping com investimento de R$ 30 milhões e amplia potencial de geração de receita", "u": "https://br.advfn.com/jornal/2026/06/multiplan-inaugura-expansao-do-bh-shopping-com-investimento-de-r-30-milhoes-e-amplia-potencial-de-geracao-de-receita", "s": "ADVFN", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 4, "t": "Log: Fidelity ultrapassa 5% de participação após anúncio de dividendos e reforça confiança na companhia", "u": "https://br.advfn.com/jornal/2026/06/log-fidelity-ultrapassa-5-de-participacao-apos-anuncio-de-dividendos-e-reforca-confianca-na-companhia", "s": "ADVFN", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 5, "t": "Graciliano Rocha: Fundo imobiliário vê margem para self-storage crescer e investe R$ 135 mi", "u": "https://economia.uol.com.br/colunas/graciliano-rocha/2026/06/03/espaco-escasso-nas-cidades-virou-aposta-de-um-fundo-imobiliario-de-galpoes.htm", "s": "UOL Economia", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 6, "t": "Ibovespa recua com alta do petróleo e mercado passa a discutir pausa na Selic", "u": "https://valor.globo.com/google/amp/financas/noticia/2026/06/03/ibovespa-recua-com-alta-do-petroleo-e-mercado-passa-a-discutir-pausa-na-selic.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 7, "t": "Nippon Life investirá US$ 9,4 bilhões em estratégias de crédito da Blackstone", "u": "https://valor.globo.com/financas/noticia/2026/06/03/nippon-life-investir-us-94-bilhes-em-estratgias-de-crdito-da-blackstone.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 8, "t": "Agenda de empresas: Raízen detalha plano de recuperação extrajudicial; lucro do PicPay sobe 92%", "u": "https://valor.globo.com/google/amp/empresas/noticia/2026/06/03/agenda-de-empresas-raizen-detalha-plano-de-recuperacao-extrajudicial-lucro-do-picpay-sobe-92percent.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 9, "t": "B3 escala Seleção dos investidores em 2026: veja os ativos mais negociados", "u": "https://valorinveste.globo.com/objetivo/hora-de-investir/noticia/2026/06/03/acoes-bdrs-etfs-fundos-mais-negociados-bolsa.ghtml", "s": "Valor Investe", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 10, "t": "Santander tira Ultrapar (UGPA3) da carteira Ibovespa+ de junho; entenda", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/santander-reitira-ultrapar-ugpa3-carteira-junho/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 11, "t": "Ibovespa hoje: índice cede com pressão das Bolsas de NY após payroll", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-cai-pressao-bolsas-ny-apos-payroll/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 12, "t": "Itaú Unibanco (ITUB4) paga R$ 0,0177 em dividendos hoje (02); veja quem recebe", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/dividendos-hoje-itau-unibanco-itub4-acoes-pagamento-junho/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 13, "t": "Mercado financeiro hoje: Cury (CURY3) e Azzas (AZZA3) lucram; CSN (CSNA3) e Casas Bahia (BHIA3) divulgam balanços", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/mercado-financeiro-hoje-balancos-csna3-cury3-azza3/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 14, "t": "Ibovespa hoje: C&A (CEAB3) salta 7% após balanço; Petrobras (PETR3) cai mais de 3%", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-cea-ceab3-salta-balanco-petrobras-petr3-cai/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 15, "t": "Safra troca RD Saúde (RADL3) por Porto Seguro (PSSA3) na carteira Top 10 Ações; veja o portfólio", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/safra-troca-rd-saude-radl3-por-porto-seguro-pssa3-na-carteira-top-10-acoes-veja-o-portfolio/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 16, "t": "Ibovespa hoje: índice cai e vai para a faixa dos 127 mil pontos", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-opera-baixa-127-mil-pontos/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 17, "t": "Ibovespa hoje sobe com disparada do petróleo, após ataque do Irã a Israel", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-fecha-alta-com-avanco-petroleo-apos-tensao-oriente-medio/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 18, "t": "4 dicas para você ser aprovado em um financiamento imobiliário", "u": "https://www.estadao.com.br/web-stories/einvestidor/4-dicas-ser-aprovado-financiamento-imobiliario/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 19, "t": "Trump nomeia aliado sem experiência em segurança nacional para chefiar inteligência dos EUA", "u": "https://www.estadao.com.br/internacional/trump-nomeia-aliado-sem-experiencia-em-seguranca-nacional-para-chefiar-inteligencia-dos-eua-npr/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 20, "t": "Ativa Investimentos ajusta carteira de junho com foco em resiliência e dividendos; confira mudanças", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ativa-investimentos-ajusta-carteira-de-junho-com-foco-em-resiliencia-e-dividendos-confira-mudancas/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 21, "t": "Day trade: Compre Engie (EGIE3) e venda Marcopolo (POMO4) para ganhar até 1,52% hoje (03), segundo a Ágora", "u": "https://www.moneytimes.com.br/day-trade-compre-engie-egie3-e-venda-marcopolo-pomo4-para-ganhar-ate-152-hoje-03-segundo-a-agora-jvka/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 22, "t": "UBS-BB corta recomendação para MRV (MRVE3) após piora nos juros; ação cai forte", "u": "https://www.infomoney.com.br/mercados/ubs-bb-corta-recomendacao-para-mrv-mrve3-apos-piora-nos-juros-acao-cai-forte/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 23, "t": "Vale a pena investir em small caps em 2026? 3 ações promissoras", "u": "https://www.nordinvestimentos.com.br/blog/small-caps-2026-o-que-esperar/", "s": "Nord Investimentos", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 24, "t": "Simular antes de financiar: o guia para quem quer comprar um imóvel", "u": "https://www.cnnbrasil.com.br/economia/negocios/simular-antes-de-financiar-o-guia-para-quem-quer-comprar-um-imovel/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 25, "t": "Por que o mercado confia na Eco: a visão de corretores e imobiliárias", "u": "https://g1.globo.com/pb/paraiba/especial-publicitario/eco-construtora-eco-construcoes-e-incorporacoes/noticia/2026/06/03/por-que-o-mercado-confia-na-eco-a-visao-de-corretores-e-imobiliarias.ghtml", "s": "G1", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 26, "t": "Secovi-SP reúne novos associados em encontro estratégico para falar de representatividade, economia e inovação no setor imobiliário", "u": "https://secovi.com.br/secovi-sp-reune-novos-associados-em-encontro-estrategico-para-falar-de-representatividade-economia-e-inovacao-no-setor-imobiliario/", "s": "SECOVI-SP", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 27, "t": "‘Dono não-dono’ e puxadinho: quais são as maiores travas nas vendas de imóveis", "u": "https://www.infomoney.com.br/minhas-financas/dono-nao-dono-e-puxadinho-quais-sao-as-maiores-travas-nas-vendas-de-imoveis/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 28, "t": "Inter chega a 1 milhão de clientes de alta renda", "u": "https://veja.abril.com.br/coluna/radar-economico/inter-chega-a-1-milhao-de-clientes-de-alta-renda/", "s": "VEJA", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 29, "t": "As 6 melhores ações de dividendos após o pior mês da Bolsa em 3 anos", "u": "https://www.infomoney.com.br/onde-investir/acoes-dividendos-recomendadas-junho-2026/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 30, "t": "Totvs (TOTS3) com crescimento consistente e preço razoável – Goldman recomenda compra", "u": "https://www.infomoney.com.br/mercados/totvs-tots3-com-crescimento-consistente-e-preco-razoavel-goldman-recomenda-compra/amp/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 31, "t": "Famosos se reúnem na estreia VIP de 'Meu filho é um musical'", "u": "https://revistaquem.globo.com/google/amp/entretenimento/teatro/noticia/2026/06/famosos-se-reunem-na-estreia-vip-de-meu-filho-e-um-musical.ghtml", "s": "Globo", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 32, "t": "Lucro da Multiplan (MULT3) cai no 1º tri, mas balanço mostra recorde em outro indicador", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/multiplan-mult3-lucro-1-trimestre-2025/", "s": "Estadão", "c": "MALLS", "sug": "LIKELY_DROP", "prio": true}, {"i": 33, "t": "Patria consolida fundos e mira escala no imobiliário", "u": "https://capitalaberto.com.br/alem-do-capital/patria-consolida-fundos-e-mira-escala-no-imobiliario/", "s": "Capital Aberto", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 34, "t": "Raízen, Axia, Brava, Yduqs, Multiplan e mais ações para acompanhar hoje", "u": "https://www.infomoney.com.br/mercados/raizen-axia-brava-yduqs-multiplan-e-mais-acoes-para-acompanhar-hoje/", "s": "InfoMoney", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 35, "t": "Tudo sobre jhsf", "u": "https://forbes.com.br/noticias-sobre/jhsf/page/4/", "s": "Forbes Brasil", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 36, "t": "XP revela os 16 fundos imobiliários (FIIs) favoritos para junho; veja a lista", "u": "https://www.moneytimes.com.br/xp-revela-16-fundos-imobiliarios-fiis-favoritos-para-junho-veja-a-lista-igdl/", "s": "Money Times", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}];
+const NOTICIAS = [{"i": 0, "t": "MCMV responde por 70% das vendas de imóveis novos em São Paulo", "u": "https://portas.com.br/dados-inteligencia/relatorios-indices/mcmv-responde-por-70-das-vendas-de-imoveis-novos-em-sao-paulo/", "s": "portas.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 1, "t": "Menos fundos, mais escala: Pátria inicia consolidação de FIIs após aquisições", "u": "https://www.estadao.com.br/einvestidor/direto-da-faria-lima/menos-fundos-mais-escala-patria-inicia-consolidacao-de-fiis-apos-aquisicoes/", "s": "Estadão", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 2, "t": "Multiplan inaugura expansão do BH Shopping com investimento de R$ 30 milhões e amplia potencial de geração de receita", "u": "https://br.advfn.com/jornal/2026/06/multiplan-inaugura-expansao-do-bh-shopping-com-investimento-de-r-30-milhoes-e-amplia-potencial-de-geracao-de-receita", "s": "ADVFN", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 3, "t": "Log: Fidelity ultrapassa 5% de participação após anúncio de dividendos e reforça confiança na companhia", "u": "https://br.advfn.com/jornal/2026/06/log-fidelity-ultrapassa-5-de-participacao-apos-anuncio-de-dividendos-e-reforca-confianca-na-companhia", "s": "ADVFN", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 4, "t": "Mercado financeiro hoje: Cury (CURY3) e Azzas (AZZA3) lucram; CSN (CSNA3) e Casas Bahia (BHIA3) divulgam balanços", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/mercado-financeiro-hoje-balancos-csna3-cury3-azza3/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "UNCERTAIN", "prio": true}, {"i": 5, "t": "Graciliano Rocha: Fundo imobiliário vê margem para self-storage crescer e investe R$ 135 mi", "u": "https://economia.uol.com.br/colunas/graciliano-rocha/2026/06/03/espaco-escasso-nas-cidades-virou-aposta-de-um-fundo-imobiliario-de-galpoes.htm", "s": "UOL Economia", "c": "MALLS", "sug": "UNCERTAIN", "prio": false}, {"i": 6, "t": "Ibovespa recua com alta do petróleo e mercado passa a discutir pausa na Selic", "u": "https://valor.globo.com/google/amp/financas/noticia/2026/06/03/ibovespa-recua-com-alta-do-petroleo-e-mercado-passa-a-discutir-pausa-na-selic.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 7, "t": "Nippon Life investirá US$ 9,4 bilhões em estratégias de crédito da Blackstone", "u": "https://valor.globo.com/financas/noticia/2026/06/03/nippon-life-investir-us-94-bilhes-em-estratgias-de-crdito-da-blackstone.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 8, "t": "Agenda de empresas: Raízen detalha plano de recuperação extrajudicial; lucro do PicPay sobe 92%", "u": "https://valor.globo.com/google/amp/empresas/noticia/2026/06/03/agenda-de-empresas-raizen-detalha-plano-de-recuperacao-extrajudicial-lucro-do-picpay-sobe-92percent.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 9, "t": "B3 escala Seleção dos investidores em 2026: veja os ativos mais negociados", "u": "https://valorinveste.globo.com/objetivo/hora-de-investir/noticia/2026/06/03/acoes-bdrs-etfs-fundos-mais-negociados-bolsa.ghtml", "s": "Valor Investe", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 10, "t": "Santander tira Ultrapar (UGPA3) da carteira Ibovespa+ de junho; entenda", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/santander-reitira-ultrapar-ugpa3-carteira-junho/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 11, "t": "Ibovespa hoje: índice cede com pressão das Bolsas de NY após payroll", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-cai-pressao-bolsas-ny-apos-payroll/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 12, "t": "Itaú Unibanco (ITUB4) paga R$ 0,0177 em dividendos hoje (02); veja quem recebe", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/dividendos-hoje-itau-unibanco-itub4-acoes-pagamento-junho/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 13, "t": "Ibovespa hoje: C&A (CEAB3) salta 7% após balanço; Petrobras (PETR3) cai mais de 3%", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-cea-ceab3-salta-balanco-petrobras-petr3-cai/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 14, "t": "Safra troca RD Saúde (RADL3) por Porto Seguro (PSSA3) na carteira Top 10 Ações; veja o portfólio", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/safra-troca-rd-saude-radl3-por-porto-seguro-pssa3-na-carteira-top-10-acoes-veja-o-portfolio/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 15, "t": "Ibovespa hoje sobe com disparada do petróleo, após ataque do Irã a Israel", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-fecha-alta-com-avanco-petroleo-apos-tensao-oriente-medio/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 16, "t": "Trump nomeia aliado sem experiência em segurança nacional para chefiar inteligência dos EUA", "u": "https://www.estadao.com.br/internacional/trump-nomeia-aliado-sem-experiencia-em-seguranca-nacional-para-chefiar-inteligencia-dos-eua-npr/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 17, "t": "Ativa Investimentos ajusta carteira de junho com foco em resiliência e dividendos; confira mudanças", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ativa-investimentos-ajusta-carteira-de-junho-com-foco-em-resiliencia-e-dividendos-confira-mudancas/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 18, "t": "Preços explodem em um pedaço de Ipanema", "u": "https://oglobo.globo.com/blogs/capital/post/2026/06/precos-explodem-em-um-pedaco-de-ipanema.ghtml", "s": "O Globo", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 19, "t": "Day trade: Compre Engie (EGIE3) e venda Marcopolo (POMO4) para ganhar até 1,52% hoje (03), segundo a Ágora", "u": "https://www.moneytimes.com.br/day-trade-compre-engie-egie3-e-venda-marcopolo-pomo4-para-ganhar-ate-152-hoje-03-segundo-a-agora-jvka/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 20, "t": "UBS-BB corta recomendação para MRV (MRVE3) após piora nos juros; ação cai forte", "u": "https://www.infomoney.com.br/mercados/ubs-bb-corta-recomendacao-para-mrv-mrve3-apos-piora-nos-juros-acao-cai-forte/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 21, "t": "Vale a pena investir em small caps em 2026? 3 ações promissoras", "u": "https://www.nordinvestimentos.com.br/blog/small-caps-2026-o-que-esperar/", "s": "Nord Investimentos", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 22, "t": "Simular antes de financiar: o guia para quem quer comprar um imóvel", "u": "https://www.cnnbrasil.com.br/economia/negocios/simular-antes-de-financiar-o-guia-para-quem-quer-comprar-um-imovel/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 23, "t": "25 anos em construção: a trajetória da Eco contada por seus empreendimentos", "u": "https://g1.globo.com/google/amp/pb/paraiba/especial-publicitario/eco-construtora-eco-construcoes-e-incorporacoes/noticia/2026/06/03/25-anos-em-construcao-a-trajetoria-da-eco-contada-por-seus-empreendimentos.ghtml", "s": "G1", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 24, "t": "LaVentana Empreendimentos anuncia sua chegada ao mercado imobiliário em Caruaru", "u": "https://g1.globo.com/google/amp/pe/caruaru-regiao/especial-publicitario/laventana-empreendimentos-imobiliarios/noticia/2026/06/02/laventana-empreendimentos-anuncia-sua-chegada-ao-mercado-imobiliario-em-caruaru.ghtml", "s": "G1", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 25, "t": "Por que o mercado confia na Eco: a visão de corretores e imobiliárias", "u": "https://g1.globo.com/google/amp/pb/paraiba/especial-publicitario/eco-construtora-eco-construcoes-e-incorporacoes/noticia/2026/06/03/por-que-o-mercado-confia-na-eco-a-visao-de-corretores-e-imobiliarias.ghtml", "s": "G1", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 26, "t": "Secovi-SP reúne novos associados em encontro estratégico para falar de representatividade, economia e inovação no setor imobiliário", "u": "https://secovi.com.br/secovi-sp-reune-novos-associados-em-encontro-estrategico-para-falar-de-representatividade-economia-e-inovacao-no-setor-imobiliario/", "s": "SECOVI-SP", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 27, "t": "‘Dono não-dono’ e puxadinho: quais são as maiores travas nas vendas de imóveis", "u": "https://www.infomoney.com.br/minhas-financas/dono-nao-dono-e-puxadinho-quais-sao-as-maiores-travas-nas-vendas-de-imoveis/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 28, "t": "4 em cada 10 matrículas de imóveis têm problemas jurídicos", "u": "https://portas.com.br/para-corretores/4-em-cada-10-matriculas-tem-problemas-juridicos/", "s": "portas.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 29, "t": "Inter chega a 1 milhão de clientes de alta renda", "u": "https://veja.abril.com.br/coluna/radar-economico/inter-chega-a-1-milhao-de-clientes-de-alta-renda/", "s": "VEJA", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 30, "t": "Consórcio segue como alternativa para quem deseja adquirir patrimônio sem juros", "u": "https://g1.globo.com/google/amp/sp/bauru-marilia/especial-publicitario/grupo-comauto-planeje-suas-conquistas-com-o-grupo-comauto/noticia/2026/06/03/consorcio-segue-como-alternativa-para-quem-deseja-adquirir-patrimonio-sem-juros.ghtml", "s": "G1", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 31, "t": "Grupo Cataguá celebra 40 anos de solidez e tradição no interior paulista", "u": "https://g1.globo.com/google/amp/sp/piracicaba-regiao/especial-publicitario/catagua-construtora/noticia/2026/06/03/grupo-catagua-celebra-40-anos-de-solidez-e-tradicao-no-interior-paulista.ghtml", "s": "G1", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 32, "t": "Senador republicano ataca escolha de Trump para inteligência: 'Não tem nenhuma chance no Senado'", "u": "https://www.spacemoney.com.br/economia/exterior/senador-republicano-tillis-ataca-escolha-trump-inteligencia-nacional-pulte/", "s": "SpaceMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 33, "t": "As 6 melhores ações de dividendos após o pior mês da Bolsa em 3 anos", "u": "https://www.infomoney.com.br/onde-investir/acoes-dividendos-recomendadas-junho-2026/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 34, "t": "Santander recomenda 3 ações ‘peso-pesado’ para otimizar os ganhos em junho; confira", "u": "https://www.moneytimes.com.br/carteira-dividendos-santander-junho-apsa/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 35, "t": "Patria consolida fundos e mira escala no imobiliário", "u": "https://capitalaberto.com.br/alem-do-capital/patria-consolida-fundos-e-mira-escala-no-imobiliario/", "s": "Capital Aberto", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 36, "t": "Raízen, Axia, Brava, Yduqs, Multiplan e mais ações para acompanhar hoje", "u": "https://www.infomoney.com.br/mercados/raizen-axia-brava-yduqs-multiplan-e-mais-acoes-para-acompanhar-hoje/", "s": "InfoMoney", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 37, "t": "Tudo sobre jhsf", "u": "https://forbes.com.br/noticias-sobre/jhsf/page/4/", "s": "Forbes Brasil", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 38, "t": "XP revela os 16 fundos imobiliários (FIIs) favoritos para junho; veja a lista", "u": "https://www.moneytimes.com.br/xp-revela-16-fundos-imobiliarios-fiis-favoritos-para-junho-veja-a-lista-igdl/", "s": "Money Times", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}];
 const STORAGE_KEY = 'dashboard_2026-06-03';
 const MANUAL_KEY = 'dashboard_manual_2026-06-03';
 const HISTORICO_KEY = 'dashboard_historico_clippings';  // não é por data — acumula tudo
@@ -940,6 +1024,151 @@ function exportarDecisoes() {
   a.download = 'decisoes-2026-06-03.json';
   a.click();
   alert(out.length + ' decisões exportadas (' + decisoesNoticias.length + ' do coletor + ' + decisoesManuais.length + ' manuais). Mande pra mim que eu mergeo no histórico.');
+}
+
+// ============ ATUALIZAR AGORA (chama GitHub Actions) ============
+const GH_OWNER = 'jupveiga-Research';
+const GH_REPO = 'ibba-re-clipping';
+const GH_WORKFLOW = 'atualizar.yml';
+const TOKEN_KEY = 'github_pat_token';
+
+function getToken() {
+  return localStorage.getItem(TOKEN_KEY) || '';
+}
+
+function configurarToken() {
+  const atual = getToken();
+  document.getElementById('tokenInput').value = atual ? '••••••••' + atual.slice(-6) : '';
+  document.getElementById('removerTokenBtn').style.display = atual ? 'inline-block' : 'none';
+  document.getElementById('tokenModal').classList.add('open');
+}
+function fecharTokenModal() { document.getElementById('tokenModal').classList.remove('open'); }
+function salvarToken() {
+  const val = document.getElementById('tokenInput').value.trim();
+  if (val.startsWith('••••')) { fecharTokenModal(); return; }
+  if (!val) { alert('Cola o token'); return; }
+  if (!val.startsWith('github_pat_') && !val.startsWith('ghp_')) {
+    if (!confirm('Esse token não parece um Personal Access Token do GitHub (geralmente começa com github_pat_). Salvar mesmo assim?')) return;
+  }
+  localStorage.setItem(TOKEN_KEY, val);
+  fecharTokenModal();
+  setStatus('Token salvo. Pode clicar em Atualizar agora.', '#57B49A');
+  setTimeout(() => setStatus('', ''), 4000);
+}
+function removerToken() {
+  if (!confirm('Remover o token salvo?')) return;
+  localStorage.removeItem(TOKEN_KEY);
+  fecharTokenModal();
+  setStatus('Token removido.', '');
+  setTimeout(() => setStatus('', ''), 3000);
+}
+
+function setStatus(txt, color) {
+  const el = document.getElementById('atualizarStatus');
+  el.textContent = txt;
+  if (color) el.style.color = color;
+  else el.style.color = '';
+}
+
+async function atualizarAgora() {
+  const token = getToken();
+  if (!token) {
+    if (confirm('Você ainda não configurou o token do GitHub. Quer configurar agora?')) {
+      configurarToken();
+    }
+    return;
+  }
+  const btn = document.getElementById('atualizarBtn');
+  btn.disabled = true;
+  setStatus('Disparando workflow...', '#FF6200');
+
+  try {
+    const resp = await fetch(
+      `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW}/dispatches`,
+      {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/vnd.github+json',
+          'Authorization': 'Bearer ' + token,
+          'X-GitHub-Api-Version': '2022-11-28',
+        },
+        body: JSON.stringify({ ref: 'main' }),
+      }
+    );
+
+    if (resp.status === 401) {
+      setStatus('Token inválido. Configura novamente.', '#cc2222');
+      btn.disabled = false;
+      return;
+    }
+    if (resp.status === 404) {
+      setStatus('Repo ou workflow não achado. Verifica config.', '#cc2222');
+      btn.disabled = false;
+      return;
+    }
+    if (!resp.ok && resp.status !== 204) {
+      const txt = await resp.text();
+      setStatus('Erro: ' + resp.status, '#cc2222');
+      console.error('GitHub API error:', txt);
+      btn.disabled = false;
+      return;
+    }
+
+    setStatus('Workflow disparado. Aguardando ~3 minutos...', '#FF6200');
+    pollarStatus(token, 0);
+  } catch (e) {
+    setStatus('Erro de rede: ' + e.message, '#cc2222');
+    btn.disabled = false;
+  }
+}
+
+async function pollarStatus(token, tentativa) {
+  if (tentativa > 60) {  // 60 * 5s = 5 min max
+    setStatus('Timeout. Verifica no GitHub Actions.', '#cc2222');
+    document.getElementById('atualizarBtn').disabled = false;
+    return;
+  }
+  await new Promise(r => setTimeout(r, 5000));
+  const segundos = (tentativa + 1) * 5;
+  const min = Math.floor(segundos / 60);
+  const sec = segundos % 60;
+  setStatus(`Atualizando... ${min}:${String(sec).padStart(2,'0')} / ~3:00`, '#FF6200');
+
+  try {
+    const resp = await fetch(
+      `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/runs?per_page=1`,
+      {
+        headers: {
+          'Accept': 'application/vnd.github+json',
+          'Authorization': 'Bearer ' + token,
+        },
+      }
+    );
+    if (!resp.ok) {
+      // Falha de polling não bloqueia — tenta de novo
+      pollarStatus(token, tentativa + 1);
+      return;
+    }
+    const data = await resp.json();
+    const ultimo = data.workflow_runs && data.workflow_runs[0];
+    if (!ultimo) {
+      pollarStatus(token, tentativa + 1);
+      return;
+    }
+    if (ultimo.status === 'completed') {
+      if (ultimo.conclusion === 'success') {
+        setStatus('Pronto! Recarregando...', '#57B49A');
+        setTimeout(() => location.reload(), 1500);
+      } else {
+        setStatus('Workflow falhou (' + ultimo.conclusion + '). Vê os logs no GitHub Actions.', '#cc2222');
+        document.getElementById('atualizarBtn').disabled = false;
+      }
+    } else {
+      pollarStatus(token, tentativa + 1);
+    }
+  } catch (e) {
+    pollarStatus(token, tentativa + 1);
+  }
 }
 
 renderizar();
