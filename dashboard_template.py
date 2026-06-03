@@ -252,6 +252,57 @@ header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
 .manual-item .remove { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 20px; }
 .manual-item .remove:hover { color: var(--red); }
 
+/* Botão Atualizar agora */
+.atualizar-box {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-light);
+  text-align: center;
+}
+.btn-atualizar {
+  width: 100%;
+  background: var(--lime);
+  color: var(--black);
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-atualizar:hover { background: #91b820; }
+.btn-atualizar:disabled { background: var(--gray); color: white; cursor: not-allowed; }
+.atualizar-status {
+  font-size: 12px;
+  color: var(--orange);
+  margin-top: 6px;
+  font-weight: 600;
+  min-height: 16px;
+}
+.atualizar-info {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.config-link {
+  font-size: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 4px;
+}
+.config-link:hover { color: var(--orange); text-decoration: underline; }
+code {
+  background: var(--gray-light);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
 .news-actions { display: flex; gap: 6px; flex-shrink: 0; }
 .news-actions button {
   padding: 6px 10px;
@@ -470,8 +521,41 @@ header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
           <button class="btn btn-primary" onclick="openModal()" id="generateBtn" disabled>Gerar clipping</button>
           <button class="btn btn-success" onclick="exportarDecisoes()" id="learnBtn">Salvar decisões pro aprendizado</button>
           <button class="btn btn-secondary" onclick="abrirHistorico()" id="histBtn">Histórico (<span id="histCount">0</span>)</button>
+          <div class="atualizar-box">
+            <button class="btn btn-atualizar" onclick="atualizarAgora()" id="atualizarBtn">↻ Atualizar agora</button>
+            <div id="atualizarStatus" class="atualizar-status"></div>
+            <div class="atualizar-info">Última atualização: <span id="ultimaAtualizacao">__DATA_STR__</span></div>
+            <a href="#" onclick="configurarToken(); return false;" class="config-link">configurar token</a>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal configurar token GitHub -->
+<div class="modal-overlay" id="tokenModal">
+  <div class="modal" style="max-width: 540px;">
+    <div class="modal-header">
+      <h3>Configurar token do GitHub</h3>
+      <button class="modal-close" onclick="fecharTokenModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+        Pra o botão "Atualizar agora" funcionar, precisamos de um token que autorize o dashboard a disparar o workflow no GitHub.
+      </p>
+      <p style="font-size: 13px; line-height: 1.5; margin-bottom: 12px;">
+        <strong>Como gerar:</strong> abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" style="color: #FF6200">essa página</a>, escolhe Fine-grained token, escopo só pro repo <code>ibba-re-clipping</code>, permissão <strong>Actions: Read and write</strong>. Validade de 90 dias é ok (você renova depois).
+      </p>
+      <p style="font-size: 13px; line-height: 1.5; margin-bottom: 16px;">
+        Cola o token aqui (começa com <code>github_pat_</code>):
+      </p>
+      <input type="password" id="tokenInput" class="m-input" placeholder="github_pat_..." style="margin-bottom: 8px;">
+      <div style="font-size: 11px; color: var(--muted);">O token fica salvo só no seu navegador, nunca é enviado pra ninguém além do GitHub.</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="salvarToken()">Salvar token</button>
+      <button class="btn btn-secondary" onclick="removerToken()" id="removerTokenBtn" style="display:none;">Remover token salvo</button>
     </div>
   </div>
 </div>
@@ -981,6 +1065,151 @@ function exportarDecisoes() {
   a.download = 'decisoes-__DATA_STR__.json';
   a.click();
   alert(out.length + ' decisões exportadas (' + decisoesNoticias.length + ' do coletor + ' + decisoesManuais.length + ' manuais). Mande pra mim que eu mergeo no histórico.');
+}
+
+// ============ ATUALIZAR AGORA (chama GitHub Actions) ============
+const GH_OWNER = 'jupveiga-Research';
+const GH_REPO = 'ibba-re-clipping';
+const GH_WORKFLOW = 'atualizar.yml';
+const TOKEN_KEY = 'github_pat_token';
+
+function getToken() {
+  return localStorage.getItem(TOKEN_KEY) || '';
+}
+
+function configurarToken() {
+  const atual = getToken();
+  document.getElementById('tokenInput').value = atual ? '••••••••' + atual.slice(-6) : '';
+  document.getElementById('removerTokenBtn').style.display = atual ? 'inline-block' : 'none';
+  document.getElementById('tokenModal').classList.add('open');
+}
+function fecharTokenModal() { document.getElementById('tokenModal').classList.remove('open'); }
+function salvarToken() {
+  const val = document.getElementById('tokenInput').value.trim();
+  if (val.startsWith('••••')) { fecharTokenModal(); return; }
+  if (!val) { alert('Cola o token'); return; }
+  if (!val.startsWith('github_pat_') && !val.startsWith('ghp_')) {
+    if (!confirm('Esse token não parece um Personal Access Token do GitHub (geralmente começa com github_pat_). Salvar mesmo assim?')) return;
+  }
+  localStorage.setItem(TOKEN_KEY, val);
+  fecharTokenModal();
+  setStatus('Token salvo. Pode clicar em Atualizar agora.', '#57B49A');
+  setTimeout(() => setStatus('', ''), 4000);
+}
+function removerToken() {
+  if (!confirm('Remover o token salvo?')) return;
+  localStorage.removeItem(TOKEN_KEY);
+  fecharTokenModal();
+  setStatus('Token removido.', '');
+  setTimeout(() => setStatus('', ''), 3000);
+}
+
+function setStatus(txt, color) {
+  const el = document.getElementById('atualizarStatus');
+  el.textContent = txt;
+  if (color) el.style.color = color;
+  else el.style.color = '';
+}
+
+async function atualizarAgora() {
+  const token = getToken();
+  if (!token) {
+    if (confirm('Você ainda não configurou o token do GitHub. Quer configurar agora?')) {
+      configurarToken();
+    }
+    return;
+  }
+  const btn = document.getElementById('atualizarBtn');
+  btn.disabled = true;
+  setStatus('Disparando workflow...', '#FF6200');
+
+  try {
+    const resp = await fetch(
+      `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/workflows/${GH_WORKFLOW}/dispatches`,
+      {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/vnd.github+json',
+          'Authorization': 'Bearer ' + token,
+          'X-GitHub-Api-Version': '2022-11-28',
+        },
+        body: JSON.stringify({ ref: 'main' }),
+      }
+    );
+
+    if (resp.status === 401) {
+      setStatus('Token inválido. Configura novamente.', '#cc2222');
+      btn.disabled = false;
+      return;
+    }
+    if (resp.status === 404) {
+      setStatus('Repo ou workflow não achado. Verifica config.', '#cc2222');
+      btn.disabled = false;
+      return;
+    }
+    if (!resp.ok && resp.status !== 204) {
+      const txt = await resp.text();
+      setStatus('Erro: ' + resp.status, '#cc2222');
+      console.error('GitHub API error:', txt);
+      btn.disabled = false;
+      return;
+    }
+
+    setStatus('Workflow disparado. Aguardando ~3 minutos...', '#FF6200');
+    pollarStatus(token, 0);
+  } catch (e) {
+    setStatus('Erro de rede: ' + e.message, '#cc2222');
+    btn.disabled = false;
+  }
+}
+
+async function pollarStatus(token, tentativa) {
+  if (tentativa > 60) {  // 60 * 5s = 5 min max
+    setStatus('Timeout. Verifica no GitHub Actions.', '#cc2222');
+    document.getElementById('atualizarBtn').disabled = false;
+    return;
+  }
+  await new Promise(r => setTimeout(r, 5000));
+  const segundos = (tentativa + 1) * 5;
+  const min = Math.floor(segundos / 60);
+  const sec = segundos % 60;
+  setStatus(`Atualizando... ${min}:${String(sec).padStart(2,'0')} / ~3:00`, '#FF6200');
+
+  try {
+    const resp = await fetch(
+      `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/actions/runs?per_page=1`,
+      {
+        headers: {
+          'Accept': 'application/vnd.github+json',
+          'Authorization': 'Bearer ' + token,
+        },
+      }
+    );
+    if (!resp.ok) {
+      // Falha de polling não bloqueia — tenta de novo
+      pollarStatus(token, tentativa + 1);
+      return;
+    }
+    const data = await resp.json();
+    const ultimo = data.workflow_runs && data.workflow_runs[0];
+    if (!ultimo) {
+      pollarStatus(token, tentativa + 1);
+      return;
+    }
+    if (ultimo.status === 'completed') {
+      if (ultimo.conclusion === 'success') {
+        setStatus('Pronto! Recarregando...', '#57B49A');
+        setTimeout(() => location.reload(), 1500);
+      } else {
+        setStatus('Workflow falhou (' + ultimo.conclusion + '). Vê os logs no GitHub Actions.', '#cc2222');
+        document.getElementById('atualizarBtn').disabled = false;
+      }
+    } else {
+      pollarStatus(token, tentativa + 1);
+    }
+  } catch (e) {
+    pollarStatus(token, tentativa + 1);
+  }
 }
 
 renderizar();
