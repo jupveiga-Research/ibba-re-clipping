@@ -1,41 +1,39 @@
 {
-  "generated_at": "2026-06-03T20:15:00.669780",
+  "generated_at": "2026-06-03T20:38:58.941754",
   "window_hours": 24,
-  "total_raw": 479,
-  "total_unique": 383,
-  "total_aprovadas_fonte": 71,
-  "total_aprovadas_final": 39,
+  "total_raw": 466,
+  "total_unique": 368,
+  "total_aprovadas_fonte": 67,
+  "total_aprovadas_final": 37,
   "by_category": {
-    "HOMEBUILDERS": 31,
-    "MALLS": 8
+    "HOMEBUILDERS": 28,
+    "MALLS": 9
   },
   "by_source": {
+    "O Globo": 1,
     "portas.com.br": 2,
-    "Estadão": 10,
+    "Estadão": 13,
     "ADVFN": 2,
+    "VEJA": 1,
     "UOL Economia": 1,
     "Valor Econômico": 3,
     "Valor Investe": 1,
-    "O Globo": 1,
     "Money Times": 3,
     "InfoMoney": 4,
     "Nord Investimentos": 1,
-    "CNN Brasil": 1,
-    "G1": 5,
+    "CNN Brasil": 2,
+    "G1": 1,
     "SECOVI-SP": 1,
-    "VEJA": 1,
-    "SpaceMoney": 1,
-    "Capital Aberto": 1,
-    "Forbes Brasil": 1
+    "Capital Aberto": 1
   },
   "stats_per_keyword": {
     "Cyrela": 1,
-    "CYRE3": 1,
+    "CYRE3": 0,
     "EZ Tec": 3,
     "Eztec": 2,
     "EZTC3": 2,
     "Even construtora": 1,
-    "EVEN3": 5,
+    "EVEN3": 6,
     "Helbor": 0,
     "HBOR3": 0,
     "Mitre Realty": 1,
@@ -61,29 +59,29 @@
     "PLPL3": 1,
     "Construtora Tenda": 0,
     "TEND3": 0,
-    "imóveis residenciais": 32,
-    "mercado imobiliário residencial": 52,
+    "imóveis residenciais": 29,
+    "mercado imobiliário residencial": 57,
     "FGTS habitação": 3,
     "Minha Casa Minha Vida": 48,
-    "construtora Brasil": 11,
-    "incorporadora imobiliária": 8,
-    "lançamentos imobiliários": 43,
+    "construtora Brasil": 10,
+    "incorporadora imobiliária": 7,
+    "lançamentos imobiliários": 47,
     "VSO vendas sobre oferta": 1,
     "INCC": 1,
     "Caixa habitacional": 10,
-    "crédito imobiliário": 57,
+    "crédito imobiliário": 47,
     "SFH sistema financeiro habitação": 3,
     "LIG letra imobiliária garantida": 0,
     "poupança SBPE": 0,
-    "Iguatemi Empresa": 4,
+    "Iguatemi Empresa": 5,
     "IGTI11": 0,
-    "Allos shoppings resultados": 5,
+    "Allos shoppings resultados": 4,
     "ALOS3": 2,
-    "Multiplan": 21,
-    "MULT3": 7,
-    "JHSF": 7,
+    "Multiplan": 20,
+    "MULT3": 6,
+    "JHSF": 8,
     "JHSF3": 0,
-    "LOG Commercial Properties": 6,
+    "LOG Commercial Properties": 5,
     "LOGG3": 5,
     "BR Properties": 4,
     "BRPR3": 0,
@@ -98,22 +96,33 @@
     "CCPR3": 0,
     "JFL Living": 0,
     "Vitacon": 0,
-    "General Shopping": 3,
+    "General Shopping": 2,
     "GSHP3": 0,
     "Hines real estate": 0,
     "HSI gestora imobiliária": 0,
     "shopping center Brasil": 17,
     "galpão logístico": 2,
     "lajes corporativas": 8,
-    "escritórios São Paulo": 48,
+    "escritórios São Paulo": 45,
     "fundo imobiliário shopping": 3,
     "vacância escritórios": 4,
-    "ABL área bruta locável": 8,
+    "ABL área bruta locável": 7,
     "cap rate imóveis": 6,
     "NOI shopping": 1
   },
   "ia_ativa": true,
   "news": [
+    {
+      "title": "Preços explodem em um pedaço de Ipanema - O Globo",
+      "link": "https://oglobo.globo.com/blogs/capital/post/2026/06/precos-explodem-em-um-pedaco-de-ipanema.ghtml",
+      "source": "O Globo",
+      "pub_date": "2026-06-03T09:01:03+00:00",
+      "search_term": "lançamentos imobiliários",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "link_google_news": "https://news.google.com/rss/articles/CBMingFBVV95cUxObGwtb09OYnMwN0ZHbTZUVnJuWmFBMURsLTRUeWt0Wkc4MFNvTm1ueFdnTHptWnZzWG53aUgyWVY0UTRucUd4aEU1WjNYeFk1NmpvVFNSU1lzd0lpQnlpbjBPSDBCTTBQVWZMRnZINVladUE4aEJBdGwySmlGYTVBQWU0VTN3VkVFTnI3UEVBMkpkTm5EVXBDUUd0RnJXd9IBrAFBVV95cUxOb3hpQW1YNFlRYzZLMEFYc0dsOFNER2pRd0VJZXlpMGpJWHE3VVprRnlkc0o3eC1GSGhndDVTN2w0RTVqemllb3ZIbDNhOVNqNG81NS1iOXVqdjRWd0Vja1V1eWk0UTVMb0FEeHBkelRSQjAxZURSWUVWUHF3SnNFd2c5cWx0T1ljWjZKd09xVThzY19IZGlvaHVnMWlqeURZRC1sU2RaeEVCTHN1?oc=5",
+      "fonte_prioritaria": true
+    },
     {
       "title": "MCMV responde por 70% das vendas de imóveis novos em São Paulo - portas.com.br",
       "link": "https://portas.com.br/dados-inteligencia/relatorios-indices/mcmv-responde-por-70-das-vendas-de-imoveis-novos-em-sao-paulo/",
@@ -148,6 +157,17 @@
       "fonte_prioritaria": false
     },
     {
+      "title": "Dona da Louis Vuitton renova votos com a JHSF - VEJA",
+      "link": "https://veja.abril.com.br/coluna/radar-economico/dona-da-louis-vuitton-renova-votos-com-a-jhsf/",
+      "source": "VEJA",
+      "pub_date": "2026-06-03T20:14:29+00:00",
+      "search_term": "JHSF",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "link_google_news": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOTERudGs2enBOdXNzNXJsalhjdlJTOC1rXzg0Xy1jOVMyVzFndVoyMDBTaVlZVUFoQUJXZ3ZTbjIzaGlqTi0waUUtVDNld2tsOTA4aGhmTllMQlltWlpSNlV2TW5YQlp6Y0FsaWs2dmtrdXppcHB5U25vV2dUTW5nVExrcTEwUUJUaHBmeGw1cVF3VWxZWE9GeHpkTQ?oc=5",
+      "fonte_prioritaria": false
+    },
+    {
       "title": "Log: Fidelity ultrapassa 5% de participação após anúncio de dividendos e reforça confiança na companhia - ADVFN",
       "link": "https://br.advfn.com/jornal/2026/06/log-fidelity-ultrapassa-5-de-participacao-apos-anuncio-de-dividendos-e-reforca-confianca-na-companhia",
       "source": "ADVFN",
@@ -156,6 +176,17 @@
       "category": "MALLS",
       "sugestao_ia": "LIKELY_KEEP",
       "link_google_news": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNdFl4VTdmLUNIdXI0X2NZZXR3M202b3JydzdfM3lZLWFKcWllaUxNamxPVTVfX01QMmVpVkYza1A0cGdnaXMzcUtyTEszS3UxV3ZZR0lkYlRaWG42N2d2RVNsOUlUWGZ5SFBZR3B1VkdEN3pWVUdja1BLWFktaE9pYU5JTUMxLXVkSXRvV3g4SDZHLS1YMGpYdk1mQjlSZUltM3VGZ3EwMFVhS3JFNFg5X18tbDcyZksteXhZeXlmNHppd3FmNFlYRUZ2bTdFdWNDUmgw?oc=5",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Graciliano Rocha: Fundo imobiliário vê margem para self-storage crescer e investe R$ 135 mi - UOL Economia",
+      "link": "https://economia.uol.com.br/colunas/graciliano-rocha/2026/06/03/espaco-escasso-nas-cidades-virou-aposta-de-um-fundo-imobiliario-de-galpoes.htm",
+      "source": "UOL Economia",
+      "pub_date": "2026-06-03T19:41:05+00:00",
+      "search_term": "cap rate imóveis",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "link_google_news": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPYWpONjlZV0dhN0kyTGw5YTNqbncxX004TVNab2dtV0t4VG5oQjE4VlhTV3paaVZmNEI1dzQxRHQ0ZnhfTGc5Vi1YQUR4d3l5Mkcya041aVk3RjRRdHJzaS05Tlg2ZVhkU0RHWlV5RG1qcFNSLUFNaGtJVFotYS1hM0lfbXRkRzdyTnpqVUNiYlFPMkNpbk9QeW1rTWYyMzBtcjNzb1VOVVE0WF9Vb0ZRV01xazl6bGl6UEpWVmI4d3g5Z0swRlpfdC0tZXZwYXl0akM2YVViYXd5UQ?oc=5",
       "fonte_prioritaria": false
     },
     {
@@ -168,17 +199,6 @@
       "sugestao_ia": "UNCERTAIN",
       "link_google_news": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPTFNnZ1UydnZVQjVFb1RWT1FDVHpRZUtXM3RqYjhRakE2ZDczVFF4SEl5TzJGc3p4NExodGlyMVQ2OXRwLXVJaGpnZmtOeG0wUFYwRUkyLUdwUjFpRHdkcGxZZFBmT0FKZU5CU3JuampHbllNbzFJU1V0VXBpRUNjbnhvVU1tZ0dtSjNQdUJLTlJVaWMwQjctLU1md1pyY0xqSDBFNDVPSVlsN0pFS3fSAbMBQVVfeXFMTWhrWko0NTZHY09hZTI2VTFNZmswclRQMkhXX3AySVZtNDdLcXp0OEpSaTJ5b2dqMXBGc1BpU1N2Y3JNVWZuZFlWVFMzRDA4Q3pNZlhUejNTRjU2WWtzQkhyRmhWMFBXR1lvTkxwekVxdllTaWd0cmUwaHktQmNXZmVVS1c4WkZaODcxRjBHdHJtYzJHX21Ib2dGRkJkMFF0SmVUZHN1QlowTEliN3ZrTG5fYms?oc=5",
       "fonte_prioritaria": true
-    },
-    {
-      "title": "Graciliano Rocha: Fundo imobiliário vê margem para self-storage crescer e investe R$ 135 mi - UOL Economia",
-      "link": "https://economia.uol.com.br/colunas/graciliano-rocha/2026/06/03/espaco-escasso-nas-cidades-virou-aposta-de-um-fundo-imobiliario-de-galpoes.htm",
-      "source": "UOL Economia",
-      "pub_date": "2026-06-03T19:41:05+00:00",
-      "search_term": "cap rate imóveis",
-      "category": "MALLS",
-      "sugestao_ia": "UNCERTAIN",
-      "link_google_news": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPYWpONjlZV0dhN0kyTGw5YTNqbncxX004TVNab2dtV0t4VG5oQjE4VlhTV3paaVZmNEI1dzQxRHQ0ZnhfTGc5Vi1YQUR4d3l5Mkcya041aVk3RjRRdHJzaS05Tlg2ZVhkU0RHWlV5RG1qcFNSLUFNaGtJVFotYS1hM0lfbXRkRzdyTnpqVUNiYlFPMkNpbk9QeW1rTWYyMzBtcjNzb1VOVVE0WF9Vb0ZRV01xazl6bGl6UEpWVmI4d3g5Z0swRlpfdC0tZXZwYXl0akM2YVViYXd5UQ?oc=5",
-      "fonte_prioritaria": false
     },
     {
       "title": "Ibovespa recua com alta do petróleo e mercado passa a discutir pausa na Selic - Valor Econômico",
@@ -261,7 +281,7 @@
       "title": "Ibovespa hoje: C&A (CEAB3) salta 7% após balanço; Petrobras (PETR3) cai mais de 3% - Estadão",
       "link": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-cea-ceab3-salta-balanco-petrobras-petr3-cai/",
       "source": "Estadão",
-      "pub_date": "2026-06-03T18:31:54+00:00",
+      "pub_date": "2026-06-02T23:05:31+00:00",
       "search_term": "CURY3",
       "category": "HOMEBUILDERS",
       "sugestao_ia": "LIKELY_DROP",
@@ -291,6 +311,17 @@
       "fonte_prioritaria": true
     },
     {
+      "title": "4 dicas para você ser aprovado em um financiamento imobiliário - Estadão",
+      "link": "https://www.estadao.com.br/web-stories/einvestidor/4-dicas-ser-aprovado-financiamento-imobiliario/",
+      "source": "Estadão",
+      "pub_date": "2026-06-03T01:27:54+00:00",
+      "search_term": "crédito imobiliário",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "link_google_news": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPOEM3Rmp2SnhRVmhneU03d0ozWGYwREplQm5BT081M2lmbHpwOXZzbkhrUkdIbl9Oc3l3QWp2aGdQZ1lTVGdXRzMtWGkyR1VqeC1DR2wyaG9GZ3JCQWhwNVlBYy1QWDNqajNwcTBqWkluQU43d0Y1YUNQeGFfWlQ5ZVRGejVNUEc0OUhyMmJRYU5nUHJMNDBXQUpTNDdLLWvSAZ8BQVVfeXFMTzhDN0Zqdkp4UVZoZ3lNN3dKM1hmMERKZUJuQU9PNTNpZmx6cDl2c25Ia1JHSG5fTnN5d0FqdmhnUGdZU1RnV0czLVhpMkdVangtQ0dsMmhvRmdyQkFocDVZQWMtUFgzamozcHEwalpJbkFON3dGNWFDUHhhX1pUOWVURno1TVBHNDlIcjJiUWFOZ1ByTDQwV0FKUzQ3Sy1r?oc=5",
+      "fonte_prioritaria": true
+    },
+    {
       "title": "Trump nomeia aliado sem experiência em segurança nacional para chefiar inteligência dos EUA - Estadão",
       "link": "https://www.estadao.com.br/internacional/trump-nomeia-aliado-sem-experiencia-em-seguranca-nacional-para-chefiar-inteligencia-dos-eua-npr/",
       "source": "Estadão",
@@ -313,14 +344,14 @@
       "fonte_prioritaria": true
     },
     {
-      "title": "Preços explodem em um pedaço de Ipanema - O Globo",
-      "link": "https://oglobo.globo.com/blogs/capital/post/2026/06/precos-explodem-em-um-pedaco-de-ipanema.ghtml",
-      "source": "O Globo",
-      "pub_date": "2026-06-03T09:01:03+00:00",
-      "search_term": "lançamentos imobiliários",
+      "title": "Dólar hoje: moeda encerra em leve queda, abaixo de R$ 4,90 - Estadão",
+      "link": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/dolar-hoje-fecha-queda-espera-inflacao-eua/",
+      "source": "Estadão",
+      "pub_date": "2026-06-03T15:49:07+00:00",
+      "search_term": "JHSF",
       "category": "HOMEBUILDERS",
       "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMingFBVV95cUxObGwtb09OYnMwN0ZHbTZUVnJuWmFBMURsLTRUeWt0Wkc4MFNvTm1ueFdnTHptWnZzWG53aUgyWVY0UTRucUd4aEU1WjNYeFk1NmpvVFNSU1lzd0lpQnlpbjBPSDBCTTBQVWZMRnZINVladUE4aEJBdGwySmlGYTVBQWU0VTN3VkVFTnI3UEVBMkpkTm5EVXBDUUd0RnJXd9IBrAFBVV95cUxOb3hpQW1YNFlRYzZLMEFYc0dsOFNER2pRd0VJZXlpMGpJWHE3VVprRnlkc0o3eC1GSGhndDVTN2w0RTVqemllb3ZIbDNhOVNqNG81NS1iOXVqdjRWd0Vja1V1eWk0UTVMb0FEeHBkelRSQjAxZURSWUVWUHF3SnNFd2c5cWx0T1ljWjZKd09xVThzY19IZGlvaHVnMWlqeURZRC1sU2RaeEVCTHN1?oc=5",
+      "link_google_news": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNenphdGxyeDJQRXM5cVJvUVdXX1B5bHVDU0JyNEh1VkNZcXkwdExiMHlPWGdJamlRcklzc3Y1Z3VTTEFlZDY5OVVfcE1vaUx5WnVsNGhtdGZVY0IxQnlxbGhUWHRCOWczWEZKeUlzdVljVjl5My1jdlVvVDhFaEZCX3ZTMGdUMEZWT0IzcGtwbUE2YTcwV1lTQS0zOU95cFFLXy1F0gGoAUFVX3lxTFBjbXo1bkx0eDlfSUdmU3NackRoekZzMDVqTFBUZkVmMGdLTFZfZnQ3em11NGtFemQxMm83bDBsQXZFNVJVNnRjUVcySkhGUlN3S0h3M0V3ZGtNcGZqMC04YVdiaElQbGN4U3h3MTFlSTVlZ0oyLVBnSlJXWUY4UUpnTnFucUdReUV0a2ZDRjdrbG1xWWVfSElpeGNZLTJIVk5lc0VyT1ZtQw?oc=5",
       "fonte_prioritaria": true
     },
     {
@@ -368,28 +399,6 @@
       "fonte_prioritaria": false
     },
     {
-      "title": "25 anos em construção: a trajetória da Eco contada por seus empreendimentos - G1",
-      "link": "https://g1.globo.com/google/amp/pb/paraiba/especial-publicitario/eco-construtora-eco-construcoes-e-incorporacoes/noticia/2026/06/03/25-anos-em-construcao-a-trajetoria-da-eco-contada-por-seus-empreendimentos.ghtml",
-      "source": "G1",
-      "pub_date": "2026-06-03T18:00:51+00:00",
-      "search_term": "construtora Brasil",
-      "category": "HOMEBUILDERS",
-      "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMitwJBVV95cUxONlBmYUU1RVlzOXJTX2VUejBFdFo5SGR3S1kyd0dVZ2s4ZkdRdTBGbEFFQjRtLWZIbXZLcWJnQW5yUWlMdm56anpIME9tRlBsTDQ4M21oTDYzN1lHT09TbTZRa3FPWHUtbm9qM1Q5b1ZqQkdtWUhlM2Vhd0NHcjlfZ1dQVWI5dnpHY1ZwSDJ2b1pMbENKc1ZzLXk3RU5mX2E2MVpVMU5UQzR2X1Via0tDNXZ2YVpBSGxZTmJKYzI0eksyc3VMd2lGdThWWXBOakUta1FQV2RpMEFWRGViNkxKN1Awd1FwWlpXRjJXeEpmSTVtMUhmSTQyOUluRFpZMzBja2Z2R1ZYN3UtaHNMNm9vZEZXMzZENzFOQVhyZldNX25xekppOFRoODJaMGdzbUktSndEc0UyONIBtwJBVV95cUxONlBmYUU1RVlzOXJTX2VUejBFdFo5SGR3S1kyd0dVZ2s4ZkdRdTBGbEFFQjRtLWZIbXZLcWJnQW5yUWlMdm56anpIME9tRlBsTDQ4M21oTDYzN1lHT09TbTZRa3FPWHUtbm9qM1Q5b1ZqQkdtWUhlM2Vhd0NHcjlfZ1dQVWI5dnpHY1ZwSDJ2b1pMbENKc1ZzLXk3RU5mX2E2MVpVMU5UQzR2X1Via0tDNXZ2YVpBSGxZTmJKYzI0eksyc3VMd2lGdThWWXBOakUta1FQV2RpMEFWRGViNkxKN1Awd1FwWlpXRjJXeEpmSTVtMUhmSTQyOUluRFpZMzBja2Z2R1ZYN3UtaHNMNm9vZEZXMzZENzFOQVhyZldNX25xekppOFRoODJaMGdzbUktSndEc0UyOA?oc=5",
-      "fonte_prioritaria": false
-    },
-    {
-      "title": "LaVentana Empreendimentos anuncia sua chegada ao mercado imobiliário em Caruaru - G1",
-      "link": "https://g1.globo.com/google/amp/pe/caruaru-regiao/especial-publicitario/laventana-empreendimentos-imobiliarios/noticia/2026/06/02/laventana-empreendimentos-anuncia-sua-chegada-ao-mercado-imobiliario-em-caruaru.ghtml",
-      "source": "G1",
-      "pub_date": "2026-06-02T21:33:51+00:00",
-      "search_term": "construtora Brasil",
-      "category": "HOMEBUILDERS",
-      "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxOVlpOaVpmQ2hFdzA3ejFnTEtqX1FJM2pwMWYtLTMwdWRHRGo1X3gwYjh5UHE0SVZaRkhQT2RMQWwxMG40VERLbWRFSjhwZUp3SkZ1Y0xWOXNTSVE3ZGtKVWFyaC1NQ0RnNEw4VERad1Y5SjRDZzBWbG1LeTJydnE1X1NQLUpwUmpvdGY2VVQzNUlkLVFFc242SzZOc3Z5ZVFncFFsckFfeDNtVDhnaGU0RWx4OFZkTUNsTVBTUVpnaS1MRGlnQzRBUU1UdlMxLTdiUnVTUWI2QVJ3ZDJ4WV84TjMtSXpUb2FsdW9XSGxFekFBVWVpdHVhUjkxN01MeXNwTVJ4VEdnTWVZUEJVeXd2X1ZHd0xkeGZoYlFCWk5tVjdjTVpac3VzbmRFNE9GNXJKOEV5M29PT3ZmVU3SAbsCQVVfeXFMTlZaTmlaZkNoRXcwN3oxZ0xLal9RSTNqcDFmLS0zMHVkR0RqNV94MGI4eVBxNElWWkZIUE9kTEFsMTBuNFRES21kRUo4cGVKd0pGdWNMVjlzU0lRN2RrSlVhcmgtTUNEZzRMOFREWndWOUo0Q2cwVmxtS3kycnZxNV9TUC1KcFJqb3RmNlVUMzVJZC1RRXNuNks2TnN2eWVRZ3BRbHJBX3gzbVQ4Z2hlNEVseDhWZE1DbE1QU1FaZ2ktTERpZ0M0QVFNVHZTMS03YlJ1U1FiNkFSd2QyeFlfOE4zLUl6VG9hbHVvV0hsRXpBQVVlaXR1YVI5MTdNTHlzcE1SeFRHZ01lWVBCVXl3dl9WR3dMZHhmaGJRQlpObVY3Y01aWnN1c25kRTRPRjVySjhFeTNvT092ZlVN?oc=5",
-      "fonte_prioritaria": false
-    },
-    {
       "title": "Por que o mercado confia na Eco: a visão de corretores e imobiliárias - G1",
       "link": "https://g1.globo.com/google/amp/pb/paraiba/especial-publicitario/eco-construtora-eco-construcoes-e-incorporacoes/noticia/2026/06/03/por-que-o-mercado-confia-na-eco-a-visao-de-corretores-e-imobiliarias.ghtml",
       "source": "G1",
@@ -423,6 +432,17 @@
       "fonte_prioritaria": false
     },
     {
+      "title": "Inter alcança 1 milhão de clientes de alta renda - CNN Brasil",
+      "link": "https://www.cnnbrasil.com.br/economia/negocios/inter-alcanca-1-milhao-de-clientes-de-alta-renda/",
+      "source": "CNN Brasil",
+      "pub_date": "2026-06-03T17:58:10+00:00",
+      "search_term": "crédito imobiliário",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "link_google_news": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNFdMaDQ1MDFHVC04Q2tnYk5IYk90dnhnTVdlUlBPY2htSVFjM3RfUTU2bWRfNThOTVMxQkRCcTBELWhMU1pyODZhOU1pbVk5VFkyZmpOa2xabXk5NDJTOVA3M29KSGhEaDlIWl9pTW9vTGJyUUJMMW9IcmRFZldYaDhrSmdkaEN2c0c5TW1oMzdOaG9iUElkRVFXVHU?oc=5",
+      "fonte_prioritaria": false
+    },
+    {
       "title": "4 em cada 10 matrículas de imóveis têm problemas jurídicos - portas.com.br",
       "link": "https://portas.com.br/para-corretores/4-em-cada-10-matriculas-tem-problemas-juridicos/",
       "source": "portas.com.br",
@@ -431,50 +451,6 @@
       "category": "HOMEBUILDERS",
       "sugestao_ia": "LIKELY_DROP",
       "link_google_news": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMUtUSmp4Qm1KXzlWUnEzai1xNHFoWld4TVBrTS11cWx2SENWNnF3VW5OYjZyZjAyZlhocWlCMFpSZ295ZVBUVlFYNTEwZlBJR2RoM3hWT1BXT0lDRlFmdHpYY2JiX2Mtc0h4WlRxbTZzQWQ3ZWRCRFVvaG5FU2RQdktSUGFfRDFOVXFvZURuaw?oc=5",
-      "fonte_prioritaria": false
-    },
-    {
-      "title": "Inter chega a 1 milhão de clientes de alta renda - VEJA",
-      "link": "https://veja.abril.com.br/coluna/radar-economico/inter-chega-a-1-milhao-de-clientes-de-alta-renda/",
-      "source": "VEJA",
-      "pub_date": "2026-06-03T13:28:11+00:00",
-      "search_term": "crédito imobiliário",
-      "category": "HOMEBUILDERS",
-      "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZGFYNzd2bmtRWjZoZHVRcENEeFdXQlRXRG96R2JiVDRVdGN5OGUwRlRfUWRJa3phSUx0X3JoTFFjbFdOZE1fRGJMVFZvRmxyUVJnX2FHU2k0dEFnRk9Xbm1MUWdDQ0RheHRXdm5kZF80SXlYNDhDbHBtZDFJa2FKM2JaM3BvNGNMcmlKYUpvNWJZZzBJbW5kOEVlc1FDajA?oc=5",
-      "fonte_prioritaria": false
-    },
-    {
-      "title": "Consórcio segue como alternativa para quem deseja adquirir patrimônio sem juros - G1",
-      "link": "https://g1.globo.com/google/amp/sp/bauru-marilia/especial-publicitario/grupo-comauto-planeje-suas-conquistas-com-o-grupo-comauto/noticia/2026/06/03/consorcio-segue-como-alternativa-para-quem-deseja-adquirir-patrimonio-sem-juros.ghtml",
-      "source": "G1",
-      "pub_date": "2026-06-03T17:04:48+00:00",
-      "search_term": "crédito imobiliário",
-      "category": "HOMEBUILDERS",
-      "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxNbHhxVThkVzhzaEdwcndfcE5zQXpCVzNyZWNuVldrb21UMVhYcWwxMFlJOVd1Ukg5dWJEWDdrRXFJZmNJOHZzVUhxcFBpLXluZHhIYW1JX0szMkh0ZE41VG1QRWpvVTVKTmg3Y08zc08xeEduSEkxMHljNDAzR3NJUzhnUU9yQ3NHRkJPZXFYUDhPN2ZTUGc1ekpkM0plcjllSjJwcFcxeXJHR3F1LVN0SVpVV1JEQm84ZDVUX083MWowWnl4SWhzYllNMTA3aHVZcW5ReGFiOHE2SGVFM09tTFlSeDRRZlRqTHA4R21zZUMxRnZqUnRpSlV0bXhlb1R6VENkdzVyQ3ZheHFnTGZRYW14T1EtYzJXNEw5eVROVjRES0lpVFM2UGViYmFLQW9fcWcwakZNS3VreERvWWVvQlBRMEdDc3JVakxfdklLaGtpU1HSAdMCQVVfeXFMTWx4cVU4ZFc4c2hHcHJ3X3BOc0F6QlczcmVjblZXa29tVDFYWHFsMTBZSTlXdVJIOXViRFg3a0VxSWZjSTh2c1VIcXBQaS15bmR4SGFtSV9LMzJIdGRONVRtUEVqb1U1Sk5oN2NPM3NPMXhHbkhJMTB5YzQwM0dzSVM4Z1FPckNzR0ZCT2VxWFA4TzdmU1BnNXpKZDNKZXI5ZUoycHBXMXlyR0dxdS1TdElaVVdSREJvOGQ1VF9PNzFqMFp5eEloc2JZTTEwN2h1WXFuUXhhYjhxNkhlRTNPbUxZUng0UWZUakxwOEdtc2VDMUZ2alJ0aUpVdG14ZW9UelRDZHc1ckN2YXhxZ0xmUWFteE9RLWMyVzRMOXlUTlY0REtJaVRTNlBlYmJhS0FvX3FnMGpGTUt1a3hEb1llb0JQUTBHQ3NyVWpMX3ZJS2hraVNR?oc=5",
-      "fonte_prioritaria": false
-    },
-    {
-      "title": "Grupo Cataguá celebra 40 anos de solidez e tradição no interior paulista - G1",
-      "link": "https://g1.globo.com/google/amp/sp/piracicaba-regiao/especial-publicitario/catagua-construtora/noticia/2026/06/03/grupo-catagua-celebra-40-anos-de-solidez-e-tradicao-no-interior-paulista.ghtml",
-      "source": "G1",
-      "pub_date": "2026-06-03T17:56:54+00:00",
-      "search_term": "crédito imobiliário",
-      "category": "HOMEBUILDERS",
-      "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMinAJBVV95cUxNRFBlUF9XZFlscGRubV9rbllqNXJBcTdwSWNXTXV2RURiWGZsM2p2T3hFTUJEWEpyX1hyd3Z6a2ZXTTdZdUtzeFctblBLRzQ1VXdRd280TmQxdlU5OG92YkVQc2VUWGZrYzhWZ0ttbWxUMDU4NWMxaHJyazFhUk5qMlcyV3pnTmk5cDNqaXpxOGU3VGpqb0MtUUd0MC01RldyZDVoLTZ0S0xrN0kzeVRDYkY2dVVRTk5SeEwxNGtXb3BTbE1EcDBmR3BFWnNoYjNYT0FhS044RnlTSlBRWVB0OFJ4Z2M0QS1RQVp0Q0VjN1ROY2plbmhST0tkVE56aHJ0WUhMTzhJOFRRVV80cXpOU3QtMFRzSzkzMWZvd9IBnAJBVV95cUxNRFBlUF9XZFlscGRubV9rbllqNXJBcTdwSWNXTXV2RURiWGZsM2p2T3hFTUJEWEpyX1hyd3Z6a2ZXTTdZdUtzeFctblBLRzQ1VXdRd280TmQxdlU5OG92YkVQc2VUWGZrYzhWZ0ttbWxUMDU4NWMxaHJyazFhUk5qMlcyV3pnTmk5cDNqaXpxOGU3VGpqb0MtUUd0MC01RldyZDVoLTZ0S0xrN0kzeVRDYkY2dVVRTk5SeEwxNGtXb3BTbE1EcDBmR3BFWnNoYjNYT0FhS044RnlTSlBRWVB0OFJ4Z2M0QS1RQVp0Q0VjN1ROY2plbmhST0tkVE56aHJ0WUhMTzhJOFRRVV80cXpOU3QtMFRzSzkzMWZvdw?oc=5",
-      "fonte_prioritaria": false
-    },
-    {
-      "title": "Senador republicano ataca escolha de Trump para inteligência: 'Não tem nenhuma chance no Senado' - SpaceMoney",
-      "link": "https://www.spacemoney.com.br/economia/exterior/senador-republicano-tillis-ataca-escolha-trump-inteligencia-nacional-pulte/",
-      "source": "SpaceMoney",
-      "pub_date": "2026-06-03T15:56:37+00:00",
-      "search_term": "crédito imobiliário",
-      "category": "HOMEBUILDERS",
-      "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQNEhwYkkxekNNRzluY3gxcnV0RVBvb1NRdGo4QVdheHN1YUgtUnRhUVNZc2VCU3N1NFVrTm0wZjZkRzNMQWhfeVlrRksxUHdsZ3NQNDVoX3E4akRnUXMzYUx1RWtVZjN4aEhaRGw3bnJuRlpleHhXY2pKOC13T3BsQk5sWHFPVFNsTHBiYXNQbzc2R0hsRi1yZkZfWko1Z2VHY0tfZlNTUmUxTFR4V3BMdy1tend2Rm0zVHJEM0NJZUk?oc=5",
       "fonte_prioritaria": false
     },
     {
@@ -500,6 +476,17 @@
       "fonte_prioritaria": false
     },
     {
+      "title": "Lucro da Multiplan (MULT3) cai no 1º tri, mas balanço mostra recorde em outro indicador - Estadão",
+      "link": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/multiplan-mult3-lucro-1-trimestre-2025/",
+      "source": "Estadão",
+      "pub_date": "2026-06-02T23:43:44+00:00",
+      "search_term": "Multiplan",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_DROP",
+      "link_google_news": "https://news.google.com/rss/articles/CBMingFBVV95cUxPaF9GZjYtOTNSeU05REI2anFHTzJqSXRjazBxNVZsQjA1QnNnOFU5N2RzMGRKTW05bFpCVnZJLVEwbTMtNlZJZVFVaVNubjFYTWhzamt6MThYTzMyRlpVWHVEeENYNHoyaUJybGVMdXRCQU1ham1pTTJOV3JvM1prcVVWbXd2a1NhYlluR1JneTZYcFZuSXppRjNxVXNsd9IBowFBVV95cUxOY0dOX2tKQUEtTGc1QkJkSjFXMVJhQ0F5RGhJejF0Z0VEZVlHRXlCLWczU0ZSLWlRYkc1X0ppeU1ERnBLYUdQTTd1eHZQbEZ2VklyVWdYWncwMVFGQURhZUxnM2ZKNVQ0YnN4SG1Ib096TllQQnFmdUdoVkxPaG1mR2VRMzJSQ1RLcndqSlQtZU9qcGFlNWQtREFrX3JUMXZzbHE4?oc=5",
+      "fonte_prioritaria": true
+    },
+    {
       "title": "Patria consolida fundos e mira escala no imobiliário - Capital Aberto",
       "link": "https://capitalaberto.com.br/alem-do-capital/patria-consolida-fundos-e-mira-escala-no-imobiliario/",
       "source": "Capital Aberto",
@@ -519,17 +506,6 @@
       "category": "MALLS",
       "sugestao_ia": "LIKELY_DROP",
       "link_google_news": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQUlVlMElHYXMya1ZyaGJzaTFjdVJPd2s0dVZtSE5tNlVDc1ZTWk1jYldlNzBHNnNKeTJ1NUFvaXB2c3pWOUVnY2E4UFluOF9uekswWEtpTGpiRjhFcWROZVAwd1hHLXFsc0tnT01jOUpzMzMyTHJUM0lYZlo2c2JpMUN2TGhGUS14R0VnelVGMnZUcHotOXVnUDZnOVlXUG9LMF9KNzZGTThWd9IBrwFBVV95cUxQa2lVemRadlIzWFBKZ0ZTa1Fvb2pZSDJHV2tsVnFma21LSFRoXzRfUXFKVkN5TmVBU0FyU0VYY3dHdGxjcGQ4MHYwOFFNVElQNEVaVDdzUHBMLXVlXzRPOFVRaEJjN211NDZlLU5RU2RJVW5EbFo5QjBaWm5BN19ZdV9zRGlnMVZXOUw1a2xXR0Y0S211ODJxZW8weFdkTWFOa2FmSks3a2hKZ0IxZlVV?oc=5",
-      "fonte_prioritaria": false
-    },
-    {
-      "title": "Tudo sobre jhsf - Forbes Brasil",
-      "link": "https://forbes.com.br/noticias-sobre/jhsf/page/4/",
-      "source": "Forbes Brasil",
-      "pub_date": "2026-06-02T21:32:34+00:00",
-      "search_term": "JHSF",
-      "category": "MALLS",
-      "sugestao_ia": "LIKELY_DROP",
-      "link_google_news": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9pX3ZiT3ZQanpxSElrZjcxdk1zU19CTTQ2c2VKSzNaYkRWd1RsV2RrRWNTMTVPa3RSNEdXZGtJUEI1d1gxTlBfb29tWlpqdmtvd3c0SWVfYmxCYzE0V2c?oc=5",
       "fonte_prioritaria": false
     },
     {
@@ -554,14 +530,6 @@
       "category": "DESCARTAR"
     },
     {
-      "title": "Escritórios em Miami entram no radar de brasileiros - portas.com.br",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRUtFa245X3ZTZjJuVkw4WXd1Wkstb0lyQUdqUTNaVDlLS3ZGNXdGR0FiMUZtVlV0aXh0QU1Mem5Rc0dWR1czX2FtUVcxcmlhbm50T1d2b3pnOFFlYm80ZWR2R192VW9IbXdnbERuZTZ1NDB6TUtSYW1ZN1FyR2RvTGFpc09aOWFHdUZPSzlDX1ZtV2pJLWdxTERmcXlOdldyU3FLT3JYTDFPVUE?oc=5",
-      "source": "portas.com.br",
-      "pub_date": "2026-06-03T15:06:34+00:00",
-      "search_term": "imóveis residenciais",
-      "category": "DESCARTAR"
-    },
-    {
       "title": "O impacto da Copa do Mundo no mercado imobiliário de Miami | Real Estate - VEJA",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPRDJqRXN0c1RvSUJGXzR2cWJjTnh3TWhmU3ZDTEVWbjFEN2UzZWFxNWdKWW1wUl9mZWVNdWZWOWdUWTJuS2FQdVNhSVpkMHlXdFRjU2VBNzhvYUxBaVpRSjEzVFFDdnJqM3VxeG53aWItNmF1WGFPYWNkVmVyUzFXNjBCRktuUkNNWkVORjNCcFREcGNCWC1vMTl5SHVNQUpoNFliR21MTQ?oc=5",
       "source": "VEJA",
@@ -578,10 +546,10 @@
       "category": "DESCARTAR"
     },
     {
-      "title": "Hospitalidade redefine aluguel de luxo por temporada - Valor Econômico",
-      "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNLTNpNlREaVRvWHBIWndqMVFmNHZDeDNYUlhHS3VhTVNCV2J1NUtzVVR3dmJzODQwXzBWWS1LZ3ZVWUljUnFUTlUxbWVVcTBVbGRMS3M5X0tlaUIybnFhUXQ0RmZKaWxCcm9tQndrSjZMNG40LWxDSklvRm1TbDZNZ2RBNWRqVW40WVdpeHlpeE1VajVHc1N1a0hMMS1jNndsdGlzRWVGVTVxdHdyeUVFcnp2VjBTaWN2VXRLMlZYcGdkZXNEdTVOdGh4UdIBywFBVV95cUxNLTNpNlREaVRvWHBIWndqMVFmNHZDeDNYUlhHS3VhTVNCV2J1NUtzVVR3dmJzODQwXzBWWS1LZ3ZVWUljUnFUTlUxbWVVcTBVbGRMS3M5X0tlaUIybnFhUXQ0RmZKaWxCcm9tQndrSjZMNG40LWxDSklvRm1TbDZNZ2RBNWRqVW40WVdpeHlpeE1VajVHc1N1a0hMMS1jNndsdGlzRWVGVTVxdHdyeUVFcnp2VjBTaWN2VXRLMlZYcGdkZXNEdTVOdGh4UQ?oc=5",
-      "source": "Valor Econômico",
-      "pub_date": "2026-06-03T16:38:00+00:00",
+      "title": "LaVentana Empreendimentos anuncia sua chegada ao mercado imobiliário em Caruaru - G1",
+      "link": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxOVlpOaVpmQ2hFdzA3ejFnTEtqX1FJM2pwMWYtLTMwdWRHRGo1X3gwYjh5UHE0SVZaRkhQT2RMQWwxMG40VERLbWRFSjhwZUp3SkZ1Y0xWOXNTSVE3ZGtKVWFyaC1NQ0RnNEw4VERad1Y5SjRDZzBWbG1LeTJydnE1X1NQLUpwUmpvdGY2VVQzNUlkLVFFc242SzZOc3Z5ZVFncFFsckFfeDNtVDhnaGU0RWx4OFZkTUNsTVBTUVpnaS1MRGlnQzRBUU1UdlMxLTdiUnVTUWI2QVJ3ZDJ4WV84TjMtSXpUb2FsdW9XSGxFekFBVWVpdHVhUjkxN01MeXNwTVJ4VEdnTWVZUEJVeXd2X1ZHd0xkeGZoYlFCWk5tVjdjTVpac3VzbmRFNE9GNXJKOEV5M29PT3ZmVU3SAbsCQVVfeXFMTlZaTmlaZkNoRXcwN3oxZ0xLal9RSTNqcDFmLS0zMHVkR0RqNV94MGI4eVBxNElWWkZIUE9kTEFsMTBuNFRES21kRUo4cGVKd0pGdWNMVjlzU0lRN2RrSlVhcmgtTUNEZzRMOFREWndWOUo0Q2cwVmxtS3kycnZxNV9TUC1KcFJqb3RmNlVUMzVJZC1RRXNuNks2TnN2eWVRZ3BRbHJBX3gzbVQ4Z2hlNEVseDhWZE1DbE1QU1FaZ2ktTERpZ0M0QVFNVHZTMS03YlJ1U1FiNkFSd2QyeFlfOE4zLUl6VG9hbHVvV0hsRXpBQVVlaXR1YVI5MTdNTHlzcE1SeFRHZ01lWVBCVXl3dl9WR3dMZHhmaGJRQlpObVY3Y01aWnN1c25kRTRPRjVySjhFeTNvT092ZlVN?oc=5",
+      "source": "G1",
+      "pub_date": "2026-06-02T21:33:51+00:00",
       "search_term": "mercado imobiliário residencial",
       "category": "DESCARTAR"
     },
@@ -594,26 +562,18 @@
       "category": "DESCARTAR"
     },
     {
+      "title": "Fed vê inflação persistente e consumo mais fraco entre americanos - VEJA",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbWJRSksycmRNeUhSSDd0akZHbVlKQVFnNkxvZUszTi1aS2o0aXpNRlFTVUpmVTZJYUg0eHBUcVJ6MHk3SjMxaGZSWWxIMldET1pKYjZRU3Fmd1hfLXlZOU9Td3dndG1XNURGdDB5WldKakZoWGV1eHBiZS14OXdueGx3RjRsaUtvTTlDcWMyR1BhbW9nR0ZHNTBDazlPZ19XTTAw?oc=5",
+      "source": "VEJA",
+      "pub_date": "2026-06-03T19:44:20+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
       "title": "Casas Bahia (BHIA3): ações tombam após reunião decisiva com credores - Estadão",
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPQlZNTXZqUzMxZERELWhqa1Z5TEQ3a1U4aUNZczlDT28tNVdsVGVEcnJpQUtxY2pVcEs4ZDdGVnZaeGVPd0R3Q1EzMUtPUXFWbnJkMzNEMXZWSVhGdVFiaG5KVElNWDhzd0JtZHlhb2dVMlY4V1YyY3Y1ak1XNk5VZTdHdmFlYjBlZmhEbjNRQ0lGTHdZZm1raWZaR19Id0tEd0dOLXg2RDhCZ3hQcTBER0ExVzfSAboBQVVfeXFMT0Jwb3g1a2VIQVJENW16QlZIWkVEVjljVXVpbHprYUs5Y05oMTZKelp1M2pfV2JuSlVkbkdGVXdWaEpGVzJiWXVhMFhncEx3ZjZKOXdldFJWbWxpYjZmUHlIMFQwYzQ1UFoyWWZwZDZJRGllckJXM2lwSnBKa1hqS1V0UWRVdm52RmhPYXZXaHA3bk00dG1tQzd2TDl5X2dxOTNaZzhYUjg2YjhqbFQyQVFwUHpHS2ZuRjlR?oc=5",
       "source": "Estadão",
       "pub_date": "2026-06-02T23:12:49+00:00",
-      "search_term": "mercado imobiliário residencial",
-      "category": "DESCARTAR"
-    },
-    {
-      "title": "Grupo Casas Bahia (BHIA3): ações encerram liderando ganhos do Ibovespa - Estadão",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQdHd6bUZlbUFqX3BKb2JqUkVhcHduNzQ1VHo3RzJNZkpqRHAwY3E5aGEzc2VSM3JSZC0zazY1VnR4bjQwWUUyaHVqTzYtTVZoU3NlU0JhSUtfUHpaMFRSdjV4aWtoTkFXUEVjcmJDdGZheTgwTW5ScGh6eDV4SVJmQ1Q3TnVZeXM3THduT0VKYkdnWmtyZWthRjhPOHowTnZRYUVBT2dFRmFqOUxMcHFuYzVPYUZMeF9qTWlrRW5RNVjSAcYBQVVfeXFMT05KRl94cVFtelZUZGNzbXF2RExVUEZQM19vQlI2M3FFRDZKZmdfZl81WUJBOVFNVnhLaWJTUnhrSVVQd0VWSWpNUllVNVg1RFNsYzAta2VfNXhSVkdfYVVnM1dENWZrVEtXNFFUS0lUWWRIQXI5WlYxR1FrZkpyUlA2WFBLSVYyOUtxcXFuSGpTUE14M0t1WUMtTmt4dWs1TlBpdWFjb0JOSzdOa1lOWGtua25HMlFOVURaU1JvSFVPRDFQZml3?oc=5",
-      "source": "Estadão",
-      "pub_date": "2026-06-02T23:03:41+00:00",
-      "search_term": "mercado imobiliário residencial",
-      "category": "DESCARTAR"
-    },
-    {
-      "title": "Bancos, lotéricas e o mercado financeiro: veja o que abre e fecha no Natal e Ano Novo - Estadão",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQbHhQYzE4cFYzUXE3bEZRQ0pVb01lYU5HSC1WSnVlR2hmWk5YTXRPZW9YTDM2dHBJT25lM3JOalhNSDZJMWJ5N040RFEtVXdtX0F6aVk0aUdHTWNZTHd0cVkyWG5wYmR0eC1MMjh5c0dTSlF4TUhucTgtVGVaaHUxN0xNQ01SU3dEcmhHaGxnVGM1R2xLNG52ejJwNHQzRzJaeEJ1YjVHTVlFOUlkS3gwSnlwNG9jT3RTSnQzazhfYUzSAcYBQVVfeXFMTXRPRzFZa3VpeF9TOWZaZWxxR2VLb3Rwc2xXQ2dJVUNzZzJNWFJzR1NJWE0zbGZUTkY2dmxqbnRLV3E0SXdESlZsSjRiYmtiaXJTWFh4WFB2Vl9YWWdQZWF4aFNRbWVZSTJ4TTExVzlDUGg3VlJpUk1RSjBlb3VaV211NFFUcnlhNlRnV2pWTUtIWHdOQVQ2YlJYVW9BUnJGMUI5Ukw1WnRBUGZhZTVxWkNNY0NVQWlDZ28zWDU5WkJWbmpfRWt3?oc=5",
-      "source": "Estadão",
-      "pub_date": "2026-06-03T03:20:55+00:00",
       "search_term": "mercado imobiliário residencial",
       "category": "DESCARTAR"
     },
@@ -634,6 +594,14 @@
       "category": "DESCARTAR"
     },
     {
+      "title": "Escritórios em Miami entram no radar de brasileiros - portas.com.br",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRUtFa245X3ZTZjJuVkw4WXd1Wkstb0lyQUdqUTNaVDlLS3ZGNXdGR0FiMUZtVlV0aXh0QU1Mem5Rc0dWR1czX2FtUVcxcmlhbm50T1d2b3pnOFFlYm80ZWR2R192VW9IbXdnbERuZTZ1NDB6TUtSYW1ZN1FyR2RvTGFpc09aOWFHdUZPSzlDX1ZtV2pJLWdxTERmcXlOdldyU3FLT3JYTDFPVUE?oc=5",
+      "source": "portas.com.br",
+      "pub_date": "2026-06-03T15:06:34+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
       "title": "WHG tem novo sócio para liderar área de planejamento patrimonial - Valor Econômico",
       "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPdDJqZDNLY2IzdHFVQUlpVkt1UmtKR1h0LUdoLWp1OFk4OFNnYzNuMENoN3l2Y3ZJN2puc0VyVE5jbzI3WVp3QUJCOWNvcTBleUNMTHdPVXBVQVZhWkVPeXBJUGxlckRZdXRGTkl0VVZYSlJCeTFFUGdKVWJBd0xvOFJfeWM5WmZEU21CZHBQS3FLU0FCZkJGa2M1X2NldFNXamZRa3RISk1KY3NTLVpCNy1ndTBlbkRhalhscndfOWdMZzZCa1ZfbUY1VdIBywFBVV95cUxPdDJqZDNLY2IzdHFVQUlpVkt1UmtKR1h0LUdoLWp1OFk4OFNnYzNuMENoN3l2Y3ZJN2puc0VyVE5jbzI3WVp3QUJCOWNvcTBleUNMTHdPVXBVQVZhWkVPeXBJUGxlckRZdXRGTkl0VVZYSlJCeTFFUGdKVWJBd0xvOFJfeWM5WmZEU21CZHBQS3FLU0FCZkJGa2M1X2NldFNXamZRa3RISk1KY3NTLVpCNy1ndTBlbkRhalhscndfOWdMZzZCa1ZfbUY1VQ?oc=5",
       "source": "Valor Econômico",
@@ -646,14 +614,6 @@
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOeDljWlNTSGFfZ01hYkp1RGd2SGV0cllrZHBvb0ptQ0gzckw5dU5oU3lEMGxTdkMtWUpwX3VMZHp4emhvc2NFWVhnc2l0d0FRV2tJaE1BVHBsR1ZpWVA4R3k5SUxqcEl6eExIU1VaNkNHcXJZWUZ6VVl6bWxtU2J0ejJ0WnpJZGZLUXh3cTFhcFJKNGt3T3kxZlFmY0xodHRNMW9pU3RiRl9TYmp3NFZPR1E4cDJ2MGNu0gG4AUFVX3lxTE54OWNaU1NIYV9nTWFiSnVEZ3ZIZXRyWWtkcG9vSm1DSDNyTDl1TmhTeUQwbFN2Qy1ZSnBfdUxkenh6aG9zY0VZWGdzaXR3QVFXa0loTUFUcGxHVmlZUDhHeTlJTGpwSXp4TEhTVVo2Q0dxcllZRnpVWXptbG1TYnR6MnRaeklkZktReHdxMWFwUko0a3dPeTFmUWZjTGh0dE0xb2lTdGJGX1Nianc0Vk9HUThwMnYwY24?oc=5",
       "source": "InfoMoney",
       "pub_date": "2026-06-02T21:34:06+00:00",
-      "search_term": "escritórios São Paulo",
-      "category": "DESCARTAR"
-    },
-    {
-      "title": "Totvs tem lucro de R$ 89,9 mi no 3º trimestre, alta de 9% - Estadão",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNVkgwTnRoZUdseUd4d0M0UUM5TDg2NXYtczFpWFJsUS1XWENrZElPalhTRWUyOFBOLTRaYmg0Nm9FODlaQU5faTdtbmRla1Z5WlBPRHRCU1FVMmJVamhWNHlFUThSNFRBdm5EaURPb2FCWmZueTFwcXlJYnlnd241NGJtMl81Z3fSAYwBQVVfeXFMTnF0YTQ2eFl3aFNxTTF2Y0tRUkpLLWMxb3cyOFVKN1BHYmlRYVFnQVItT2swOVBPOTk4LVcwU2pCeHFQbUp4NVVhaENOOGFJS24zamw5R196Si13NU42Yy16Sy1rZzAtbGxDWG1nSkNxZ2Y2djByYVNRM3ozMFpSUUdOR3U5NXJ3OC0zMUo?oc=5",
-      "source": "Estadão",
-      "pub_date": "2026-06-02T21:02:00+00:00",
       "search_term": "escritórios São Paulo",
       "category": "DESCARTAR"
     }
