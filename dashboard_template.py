@@ -1,0 +1,992 @@
+"""
+Gera o dashboard.html com os dados das notícias embutidos.
+Chamado pelo coletor.py após salvar o JSON.
+
+Layout:
+- Header preto com data + paleta Itaú BBA
+- Upload de PDFs Itaú BBA
+- 3 seções colapsáveis: Provavelmente entra / Em dúvida / Provavelmente fora
+- Em cada notícia: ✓ Entra / ✗ Descarta (atalhos teclado 1/2)
+- Botão Gerar Clipping + modal preview
+- Botão Salvar decisões pro aprendizado da IA
+"""
+
+import json
+from datetime import datetime
+
+
+def gerar_dashboard_html(noticias: list, data_str: str, output_path: str):
+    """Gera dashboard HTML self-contained com dados embutidos."""
+
+    # Serializa só os campos necessários pro front
+    dados_ui = [
+        {
+            "i": idx,
+            "t": n.get("title", "").replace(f" - {n.get('source', '')}", ""),
+            "u": n.get("link", ""),
+            "s": n.get("source", "?"),
+            "c": n.get("category", "HOMEBUILDERS"),
+            "sug": n.get("sugestao_ia", "UNCERTAIN"),
+            "prio": bool(n.get("fonte_prioritaria", False)),
+        }
+        for idx, n in enumerate(noticias)
+    ]
+    dados_json = json.dumps(dados_ui, ensure_ascii=False)
+
+    html = HTML_TEMPLATE.replace("__DATA_STR__", data_str).replace("__DADOS_JSON__", dados_json)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(html)
+
+
+HTML_TEMPLATE = r"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clipping Diário - Real Estate (__DATA_STR__)</title>
+<style>
+:root {
+  --black: #000000;
+  --orange: #FF6200;
+  --orange-dark: #d85300;
+  --orange-soft: #fff1e6;
+  --yellow: #FFB600;
+  --yellow-soft: #fff7e0;
+  --teal: #57B49A;
+  --teal-soft: #e8f5f1;
+  --lime: #A6CF2D;
+  --gray: #BFBFBF;
+  --gray-light: #ededed;
+  --gray-bg: #f5f5f5;
+  --red: #cc2222;
+  --red-soft: #fff0f0;
+  --white: #ffffff;
+  --text: #000000;
+  --muted: #6b6b6b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--gray-bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+body { padding: 20px 16px; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+header {
+  background: var(--black);
+  color: var(--white);
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+header h1 { font-size: 20px; font-weight: 700; }
+header h1 .accent { color: var(--orange); }
+header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
+.date-badge {
+  background: var(--orange);
+  color: var(--white);
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 18px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.card-header {
+  padding: 14px 18px;
+  border-bottom: 2px solid var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.card-header.section-keep { background: var(--teal-soft); border-bottom-color: var(--teal); }
+.card-header.section-uncertain { background: var(--yellow-soft); border-bottom-color: var(--yellow); }
+.card-header.section-drop { background: var(--red-soft); border-bottom-color: var(--red); }
+
+.card-header h2 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-keep h2::before { content: '✓'; color: var(--teal); font-size: 16px; }
+.section-uncertain h2::before { content: '?'; color: #d97706; font-size: 16px; font-weight: 900; }
+.section-drop h2::before { content: '✗'; color: var(--red); font-size: 16px; }
+
+.count {
+  font-size: 12px;
+  color: var(--muted);
+  background: rgba(255,255,255,0.7);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.toggle { font-size: 12px; color: var(--muted); }
+
+.card-body { padding: 0; }
+.card.collapsed .card-body { display: none; }
+
+.card-body-padded { padding: 14px 18px; }
+
+/* Dropzone PDF */
+.dropzone {
+  border: 2px dashed var(--gray);
+  border-radius: 10px;
+  padding: 22px 16px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--gray-bg);
+  transition: all 0.2s;
+}
+.dropzone:hover { border-color: var(--orange); background: var(--orange-soft); }
+.dropzone-text { font-size: 14px; font-weight: 600; margin-top: 6px; }
+.dropzone-hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.dropzone-warn {
+  font-size: 11px;
+  color: var(--orange-dark);
+  margin-top: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.uploaded-list { margin-top: 12px; }
+.uploaded-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--teal-soft);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  margin-top: 6px;
+  font-size: 13px;
+}
+.uploaded-item .check { color: var(--teal); font-weight: bold; }
+.uploaded-item .filename { flex: 1; word-break: break-word; }
+.uploaded-item .remove { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; }
+
+/* News list */
+.news-item {
+  display: flex;
+  gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--gray-light);
+  transition: background 0.15s;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item:hover { background: var(--gray-bg); }
+.news-item.decision-keep { background: var(--teal-soft); border-left: 3px solid var(--teal); padding-left: 15px; }
+.news-item.decision-drop { background: var(--red-soft); border-left: 3px solid var(--red); opacity: 0.6; padding-left: 15px; }
+
+.news-content { flex: 1; min-width: 0; }
+.news-headline { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 5px; }
+.news-headline a { color: var(--text); text-decoration: none; }
+.news-headline a:hover { color: var(--orange); text-decoration: underline; }
+.news-meta { display: flex; gap: 10px; font-size: 11px; color: var(--muted); align-items: center; flex-wrap: wrap; }
+.news-source { font-weight: 700; color: var(--text); }
+.news-cat { background: var(--black); color: var(--white); padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+.prio-badge { background: var(--orange); color: var(--white); padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+.manual-badge { background: var(--lime); color: var(--black); padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+
+/* Form manual */
+.manual-form { display: flex; flex-direction: column; gap: 8px; }
+.m-input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.5px solid var(--gray-light);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  background: white;
+}
+.m-input:focus { outline: none; border-color: var(--orange); }
+.m-row { display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap; }
+.m-half { flex: 2; min-width: 180px; }
+.m-quarter { flex: 1; min-width: 110px; max-width: 150px; }
+.m-add { margin-top: 0 !important; width: auto !important; padding: 9px 16px !important; font-size: 12px !important; }
+.m-hint { font-size: 11px; color: var(--muted); margin-top: 4px; font-style: italic; }
+.manual-list { margin-top: 12px; }
+.manual-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--teal-soft);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  margin-top: 6px;
+  font-size: 13px;
+  align-items: center;
+}
+.manual-item .check { color: var(--teal); font-weight: bold; }
+.manual-item .info { flex: 1; min-width: 0; }
+.manual-item .info .titulo { font-weight: 600; line-height: 1.3; word-break: break-word; }
+.manual-item .info .meta { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.manual-item .remove { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 20px; }
+.manual-item .remove:hover { color: var(--red); }
+
+.news-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.news-actions button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1.5px solid;
+  background: var(--white);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.btn-keep { border-color: var(--teal); color: var(--teal); }
+.btn-keep:hover, .btn-keep.selected { background: var(--teal); color: white; }
+.btn-drop { border-color: var(--red); color: var(--red); }
+.btn-drop:hover, .btn-drop.selected { background: var(--red); color: white; }
+
+/* Sidebar */
+.sidebar { position: sticky; top: 20px; align-self: start; }
+.summary-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 13px; }
+.summary-row .label { color: var(--muted); }
+.summary-row .value { font-weight: 700; }
+.summary-divider { border-top: 1px solid var(--gray-light); margin: 8px 0; }
+
+.btn {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-primary { background: var(--orange); color: white; }
+.btn-primary:hover { background: var(--orange-dark); }
+.btn-primary:disabled { background: var(--gray); cursor: not-allowed; }
+.btn-secondary { background: white; color: var(--black); border: 2px solid var(--black); }
+.btn-secondary:hover { background: var(--black); color: white; }
+.btn-success { background: var(--teal); color: white; }
+.btn-success:hover { background: #468d7a; }
+
+/* Modal */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
+.modal-overlay.open { display: flex; }
+.modal { background: white; border-radius: 12px; width: 100%; max-width: 620px; max-height: 90vh; display: flex; flex-direction: column; }
+.modal-header { padding: 16px 22px; border-bottom: 2px solid var(--orange); display: flex; justify-content: space-between; align-items: center; }
+.modal-header h3 { font-size: 16px; }
+.modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--muted); }
+.modal-body { padding: 18px 22px; overflow-y: auto; flex: 1; }
+.modal-tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+.tab { padding: 7px 14px; border: 1px solid var(--gray); background: white; border-radius: 8px; cursor: pointer; font-size: 12px; color: var(--muted); font-weight: 600; font-family: inherit; }
+.tab.active { background: var(--orange); color: white; border-color: var(--orange); }
+.preview { background: var(--gray-bg); border: 1px solid var(--gray-light); border-radius: 8px; padding: 14px; font-family: 'SF Mono', Monaco, monospace; font-size: 12px; line-height: 1.6; white-space: pre-wrap; max-height: 50vh; overflow-y: auto; }
+.modal-footer { padding: 12px 18px; border-top: 1px solid var(--gray-light); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.modal-footer .btn { margin-top: 0; width: auto; padding: 9px 16px; font-size: 11px; }
+.copied-msg { color: var(--teal); font-size: 12px; margin-left: auto; opacity: 0; transition: opacity 0.3s; font-weight: 700; }
+.copied-msg.show { opacity: 1; }
+
+.shortcuts-hint { text-align: center; font-size: 12px; color: var(--muted); padding: 10px; background: white; border-radius: 8px; margin-top: 14px; }
+
+/* Histórico cards */
+.hist-empty { text-align: center; color: var(--muted); padding: 24px 0; font-size: 13px; }
+.hist-card {
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  background: white;
+  transition: border-color 0.15s;
+}
+.hist-card:hover { border-color: var(--orange); }
+.hist-card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.hist-data { font-weight: 700; font-size: 14px; color: var(--black); }
+.hist-time { font-size: 11px; color: var(--muted); margin-left: 6px; }
+.hist-actions { display: flex; gap: 6px; }
+.hist-actions button {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--gray);
+  background: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.hist-actions .ver { color: var(--black); border-color: var(--black); }
+.hist-actions .ver:hover { background: var(--black); color: white; }
+.hist-actions .apagar { color: var(--red); border-color: var(--red); }
+.hist-actions .apagar:hover { background: var(--red); color: white; }
+.hist-meta { font-size: 12px; color: var(--muted); margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+.hist-meta .badge { background: var(--gray-bg); padding: 2px 8px; border-radius: 10px; }
+.shortcuts-hint .key { display: inline-block; background: var(--gray-light); border: 1px solid var(--gray); border-radius: 4px; padding: 1px 7px; font-family: monospace; font-size: 11px; margin: 0 3px; }
+
+@media (max-width: 900px) {
+  body { padding: 10px; }
+  .grid { grid-template-columns: 1fr; }
+  .sidebar { position: static; order: -1; }
+  .news-actions { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div>
+      <h1>Clipping Diário <span class="accent">·</span> Real Estate</h1>
+      <div class="subtitle">Itaú BBA | Real Estate Team</div>
+    </div>
+    <div class="date-badge" id="dateBadge">__DATA_STR__</div>
+  </header>
+
+  <div class="grid">
+    <div>
+
+      <!-- Upload PDFs IBBA -->
+      <div class="card upload-zone">
+        <div class="card-header">
+          <h2>Relatórios IBBA</h2>
+          <span class="count" id="pdfCount">0 relatórios</span>
+        </div>
+        <div class="card-body card-body-padded">
+          <div class="dropzone" onclick="simulateUpload()">
+            <div style="font-size: 22px; opacity: 0.5">📄</div>
+            <div class="dropzone-text">Arraste os PDFs ou clique pra selecionar</div>
+            <div class="dropzone-hint">Apenas relatórios do Itaú BBA são aceitos</div>
+          </div>
+          <div class="uploaded-list" id="uploadedList"></div>
+        </div>
+      </div>
+
+      <!-- Adicionar notícia manualmente -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Adicionar notícia que o coletor perdeu</h2>
+          <span class="count"><span id="manualCount">0</span> manuais</span>
+        </div>
+        <div class="card-body card-body-padded">
+          <div class="manual-form">
+            <input type="text" id="m_title" placeholder="Título da notícia" class="m-input">
+            <input type="url" id="m_url" placeholder="https://link-completo-da-noticia.com.br/..." class="m-input">
+            <div class="m-row">
+              <input type="text" id="m_source" placeholder="Fonte (ex: Valor, Folha, MetroQuadrado)" class="m-input m-half">
+              <select id="m_category" class="m-input m-quarter">
+                <option value="HOMEBUILDERS">Homebuilders</option>
+                <option value="MALLS">Malls</option>
+              </select>
+              <button class="btn btn-primary m-add" onclick="adicionarManual()">+ Adicionar</button>
+            </div>
+            <div class="m-hint">Manuais entram automaticamente no clipping (status: mantida) e ajudam a treinar a IA</div>
+          </div>
+          <div class="manual-list" id="manualList"></div>
+        </div>
+      </div>
+
+      <!-- Seções por sugestão -->
+      <div class="card" id="section-keep">
+        <div class="card-header section-keep" onclick="toggleSection('keep')">
+          <h2>Provavelmente entram</h2>
+          <span class="count"><span id="cnt-keep">0</span> notícias</span>
+          <span class="toggle">▼</span>
+        </div>
+        <div class="card-body" id="list-keep"></div>
+      </div>
+
+      <div class="card" id="section-uncertain">
+        <div class="card-header section-uncertain" onclick="toggleSection('uncertain')">
+          <h2>Em dúvida</h2>
+          <span class="count"><span id="cnt-uncertain">0</span> notícias</span>
+          <span class="toggle">▼</span>
+        </div>
+        <div class="card-body" id="list-uncertain"></div>
+      </div>
+
+      <div class="card collapsed" id="section-drop">
+        <div class="card-header section-drop" onclick="toggleSection('drop')">
+          <h2>Provavelmente fora</h2>
+          <span class="count"><span id="cnt-drop">0</span> notícias</span>
+          <span class="toggle">▶</span>
+        </div>
+        <div class="card-body" id="list-drop"></div>
+      </div>
+
+      <div class="shortcuts-hint">
+        Atalhos: clique numa notícia e use
+        <span class="key">1</span> Manter
+        <span class="key">2</span> Descartar
+        <span class="key">↓</span> próxima
+        <span class="key">↑</span> voltar
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="card">
+        <div class="card-header">
+          <h2>Resumo do clipping</h2>
+        </div>
+        <div class="card-body card-body-padded">
+          <div class="summary-row"><span class="label">Data</span><span class="value" id="summaryDate">__DATA_STR__</span></div>
+          <div class="summary-row"><span class="label">Relatórios IBBA</span><span class="value" id="summaryReports">0</span></div>
+          <div class="summary-divider"></div>
+          <div class="summary-row"><span class="label">Mantidas</span><span class="value" id="summaryKeep">0</span></div>
+          <div class="summary-row"><span class="label">Descartadas</span><span class="value" id="summaryDrop">0</span></div>
+          <div class="summary-row"><span class="label">Sem decisão</span><span class="value" id="summaryPending">0</span></div>
+          <div class="summary-divider"></div>
+          <div class="summary-row"><span class="label">Homebuilders</span><span class="value" id="summaryHB">0</span></div>
+          <div class="summary-row"><span class="label">Malls</span><span class="value" id="summaryMP">0</span></div>
+          <div class="summary-divider"></div>
+          <button class="btn btn-primary" onclick="openModal()" id="generateBtn" disabled>Gerar clipping</button>
+          <button class="btn btn-success" onclick="exportarDecisoes()" id="learnBtn">Salvar decisões pro aprendizado</button>
+          <button class="btn btn-secondary" onclick="abrirHistorico()" id="histBtn">Histórico (<span id="histCount">0</span>)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal histórico de clippings -->
+<div class="modal-overlay" id="historicoModal">
+  <div class="modal" style="max-width: 720px;">
+    <div class="modal-header">
+      <h3>Histórico de clippings gerados</h3>
+      <button class="modal-close" onclick="fecharHistorico()">×</button>
+    </div>
+    <div class="modal-body" id="historicoBody"></div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="exportarHistorico()">Exportar tudo (.json)</button>
+      <label class="btn btn-secondary" style="cursor:pointer;">
+        Importar JSON
+        <input type="file" id="importarHistFile" accept=".json" onchange="importarHistorico(event)" style="display:none;">
+      </label>
+      <button class="btn btn-secondary" onclick="apagarHistoricoTudo()" style="color: var(--red); border-color: var(--red);">Apagar tudo</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Clipping pronto pra envio</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <button class="tab active" onclick="switchTab('whatsapp', this)">WhatsApp</button>
+        <button class="tab" onclick="switchTab('email', this)">Email (HTML)</button>
+      </div>
+      <div class="preview" id="preview"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="copyText()">Copiar</button>
+      <button class="btn btn-success" onclick="openWhatsApp()">Abrir WhatsApp</button>
+      <span class="copied-msg" id="copiedMsg">Copiado!</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const NOTICIAS = __DADOS_JSON__;
+const STORAGE_KEY = 'dashboard___DATA_STR__';
+const MANUAL_KEY = 'dashboard_manual___DATA_STR__';
+const HISTORICO_KEY = 'dashboard_historico_clippings';  // não é por data — acumula tudo
+
+function carregar() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+  catch(e) { return {}; }
+}
+function salvar(d) { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }
+function carregarManuais() {
+  try { return JSON.parse(localStorage.getItem(MANUAL_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function salvarManuais(arr) { localStorage.setItem(MANUAL_KEY, JSON.stringify(arr)); }
+
+let decisoes = carregar();
+let manuais = carregarManuais();
+let cursor = -1;
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderizar() {
+  const buckets = { keep: [], uncertain: [], drop: [] };
+  NOTICIAS.forEach(n => {
+    if (n.sug === 'LIKELY_KEEP') buckets.keep.push(n);
+    else if (n.sug === 'LIKELY_DROP') buckets.drop.push(n);
+    else buckets.uncertain.push(n);
+  });
+
+  ['keep', 'uncertain', 'drop'].forEach(k => {
+    document.getElementById('cnt-' + k).textContent = buckets[k].length;
+    const lista = document.getElementById('list-' + k);
+    lista.innerHTML = '';
+    buckets[k].forEach(n => lista.appendChild(criarItemHTML(n)));
+  });
+
+  atualizarResumo();
+}
+
+function criarItemHTML(n) {
+  const dec = decisoes[n.i];
+  const item = document.createElement('div');
+  item.className = 'news-item' + (dec === 'keep' ? ' decision-keep' : dec === 'drop' ? ' decision-drop' : '');
+  item.dataset.i = n.i;
+  item.innerHTML = `
+    <div class="news-content">
+      <div class="news-headline"><a href="${escapeHtml(n.u)}" target="_blank">${escapeHtml(n.t)}</a></div>
+      <div class="news-meta">
+        <span class="news-source">${escapeHtml(n.s)}</span>
+        <span class="news-cat">${escapeHtml(n.c === 'MALLS' ? 'Malls' : 'Homebuilders')}</span>
+        ${n.prio ? '<span class="prio-badge">premium</span>' : ''}
+      </div>
+    </div>
+    <div class="news-actions">
+      <button class="btn-keep ${dec === 'keep' ? 'selected' : ''}" onclick="decidir(${n.i}, 'keep', event)">Entra</button>
+      <button class="btn-drop ${dec === 'drop' ? 'selected' : ''}" onclick="decidir(${n.i}, 'drop', event)">Fora</button>
+    </div>
+  `;
+  return item;
+}
+
+function decidir(idx, valor, ev) {
+  if (ev) ev.stopPropagation();
+  decisoes[idx] = valor;
+  salvar(decisoes);
+  // Re-render só o item afetado
+  const old = document.querySelector('.news-item[data-i="' + idx + '"]');
+  if (old) {
+    const n = NOTICIAS.find(x => x.i === idx);
+    const novo = criarItemHTML(n);
+    old.replaceWith(novo);
+  }
+  atualizarResumo();
+}
+
+function atualizarResumo() {
+  let keep = 0, drop = 0, hb = 0, mp = 0;
+  NOTICIAS.forEach(n => {
+    const d = decisoes[n.i];
+    if (d === 'keep') {
+      keep++;
+      if (n.c === 'HOMEBUILDERS') hb++;
+      else if (n.c === 'MALLS') mp++;
+    } else if (d === 'drop') drop++;
+  });
+  // Inclui manuais (sempre contam como keep)
+  manuais.forEach(m => {
+    keep++;
+    if (m.c === 'HOMEBUILDERS') hb++;
+    else if (m.c === 'MALLS') mp++;
+  });
+  const pending = NOTICIAS.length - (keep - manuais.length) - drop;
+  document.getElementById('summaryKeep').textContent = keep;
+  document.getElementById('summaryDrop').textContent = drop;
+  document.getElementById('summaryPending').textContent = pending;
+  document.getElementById('summaryHB').textContent = hb;
+  document.getElementById('summaryMP').textContent = mp;
+  document.getElementById('manualCount').textContent = manuais.length;
+  document.getElementById('generateBtn').disabled = keep === 0;
+}
+
+// === MANUAIS ===
+function adicionarManual() {
+  const t = document.getElementById('m_title').value.trim();
+  const u = document.getElementById('m_url').value.trim();
+  const s = document.getElementById('m_source').value.trim();
+  const c = document.getElementById('m_category').value;
+  if (!t) { alert('Título obrigatório'); return; }
+  if (!u || !u.startsWith('http')) { alert('Coloque uma URL válida (começando com http)'); return; }
+  if (!s) { alert('Diga a fonte'); return; }
+  manuais.push({ t, u, s, c, addedAt: new Date().toISOString() });
+  salvarManuais(manuais);
+  document.getElementById('m_title').value = '';
+  document.getElementById('m_url').value = '';
+  document.getElementById('m_source').value = '';
+  renderManuais();
+  atualizarResumo();
+}
+
+function removerManual(idx) {
+  manuais.splice(idx, 1);
+  salvarManuais(manuais);
+  renderManuais();
+  atualizarResumo();
+}
+
+function renderManuais() {
+  const lista = document.getElementById('manualList');
+  lista.innerHTML = '';
+  manuais.forEach((m, idx) => {
+    const el = document.createElement('div');
+    el.className = 'manual-item';
+    el.innerHTML = `
+      <span class="check">✓</span>
+      <div class="info">
+        <div class="titulo">${escapeHtml(m.t)}</div>
+        <div class="meta">${escapeHtml(m.s)} · ${m.c === 'MALLS' ? 'Malls' : 'Homebuilders'} · <a href="${escapeHtml(m.u)}" target="_blank">link</a></div>
+      </div>
+      <button class="remove" onclick="removerManual(${idx})" title="Remover">×</button>
+    `;
+    lista.appendChild(el);
+  });
+}
+
+function toggleSection(key) {
+  const sec = document.getElementById('section-' + key);
+  sec.classList.toggle('collapsed');
+  const tog = sec.querySelector('.toggle');
+  tog.textContent = sec.classList.contains('collapsed') ? '▶' : '▼';
+}
+
+// Atalhos teclado
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const items = Array.from(document.querySelectorAll('.news-item'));
+  if (items.length === 0) return;
+  if (e.key === '1' && cursor >= 0) { decidir(parseInt(items[cursor].dataset.i), 'keep'); e.preventDefault(); }
+  else if (e.key === '2' && cursor >= 0) { decidir(parseInt(items[cursor].dataset.i), 'drop'); e.preventDefault(); }
+  else if (e.key === 'ArrowDown') {
+    cursor = Math.min(cursor + 1, items.length - 1);
+    items[cursor].scrollIntoView({behavior: 'smooth', block: 'center'});
+    highlightCursor(items);
+    e.preventDefault();
+  } else if (e.key === 'ArrowUp') {
+    cursor = Math.max(cursor - 1, 0);
+    items[cursor].scrollIntoView({behavior: 'smooth', block: 'center'});
+    highlightCursor(items);
+    e.preventDefault();
+  }
+});
+
+function highlightCursor(items) {
+  items.forEach((it, i) => {
+    it.style.outline = i === cursor ? '2px solid #FF6200' : 'none';
+  });
+}
+
+// PDFs IBBA
+let pdfList = [];
+const mockPdfs = [
+  { name: "Itaú BBA on Real Estate: Daily Update", url: "https://www.itau.com.br/itaubba-pt/portal/viewer/..." },
+  { name: "Itaú BBA on Multiplan: Quick Comment 1Q26", url: "https://www.itau.com.br/itaubba-pt/portal/viewer/..." },
+];
+function simulateUpload() {
+  if (mockPdfs.length === 0) {
+    alert('Mockup com PDFs de exemplo. Na versão real você arrasta os arquivos.');
+    return;
+  }
+  const p = mockPdfs.shift();
+  pdfList.push(p);
+  const el = document.createElement('div');
+  el.className = 'uploaded-item';
+  el.innerHTML = `<span class="check">✓</span><div class="filename">${escapeHtml(p.name)}</div><button class="remove" onclick="removePdf(this)">×</button>`;
+  el.dataset.name = p.name;
+  el.dataset.url = p.url;
+  document.getElementById('uploadedList').appendChild(el);
+  document.getElementById('pdfCount').textContent = pdfList.length + ' relatório' + (pdfList.length !== 1 ? 's' : '');
+  document.getElementById('summaryReports').textContent = pdfList.length;
+}
+function removePdf(btn) {
+  const el = btn.parentElement;
+  pdfList = pdfList.filter(p => p.name !== el.dataset.name);
+  el.remove();
+  document.getElementById('pdfCount').textContent = pdfList.length + ' relatório' + (pdfList.length !== 1 ? 's' : '');
+  document.getElementById('summaryReports').textContent = pdfList.length;
+}
+
+// Geração do clipping
+let currentFormat = 'whatsapp';
+function openModal() { document.getElementById('modal').classList.add('open'); renderPreview(); }
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function switchTab(format, btn) {
+  currentFormat = format;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderPreview();
+}
+function buildText(format) {
+  const dataStr = '__DATA_STR__';
+  const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const parts = dataStr.split('-');
+  const dateStr = parts.length === 3 ? parts[2] + '/' + meses[parseInt(parts[1])-1] : dataStr;
+
+  const kept = NOTICIAS.filter(n => decisoes[n.i] === 'keep');
+  // Combina selecionadas + manuais (manuais sempre keep)
+  const todasKeep = kept.concat(manuais);
+  const hb = todasKeep.filter(n => n.c === 'HOMEBUILDERS');
+  const mp = todasKeep.filter(n => n.c === 'MALLS');
+
+  if (format === 'whatsapp') {
+    let txt = '*Itaú BBA | Real Estate - Daily News (' + dateStr + ')*\n\n';
+    pdfList.forEach(p => { txt += '*' + p.name + '*\nLink: ' + p.url + '\n'; });
+    if (pdfList.length > 0) txt += '\n';
+    txt += '_Últimas Notícias_\n\n';
+    if (hb.length > 0) {
+      txt += '*HOMEBUILDERS*\n\n';
+      hb.forEach(n => { txt += '*' + n.t + '*\nLink: ' + n.u + '\n\n'; });
+    }
+    if (mp.length > 0) {
+      txt += '*MALLS & PROPERTIES*\n\n';
+      mp.forEach(n => { txt += '*' + n.t + '*\nLink: ' + n.u + '\n\n'; });
+    }
+    txt += '_IBBA | Real Estate Team_';
+    return txt;
+  } else {
+    let html = '<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6">\n';
+    html += '<h2 style="color:#000;border-bottom:2px solid #FF6200;padding-bottom:8px">Itaú BBA | Real Estate - Daily News (' + dateStr + ')</h2>\n';
+    pdfList.forEach(p => { html += '<p><a href="' + p.url + '" style="color:#000;font-weight:bold;text-decoration:none">' + p.name + '</a></p>\n'; });
+    html += '<p style="font-style:italic;color:#666;margin:16px 0 8px;font-weight:bold">Últimas Notícias</p>\n';
+    if (hb.length > 0) {
+      html += '<h3 style="color:#FF6200;text-transform:uppercase">HOMEBUILDERS</h3>\n';
+      hb.forEach(n => { html += '<p><a href="' + n.u + '" style="color:#000;font-weight:bold;text-decoration:none">' + n.t + '</a></p>\n'; });
+    }
+    if (mp.length > 0) {
+      html += '<h3 style="color:#FF6200;text-transform:uppercase">MALLS &amp; PROPERTIES</h3>\n';
+      mp.forEach(n => { html += '<p><a href="' + n.u + '" style="color:#000;font-weight:bold;text-decoration:none">' + n.t + '</a></p>\n'; });
+    }
+    html += '<p style="font-style:italic;color:#666;margin-top:24px">IBBA | Real Estate Team</p>\n</div>';
+    return html;
+  }
+}
+function renderPreview() { document.getElementById('preview').textContent = buildText(currentFormat); }
+function copyText() {
+  navigator.clipboard.writeText(buildText(currentFormat)).then(() => {
+    const m = document.getElementById('copiedMsg');
+    m.classList.add('show');
+    setTimeout(() => m.classList.remove('show'), 2000);
+    salvarClippingNoHistorico();
+  });
+}
+function openWhatsApp() {
+  window.open('https://wa.me/?text=' + encodeURIComponent(buildText('whatsapp')), '_blank');
+  salvarClippingNoHistorico();
+}
+
+// ============ HISTÓRICO DE CLIPPINGS ============
+function carregarHistorico() {
+  try { return JSON.parse(localStorage.getItem(HISTORICO_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function salvarHistorico(h) { localStorage.setItem(HISTORICO_KEY, JSON.stringify(h)); }
+
+function salvarClippingNoHistorico() {
+  const kept = NOTICIAS.filter(n => decisoes[n.i] === 'keep');
+  const todasKeep = kept.concat(manuais);
+  if (todasKeep.length === 0) return;
+  const hist = carregarHistorico();
+  // Se já existe entry pra hoje, atualiza (sobrescreve, porque a mais recente é o final do dia)
+  const idxHoje = hist.findIndex(h => h.data === '__DATA_STR__');
+  const entry = {
+    data: '__DATA_STR__',
+    timestamp: new Date().toISOString(),
+    whatsapp: buildText('whatsapp'),
+    email: buildText('email'),
+    noticias: todasKeep.map(n => ({title: n.t, source: n.s, link: n.u, categoria: n.c, manual: !!n.addedAt})),
+    pdfs: pdfList.map(p => ({name: p.name, url: p.url})),
+    contagem: {
+      total: todasKeep.length,
+      homebuilders: todasKeep.filter(n => n.c === 'HOMEBUILDERS').length,
+      malls: todasKeep.filter(n => n.c === 'MALLS').length,
+      manuais: manuais.length,
+    },
+  };
+  if (idxHoje >= 0) hist[idxHoje] = entry;
+  else hist.unshift(entry);
+  salvarHistorico(hist);
+  atualizarContadorHist();
+}
+
+function atualizarContadorHist() {
+  document.getElementById('histCount').textContent = carregarHistorico().length;
+}
+
+function abrirHistorico() {
+  renderizarHistorico();
+  document.getElementById('historicoModal').classList.add('open');
+}
+function fecharHistorico() {
+  document.getElementById('historicoModal').classList.remove('open');
+}
+
+function renderizarHistorico() {
+  const body = document.getElementById('historicoBody');
+  const hist = carregarHistorico().sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+  if (hist.length === 0) {
+    body.innerHTML = '<div class="hist-empty">Nenhum clipping salvo ainda.<br>Os clippings ficam salvos automaticamente quando você clica em "Copiar" ou "Abrir WhatsApp".</div>';
+    return;
+  }
+  body.innerHTML = '';
+  hist.forEach((h, idx) => {
+    const dt = new Date(h.timestamp);
+    const hora = dt.toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
+    const card = document.createElement('div');
+    card.className = 'hist-card';
+    card.innerHTML = `
+      <div class="hist-card-header">
+        <div>
+          <span class="hist-data">${escapeHtml(h.data)}</span>
+          <span class="hist-time">salvo às ${hora}</span>
+        </div>
+        <div class="hist-actions">
+          <button class="ver" onclick="verClippingHist(${idx})">Ver / Copiar</button>
+          <button class="apagar" onclick="apagarClippingHist(${idx})">Apagar</button>
+        </div>
+      </div>
+      <div class="hist-meta">
+        <span class="badge">${h.contagem.total} notícias</span>
+        <span class="badge">${h.contagem.homebuilders} HB</span>
+        <span class="badge">${h.contagem.malls} Malls</span>
+        ${h.contagem.manuais > 0 ? '<span class="badge">' + h.contagem.manuais + ' manuais</span>' : ''}
+        ${h.pdfs.length > 0 ? '<span class="badge">' + h.pdfs.length + ' PDF' + (h.pdfs.length !== 1 ? 's' : '') + '</span>' : ''}
+      </div>
+    `;
+    body.appendChild(card);
+  });
+}
+
+function verClippingHist(idx) {
+  const hist = carregarHistorico().sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+  const h = hist[idx];
+  if (!h) return;
+  fecharHistorico();
+  // Reusa o modal de preview, mas mostrando esse texto
+  document.getElementById('preview').textContent = currentFormat === 'whatsapp' ? h.whatsapp : h.email;
+  // Sobrescreve buildText temporariamente pra esse modal
+  window.__historicoTextoAtual = h;
+  document.getElementById('modal').classList.add('open');
+}
+
+function apagarClippingHist(idx) {
+  if (!confirm('Apagar esse clipping do histórico?')) return;
+  const hist = carregarHistorico().sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+  hist.splice(idx, 1);
+  salvarHistorico(hist);
+  renderizarHistorico();
+  atualizarContadorHist();
+}
+
+function exportarHistorico() {
+  const hist = carregarHistorico();
+  if (hist.length === 0) { alert('Sem histórico pra exportar ainda.'); return; }
+  const blob = new Blob([JSON.stringify({clippings: hist, exportado_em: new Date().toISOString()}, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'historico-clippings-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+}
+
+function importarHistorico(ev) {
+  const file = ev.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      const novos = data.clippings || data;
+      if (!Array.isArray(novos)) { alert('Arquivo inválido.'); return; }
+      const atual = carregarHistorico();
+      // Merge por data+timestamp, evitando duplicatas
+      const visto = new Set(atual.map(c => c.data + '|' + c.timestamp));
+      let adicionados = 0;
+      novos.forEach(c => {
+        const k = c.data + '|' + c.timestamp;
+        if (!visto.has(k)) { atual.push(c); visto.add(k); adicionados++; }
+      });
+      salvarHistorico(atual);
+      renderizarHistorico();
+      atualizarContadorHist();
+      alert(adicionados + ' clipping(s) importado(s). Total agora: ' + atual.length);
+    } catch (err) {
+      alert('Erro lendo arquivo: ' + err.message);
+    }
+    ev.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+function apagarHistoricoTudo() {
+  if (!confirm('APAGAR TODO O HISTÓRICO? Não dá pra desfazer (a menos que tenha exportado antes).')) return;
+  localStorage.removeItem(HISTORICO_KEY);
+  renderizarHistorico();
+  atualizarContadorHist();
+}
+
+// EXPORTAR DECISÕES (pra aprendizado da IA)
+function exportarDecisoes() {
+  const decisoesNoticias = NOTICIAS
+    .filter(n => decisoes[n.i])
+    .map(n => ({
+      title: n.t,
+      source: n.s,
+      link: n.u,
+      categoria: n.c,
+      sugestao_ia: n.sug,
+      decisao: decisoes[n.i],
+      manual: false,
+      data: '__DATA_STR__',
+    }));
+  // Manuais: sempre conta como "keep manual" (a IA aprende que essas DEVEM aparecer)
+  const decisoesManuais = manuais.map(m => ({
+    title: m.t,
+    source: m.s,
+    link: m.u,
+    categoria: m.c,
+    sugestao_ia: 'NOT_COLLECTED',
+    decisao: 'keep',
+    manual: true,
+    data: '__DATA_STR__',
+  }));
+  const out = decisoesNoticias.concat(decisoesManuais);
+  if (out.length === 0) {
+    alert('Você ainda não marcou nenhuma notícia nem adicionou manual.');
+    return;
+  }
+  const blob = new Blob([JSON.stringify({decisoes: out, data: '__DATA_STR__'}, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'decisoes-__DATA_STR__.json';
+  a.click();
+  alert(out.length + ' decisões exportadas (' + decisoesNoticias.length + ' do coletor + ' + decisoesManuais.length + ' manuais). Mande pra mim que eu mergeo no histórico.');
+}
+
+renderizar();
+renderManuais();
+atualizarContadorHist();
+</script>
+</body>
+</html>
+"""

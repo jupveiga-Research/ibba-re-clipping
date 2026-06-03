@@ -1,0 +1,67 @@
+{
+  "decisoes": [
+    {
+      "title": "Inflação da construção cai para 1,16% em julho",
+      "source": "Estadão",
+      "link": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/inflacao-construcao-cai-julho/",
+      "categoria": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "decisao": "keep",
+      "data": "2026-06-03"
+    },
+    {
+      "title": "Menos fundos, mais escala: Pátria inicia consolidação de FIIs após aquisições",
+      "source": "Estadão",
+      "link": "https://www.estadao.com.br/einvestidor/direto-da-faria-lima/menos-fundos-mais-escala-patria-inicia-consolidacao-de-fiis-apos-aquisicoes/",
+      "categoria": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "decisao": "keep",
+      "data": "2026-06-03"
+    },
+    {
+      "title": "MCMV responde por 70% das vendas de imóveis novos em São Paulo",
+      "source": "portas.com.br",
+      "link": "https://portas.com.br/dados-inteligencia/relatorios-indices/mcmv-responde-por-70-das-vendas-de-imoveis-novos-em-sao-paulo/",
+      "categoria": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "decisao": "drop",
+      "data": "2026-06-03"
+    },
+    {
+      "title": "Patria consolida fundos e mira escala no imobiliário",
+      "source": "Capital Aberto",
+      "link": "https://capitalaberto.com.br/alem-do-capital/patria-consolida-fundos-e-mira-escala-no-imobiliario/",
+      "categoria": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "decisao": "drop",
+      "data": "2026-06-03"
+    },
+    {
+      "title": "Lucro da Multiplan (MULT3) cai no 1º tri, mas balanço mostra recorde em outro indicador",
+      "source": "Estadão",
+      "link": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/multiplan-mult3-lucro-1-trimestre-2025/",
+      "categoria": "MALLS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "decisao": "drop",
+      "data": "2026-06-03"
+    },
+    {
+      "title": "Multiplan inaugura expansão do BH Shopping com investimento de R$ 30 milhões e amplia potencial de geração de receita",
+      "source": "ADVFN",
+      "link": "https://br.advfn.com/jornal/2026/06/multiplan-inaugura-expansao-do-bh-shopping-com-investimento-de-r-30-milhoes-e-amplia-potencial-de-geracao-de-receita",
+      "categoria": "MALLS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "decisao": "keep",
+      "data": "2026-06-03"
+    },
+    {
+      "title": "Log: Fidelity ultrapassa 5% de participação após anúncio de dividendos e reforça confiança na companhia",
+      "source": "ADVFN",
+      "link": "https://br.advfn.com/jornal/2026/06/log-fidelity-ultrapassa-5-de-participacao-apos-anuncio-de-dividendos-e-reforca-confianca-na-companhia",
+      "categoria": "MALLS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "decisao": "keep",
+      "data": "2026-06-03"
+    }
+  ]
+}

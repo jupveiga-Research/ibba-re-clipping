@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clipping Diário - Real Estate</title>
+<style>
+  :root {
+    --black: #000000;
+    --orange: #FF6200;
+    --orange-dark: #d85300;
+    --orange-soft: #fff1e6;
+    --yellow: #FFB600;
+    --yellow-soft: #fff7e0;
+    --teal: #57B49A;
+    --teal-soft: #e8f5f1;
+    --lime: #A6CF2D;
+    --lime-soft: #f3f9e2;
+    --gray: #BFBFBF;
+    --gray-light: #ededed;
+    --gray-bg: #f5f5f5;
+    --white: #ffffff;
+    --text: #000000;
+    --muted: #6b6b6b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--gray-bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: 24px 16px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  header {
+    background: var(--black);
+    color: var(--white);
+    padding: 24px 28px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  header h1 .accent { color: var(--orange); }
+  header .subtitle { font-size: 13px; opacity: 0.75; margin-top: 4px; }
+  .date-badge {
+    background: var(--orange);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 16px 20px;
+    border-bottom: 2px solid var(--gray-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .card-header h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--black);
+  }
+  .card-header h2::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 12px;
+    background: var(--orange);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .count {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--gray-bg);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+  .card-body { padding: 16px 20px; }
+
+  /* Upload zone */
+  .upload-zone { margin-bottom: 20px; }
+  .dropzone {
+    border: 2px dashed var(--gray);
+    border-radius: 10px;
+    padding: 22px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--gray-bg);
+  }
+  .dropzone:hover {
+    border-color: var(--orange);
+    background: var(--orange-soft);
+  }
+  .dropzone-icon { font-size: 22px; margin-bottom: 6px; opacity: 0.55; }
+  .dropzone-text { font-size: 14px; color: var(--text); font-weight: 600; }
+  .dropzone-hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .dropzone-warn {
+    font-size: 11px;
+    color: var(--orange-dark);
+    margin-top: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .uploaded-list { margin-top: 12px; }
+  .uploaded-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--teal-soft);
+    border-left: 3px solid var(--teal);
+    border-radius: 6px;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+  .uploaded-item .check { color: var(--teal); font-weight: bold; font-size: 16px; }
+  .uploaded-item .filename { flex: 1; font-weight: 600; word-break: break-word; }
+  .uploaded-item .remove {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 0 4px;
+  }
+  .uploaded-item .remove:hover { color: #c00; }
+
+  .rejected-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #fff0f0;
+    border-left: 3px solid #cc0000;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+  .rejected-item .x { color: #cc0000; font-weight: bold; font-size: 16px; }
+  .rejected-item .info { flex: 1; }
+  .rejected-item .filename { font-weight: 600; word-break: break-word; }
+  .rejected-item .reason { color: #cc0000; font-size: 11px; margin-top: 2px; }
+
+  /* News list */
+  .news-list { padding: 0; }
+  .news-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--gray-light);
+    transition: background 0.15s;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:hover { background: var(--gray-bg); }
+  .news-item.selected { background: var(--orange-soft); border-left: 3px solid var(--orange); padding-left: 17px; }
+
+  .news-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--orange);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .news-content { flex: 1; min-width: 0; }
+  .news-headline {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .news-headline a { color: inherit; text-decoration: none; }
+  .news-headline a:hover { color: var(--orange); text-decoration: underline; }
+  .news-meta {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .news-source { font-weight: 700; color: var(--text); }
+  .news-time::before { content: '• '; }
+  .news-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .news-tag.opinion { background: var(--yellow); color: var(--black); }
+
+  /* Section dividers */
+  .section-title {
+    padding: 12px 20px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .section-title .count-inline {
+    color: var(--orange);
+    margin-left: 8px;
+    font-weight: 600;
+  }
+
+  /* Sidebar */
+  .sidebar { position: sticky; top: 24px; align-self: start; }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  .summary-row .label { color: var(--muted); }
+  .summary-row .value { font-weight: 700; color: var(--black); }
+  .summary-divider { border-top: 1px solid var(--gray-light); margin: 8px 0; }
+
+  .btn {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-top: 8px;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: var(--orange-dark); }
+  .btn-primary:disabled { background: var(--gray); cursor: not-allowed; }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+  }
+  .btn-secondary:hover { background: var(--black); color: var(--white); }
+  .btn-success { background: var(--teal); color: var(--white); }
+  .btn-success:hover { background: #468d7a; }
+
+  /* Filters */
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--gray-light);
+    background: var(--gray-bg);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-chip {
+    padding: 6px 14px;
+    border-radius: 16px;
+    border: 1px solid var(--gray);
+    background: var(--white);
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--muted);
+    font-weight: 600;
+    font-family: inherit;
+  }
+  .filter-chip.active {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+  .filter-info {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-header {
+    padding: 18px 24px;
+    border-bottom: 2px solid var(--orange);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-header h3 { font-size: 16px; font-weight: 700; }
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--muted);
+    line-height: 1;
+  }
+  .modal-body { padding: 20px 24px; overflow-y: auto; flex: 1; }
+  .modal-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .tab {
+    padding: 8px 16px;
+    border: 1px solid var(--gray);
+    background: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+    font-family: inherit;
+  }
+  .tab.active { background: var(--orange); color: var(--white); border-color: var(--orange); }
+
+  .preview {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    max-height: 50vh;
+    overflow-y: auto;
+    color: var(--text);
+  }
+
+  .modal-footer {
+    padding: 14px 20px;
+    border-top: 1px solid var(--gray-light);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .modal-footer .btn { margin-top: 0; width: auto; padding: 10px 18px; font-size: 12px; }
+  .copied-msg {
+    color: var(--teal);
+    font-size: 13px;
+    margin-left: auto;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-weight: 700;
+  }
+  .copied-msg.show { opacity: 1; }
+
+  .mockup-banner {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 10px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* ============================================
+     RESPONSIVE — MOBILE
+     ============================================ */
+  @media (max-width: 900px) {
+    body { padding: 12px; }
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .sidebar {
+      position: static;
+      order: -1; /* mostrar sidebar antes da lista de notícias no mobile */
+    }
+    header {
+      padding: 18px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    header h1 { font-size: 19px; }
+    .date-badge { font-size: 12px; padding: 8px 14px; align-self: flex-start; }
+    .card-header { padding: 14px 16px; }
+    .card-body { padding: 14px 16px; }
+    .news-item { padding: 12px 16px; gap: 10px; }
+    .news-item.selected { padding-left: 13px; }
+    .news-headline { font-size: 13px; }
+    .filter-row { padding: 10px 16px; }
+    .filter-info { display: none; }
+    .modal { max-height: 95vh; }
+    .modal-header { padding: 14px 18px; }
+    .modal-body { padding: 16px 18px; }
+    .preview { font-size: 12px; padding: 12px; }
+    .btn { padding: 12px 14px; font-size: 13px; }
+  }
+  @media (max-width: 480px) {
+    header h1 { font-size: 17px; }
+    .card-header h2 { font-size: 12px; }
+    .news-meta { font-size: 11px; gap: 6px; }
+    .news-tag { font-size: 9px; padding: 1px 6px; }
+    .modal-footer { flex-direction: column; align-items: stretch; }
+    .modal-footer .btn { width: 100%; }
+    .copied-msg { text-align: center; margin: 4px 0 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="mockup-banner">
+    Mockup visual — dados de exemplo, sem busca real ainda
+  </div>
+
+  <header>
+    <div>
+      <h1>Clipping Diário <span class="accent">·</span> Real Estate</h1>
+      <div class="subtitle">Itaú BBA | Real Estate Team</div>
+    </div>
+    <div class="date-badge" id="dateBadge">quinta, 21/Mai</div>
+  </header>
+
+  <div class="grid">
+    <!-- COLUNA PRINCIPAL -->
+    <div>
+
+      <!-- UPLOAD PDFS -->
+      <div class="card upload-zone">
+        <div class="card-header">
+          <h2>Relatórios da Noite Anterior</h2>
+          <span class="count" id="pdfCount">0 relatórios</span>
+        </div>
+        <div class="card-body">
+          <div class="dropzone" onclick="simulateUpload()">
+            <div class="dropzone-icon">📄</div>
+            <div class="dropzone-text">Arraste os PDFs aqui ou clique para selecionar</div>
+            <div class="dropzone-hint">Múltiplos arquivos · Extrai título automaticamente</div>
+            <div class="dropzone-warn">⚠ Apenas relatórios do Itaú BBA são aceitos</div>
+          </div>
+          <div class="uploaded-list" id="uploadedList"></div>
+        </div>
+      </div>
+
+      <!-- NOTÍCIAS -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Notícias do Setor</h2>
+          <span class="count"><span id="selectedCount">0</span> de <span id="totalCount">0</span> selecionadas</span>
+        </div>
+
+        <div class="filter-row">
+          <button class="filter-chip active" onclick="filterCategory('all', this)">Todas</button>
+          <button class="filter-chip" onclick="filterCategory('HOMEBUILDERS', this)">Homebuilders</button>
+          <button class="filter-chip" onclick="filterCategory('MALLS', this)">Malls & Properties</button>
+          <button class="filter-chip" onclick="filterCategory('REAL_ESTATE', this)">Real Estate</button>
+          <span class="filter-info">Últimas 24h · 8 fontes monitoradas</span>
+        </div>
+
+        <div class="news-list" id="newsList"></div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="card">
+        <div class="card-header">
+          <h2>Resumo do Clipping</h2>
+        </div>
+        <div class="card-body">
+          <div class="summary-row">
+            <span class="label">Data</span>
+            <span class="value" id="summaryDate">21/Mai</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Relatórios IBBA</span>
+            <span class="value" id="summaryReports">0</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Notícias selecionadas</span>
+            <span class="value" id="summarySelected">0</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row">
+            <span class="label">Homebuilders</span>
+            <span class="value" id="summaryHB">0</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Malls & Properties</span>
+            <span class="value" id="summaryMP">0</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Real Estate</span>
+            <span class="value" id="summaryRE">0</span>
+          </div>
+          <div class="summary-divider"></div>
+          <button class="btn btn-primary" onclick="openModal()" id="generateBtn" disabled>
+            Gerar Clipping
+          </button>
+          <button class="btn btn-secondary" onclick="selectAll()">Selecionar Todas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Clipping pronto para envio</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <button class="tab active" onclick="switchTab('whatsapp', this)">WhatsApp</button>
+        <button class="tab" onclick="switchTab('email', this)">Email (HTML)</button>
+      </div>
+      <div class="preview" id="preview"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="copyText()">📋 Copiar</button>
+      <button class="btn btn-success" onclick="openWhatsApp()">💬 Abrir WhatsApp</button>
+      <span class="copied-msg" id="copiedMsg">✓ Copiado!</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// =============================================================
+// MOCK DATA
+// =============================================================
+const newsData = [
+  { id: 1, category: 'HOMEBUILDERS', headline: "'Perda de renda' com consignado acende sinal amarelo nas construtoras", url: "https://www.estadao.com.br/economia/perda-de-renda-consignado-sinal-amarelo-construtoras/", source: "Estadão", time: "06:42", isOpinion: false },
+  { id: 2, category: 'HOMEBUILDERS', headline: "Fiscalização nula trava avanço da moradia popular em SP", url: "https://www1.folha.uol.com.br/opiniao/fiscalizacao-nula-trava-avanco-moradia-popular-sp.shtml", source: "Folha", time: "21:15 ontem", isOpinion: true },
+  { id: 3, category: 'HOMEBUILDERS', headline: "Nova Milano Capital alcança participação de 50% das ações ordinárias da Even", url: "https://valor.globo.com/empresas/noticia/nova-milano-even.ghtml", source: "Valor", time: "20:08 ontem", isOpinion: false },
+  { id: 4, category: 'HOMEBUILDERS', headline: "Andrade Gutierrez pede nova recuperação extrajudicial com dívida de R$ 3,4 bi", url: "https://www1.folha.uol.com.br/mercado/andrade-gutierrez-recuperacao.shtml", source: "Folha", time: "19:22 ontem", isOpinion: false },
+  { id: 5, category: 'HOMEBUILDERS', headline: "Cury anuncia VSO de 45% no 1T26, supera projeções do mercado", url: "https://valor.globo.com/empresas/noticia/cury-vso-1t26.ghtml", source: "Valor", time: "18:30 ontem", isOpinion: false },
+  { id: 6, category: 'HOMEBUILDERS', headline: "MRV vê fôlego com FGTS Futuro e prevê crescimento de 8% em lançamentos", url: "https://valor.globo.com/empresas/noticia/mrv-fgts-futuro.ghtml", source: "Valor", time: "17:45 ontem", isOpinion: false },
+  { id: 7, category: 'HOMEBUILDERS', headline: "Cyrela mira luxo em São Paulo com novo lançamento na Vila Nova Conceição", url: "https://metroquadrado.com/residencial/cyrela-vila-nova-conceicao", source: "MetroQuadrado", time: "16:12 ontem", isOpinion: false },
+  { id: 8, category: 'HOMEBUILDERS', headline: "Direcional capta R$ 500 milhões em CRI para expansão no Norte", url: "https://valor.globo.com/empresas/noticia/direcional-cri-norte.ghtml", source: "Valor", time: "15:33 ontem", isOpinion: false },
+  { id: 9, category: 'HOMEBUILDERS', headline: "Plano&Plano anuncia parceria com Caixa para 5 mil unidades MCMV", url: "https://www.infomoney.com.br/mercados/plano-e-plano-caixa-mcmv/", source: "InfoMoney", time: "14:08 ontem", isOpinion: false },
+  { id: 10, category: 'HOMEBUILDERS', headline: "Mitre Realty contrata banco para securitização de R$ 200 milhões", url: "https://valor.globo.com/empresas/noticia/mitre-securitizacao.ghtml", source: "Valor", time: "12:50 ontem", isOpinion: false },
+  { id: 11, category: 'HOMEBUILDERS', headline: "Tenda reverte prejuízo e tem lucro de R$ 45 mi no trimestre", url: "https://www1.folha.uol.com.br/mercado/tenda-lucro-trimestre.shtml", source: "Folha", time: "11:22 ontem", isOpinion: false },
+  { id: 12, category: 'HOMEBUILDERS', headline: "INCC sobe 0,68% em maio, pressionado por mão de obra", url: "https://oglobo.globo.com/economia/incc-maio.ghtml", source: "O Globo", time: "10:15 ontem", isOpinion: false },
+
+  { id: 13, category: 'MALLS', headline: "Rafael Birmann quer um novo desafio: 'A Faria Lima acabou'", url: "https://metroquadrado.com/residencial/rafael-birmann-faria-lima/", source: "MetroQuadrado", time: "07:10", isOpinion: false },
+  { id: 14, category: 'MALLS', headline: "Escritórios premium avançam para novas regiões de São Paulo", url: "https://siila.com.br/noticias/escritorios-premium-novas-regioes-sp/", source: "SiiLA", time: "08:33", isOpinion: false },
+  { id: 15, category: 'MALLS', headline: "A casa de Peter Thiel no Fasano Las Piedras", url: "https://metroquadrado.com/residencial/peter-thiel-fasano-las-piedras/", source: "MetroQuadrado", time: "23:40 ontem", isOpinion: false },
+  { id: 16, category: 'MALLS', headline: "Fundos imobiliários superam o rótulo de 'moda'", url: "https://metroquadrado.com/investimentos/fundos-imobiliarios-superam-moda/", source: "MetroQuadrado", time: "22:18 ontem", isOpinion: true },
+  { id: 17, category: 'MALLS', headline: "Iguatemi anuncia expansão do shopping de Ribeirão Preto com R$ 350 mi", url: "https://valor.globo.com/empresas/noticia/iguatemi-ribeirao-preto.ghtml", source: "Valor", time: "20:45 ontem", isOpinion: false },
+  { id: 18, category: 'MALLS', headline: "Multiplan negocia compra de participação em shopping no Sul", url: "https://valor.globo.com/empresas/noticia/multiplan-shopping-sul.ghtml", source: "Valor", time: "19:30 ontem", isOpinion: false },
+  { id: 19, category: 'MALLS', headline: "Allos vê vacância em queda e projeta NOI 12% maior em 2026", url: "https://www.infomoney.com.br/mercados/allos-vacancia-noi/", source: "InfoMoney", time: "18:15 ontem", isOpinion: false },
+  { id: 20, category: 'MALLS', headline: "Log CP entrega 250 mil m² de galpões em Cajamar e Extrema", url: "https://buildings.com.br/log-cp-entrega-galpoes/", source: "Buildings", time: "16:50 ontem", isOpinion: false },
+  { id: 21, category: 'MALLS', headline: "GLP anuncia aquisição de portfólio logístico em Pernambuco", url: "https://siila.com.br/noticias/glp-portfolio-pernambuco/", source: "SiiLA", time: "15:22 ontem", isOpinion: false },
+  { id: 22, category: 'MALLS', headline: "JHSF vê alta de 18% nas vendas de luxo e revisa guidance", url: "https://valor.globo.com/empresas/noticia/jhsf-luxo-guidance.ghtml", source: "Valor", time: "14:08 ontem", isOpinion: false },
+  { id: 23, category: 'MALLS', headline: "BR Properties conclui venda de torre na Faria Lima por R$ 700 mi", url: "https://valor.globo.com/empresas/noticia/br-properties-faria-lima.ghtml", source: "Valor", time: "12:30 ontem", isOpinion: false },
+  { id: 24, category: 'MALLS', headline: "Multifamily ganha tração: JFL Living captura demanda em SP", url: "https://metroquadrado.com/residencial/multifamily-jfl-living/", source: "MetroQuadrado", time: "11:45 ontem", isOpinion: false },
+  { id: 25, category: 'MALLS', headline: "São Carlos compra prédio histórico no centro de São Paulo", url: "https://valor.globo.com/empresas/noticia/sao-carlos-predio-historico.ghtml", source: "Valor", time: "10:33 ontem", isOpinion: false },
+  { id: 26, category: 'MALLS', headline: "Opinião: Por que o FII de logística ainda é a melhor aposta", url: "https://metroquadrado.com/investimentos/fii-logistica-melhor-aposta/", source: "MetroQuadrado", time: "09:20 ontem", isOpinion: true },
+
+  { id: 27, category: 'REAL_ESTATE', headline: "Caixa seleciona três gestoras para criar fundos imobiliários", url: "https://valor.globo.com/financas/noticia/caixa-tres-gestoras-fundos-imobiliarios.ghtml", source: "Valor", time: "21:08 ontem", isOpinion: false },
+  { id: 28, category: 'REAL_ESTATE', headline: "FGTS Futuro: novas regras devem destravar R$ 15 bi em financiamentos", url: "https://valor.globo.com/financas/noticia/fgts-futuro-15-bi.ghtml", source: "Valor", time: "19:40 ontem", isOpinion: false },
+  { id: 29, category: 'REAL_ESTATE', headline: "Banco Central avalia mudar regras de Letra Imobiliária Garantida (LIG)", url: "https://www.infomoney.com.br/mercados/bc-lig-mudancas/", source: "InfoMoney", time: "17:55 ontem", isOpinion: false },
+  { id: 30, category: 'REAL_ESTATE', headline: "Opinião: O futuro do crédito imobiliário pós-Selic em queda", url: "https://valor.globo.com/opiniao/coluna/futuro-credito-imobiliario.ghtml", source: "Valor", time: "13:20 ontem", isOpinion: true },
+];
+
+// Fila de PDFs simulados — alterna entre aceitos (Itaú BBA) e rejeitados
+const mockPdfQueue = [
+  { name: "Itaú BBA on Real Estate: Takeaways from NYC CEO Conference.pdf", title: "Itaú BBA on Real Estate: Takeaways from NYC CEO Conference", url: "https://www.itau.com.br/itaubba-pt/portal/viewer/equity/c6932dfb-973a-4e40-bc54-f1359e8c3e58/Real_Estate_20260521", source: "Itaú BBA", accepted: true },
+  { name: "BTG Pactual — Update Cyrela: Reiterando Compra.pdf", source: "BTG Pactual", accepted: false },
+  { name: "Itaú BBA on Tenda: Takeaways from NDR with CFO.pdf", title: "Itaú BBA on Tenda: Takeaways from NDR with CFO", url: "https://www.itau.com.br/itaubba-pt/portal/viewer/equity/4d435bb7-5767-4960-8829-aa83b9293429/TEND_20260521", source: "Itaú BBA", accepted: true },
+  { name: "XP Inc — Setor de Shoppings: Recuperação consolidada.pdf", source: "XP Inc", accepted: false },
+  { name: "Itaú BBA on MRV: Início de Cobertura com Outperform.pdf", title: "Itaú BBA on MRV: Início de Cobertura com Outperform", url: "https://www.itau.com.br/itaubba-pt/portal/viewer/equity/8a112cdd-4321-4f9a-bb01-c8f7e1234567/MRVE_20260521", source: "Itaú BBA", accepted: true },
+  { name: "Itaú BBA on Allos: 1Q26 Preview.pdf", title: "Itaú BBA on Allos: 1Q26 Preview", url: "https://www.itau.com.br/itaubba-pt/portal/viewer/equity/7b223dee-5432-4f8b-cc12-d9e8f2345678/ALOS_20260521", source: "Itaú BBA", accepted: true },
+];
+
+// =============================================================
+// RENDER NOTÍCIAS
+// =============================================================
+function renderNews(filter = 'all') {
+  const list = document.getElementById('newsList');
+  list.innerHTML = '';
+
+  const filtered = filter === 'all' ? newsData : newsData.filter(n => n.category === filter);
+  document.getElementById('totalCount').textContent = filtered.length;
+
+  const grouped = {};
+  filtered.forEach(n => {
+    if (!grouped[n.category]) grouped[n.category] = [];
+    grouped[n.category].push(n);
+  });
+
+  const order = ['HOMEBUILDERS', 'MALLS', 'REAL_ESTATE'];
+  const labels = { HOMEBUILDERS: 'Homebuilders', MALLS: 'Malls & Properties', REAL_ESTATE: 'Real Estate' };
+
+  order.forEach(cat => {
+    if (!grouped[cat]) return;
+    const title = document.createElement('div');
+    title.className = 'section-title';
+    title.innerHTML = labels[cat] + '<span class="count-inline">' + grouped[cat].length + '</span>';
+    list.appendChild(title);
+
+    grouped[cat].forEach(news => {
+      const item = document.createElement('div');
+      item.className = 'news-item';
+      item.dataset.id = news.id;
+      item.innerHTML = `
+        <input type="checkbox" class="news-checkbox" onchange="toggleSelect(${news.id}, this)" />
+        <div class="news-content">
+          <div class="news-headline">
+            <a href="${news.url}" target="_blank" rel="noopener">${news.headline}</a>
+          </div>
+          <div class="news-meta">
+            <span class="news-source">${news.source}</span>
+            <span class="news-time">${news.time}</span>
+            ${news.isOpinion ? '<span class="news-tag opinion">Opinião</span>' : ''}
+          </div>
+        </div>
+      `;
+      list.appendChild(item);
+    });
+  });
+
+  updateSummary();
+}
+
+function toggleSelect(id, checkbox) {
+  const item = checkbox.closest('.news-item');
+  if (checkbox.checked) item.classList.add('selected');
+  else item.classList.remove('selected');
+  updateSummary();
+}
+
+function updateSummary() {
+  const checked = document.querySelectorAll('.news-checkbox:checked');
+  const total = checked.length;
+  document.getElementById('selectedCount').textContent = total;
+  document.getElementById('summarySelected').textContent = total;
+
+  let hb = 0, mp = 0, re = 0;
+  checked.forEach(c => {
+    const id = parseInt(c.closest('.news-item').dataset.id);
+    const news = newsData.find(n => n.id === id);
+    if (news.category === 'HOMEBUILDERS') hb++;
+    else if (news.category === 'MALLS') mp++;
+    else if (news.category === 'REAL_ESTATE') re++;
+  });
+  document.getElementById('summaryHB').textContent = hb;
+  document.getElementById('summaryMP').textContent = mp;
+  document.getElementById('summaryRE').textContent = re;
+  document.getElementById('generateBtn').disabled = total === 0;
+}
+
+function filterCategory(cat, btn) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  renderNews(cat);
+}
+
+function selectAll() {
+  const all = document.querySelectorAll('.news-checkbox');
+  const anyUnchecked = Array.from(all).some(c => !c.checked);
+  all.forEach(c => {
+    c.checked = anyUnchecked;
+    const item = c.closest('.news-item');
+    if (anyUnchecked) item.classList.add('selected');
+    else item.classList.remove('selected');
+  });
+  updateSummary();
+}
+
+// =============================================================
+// UPLOAD PDF — APENAS ITAÚ BBA
+// =============================================================
+function simulateUpload() {
+  if (mockPdfQueue.length === 0) {
+    alert('No protótipo só tenho alguns PDFs de exemplo. Na versão real você arrasta os arquivos.');
+    return;
+  }
+  const pdf = mockPdfQueue.shift();
+  const list = document.getElementById('uploadedList');
+
+  if (pdf.accepted) {
+    const item = document.createElement('div');
+    item.className = 'uploaded-item';
+    item.dataset.accepted = 'true';
+    item.dataset.title = pdf.title;
+    item.dataset.url = pdf.url;
+    item.innerHTML = `
+      <span class="check">✓</span>
+      <div class="filename">${pdf.title}</div>
+      <button class="remove" onclick="this.parentElement.remove(); updatePdfCount()">×</button>
+    `;
+    list.appendChild(item);
+  } else {
+    // Rejeitado — mostra mensagem e remove sozinho após 4s
+    const item = document.createElement('div');
+    item.className = 'rejected-item';
+    item.innerHTML = `
+      <span class="x">✕</span>
+      <div class="info">
+        <div class="filename">${pdf.name}</div>
+        <div class="reason">Rejeitado: apenas relatórios do Itaú BBA são aceitos</div>
+      </div>
+      <button class="remove" onclick="this.parentElement.remove()">×</button>
+    `;
+    list.appendChild(item);
+    setTimeout(() => { if (item.parentElement) item.remove(); }, 5000);
+  }
+  updatePdfCount();
+}
+
+function updatePdfCount() {
+  const count = document.querySelectorAll('.uploaded-item[data-accepted="true"]').length;
+  document.getElementById('pdfCount').textContent = count + ' relatório' + (count !== 1 ? 's' : '');
+  document.getElementById('summaryReports').textContent = count;
+}
+
+// =============================================================
+// GERAR TEXTO DO CLIPPING
+// =============================================================
+function buildClippingText(format = 'whatsapp') {
+  const today = new Date();
+  const monthsShort = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const dateStr = today.getDate() + '/' + monthsShort[today.getMonth()];
+
+  const checked = Array.from(document.querySelectorAll('.news-checkbox:checked'));
+  const selectedIds = checked.map(c => parseInt(c.closest('.news-item').dataset.id));
+  const selected = newsData.filter(n => selectedIds.includes(n.id));
+
+  // PDFs aceitos (apenas Itaú BBA) — capturando título + URL
+  const pdfs = Array.from(document.querySelectorAll('.uploaded-item[data-accepted="true"]')).map(el => ({
+    title: el.dataset.title,
+    url: el.dataset.url
+  }));
+
+  const hb = selected.filter(n => n.category === 'HOMEBUILDERS');
+  const mp = selected.filter(n => n.category === 'MALLS');
+  const re = selected.filter(n => n.category === 'REAL_ESTATE');
+
+  if (format === 'whatsapp') {
+    let txt = `*Itaú BBA | Real Estate - Daily News (${dateStr})*\n\n`;
+
+    // Relatórios IBBA no topo, formato igual notícias (sem subheader)
+    if (pdfs.length > 0) {
+      pdfs.forEach(p => {
+        txt += `*${p.title}*\nLink: ${p.url}\n`;
+      });
+      txt += `\n`;
+    }
+
+    txt += `_Últimas Notícias_\n\n`;
+
+    if (hb.length > 0) {
+      txt += `*HOMEBUILDERS*\n\n`;
+      hb.forEach(n => {
+        const prefix = n.isOpinion ? 'Opinião/ ' : '';
+        txt += `*${prefix}${n.headline}*\nLink: ${n.url}\n\n`;
+      });
+    }
+    if (mp.length > 0) {
+      txt += `*MALLS & PROPERTIES*\n\n`;
+      mp.forEach(n => {
+        const prefix = n.isOpinion ? 'Opinião/ ' : '';
+        txt += `*${prefix}${n.headline}*\nLink: ${n.url}\n\n`;
+      });
+    }
+    if (re.length > 0) {
+      txt += `*REAL ESTATE*\n\n`;
+      re.forEach(n => {
+        const prefix = n.isOpinion ? 'Opinião/ ' : '';
+        txt += `*${prefix}${n.headline}*\nLink: ${n.url}\n\n`;
+      });
+    }
+
+    txt += `_IBBA | Real Estate Team_`;
+    return txt;
+  } else {
+    let html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#000">\n`;
+    html += `<h2 style="color:#000;margin:0 0 16px;border-bottom:2px solid #FF6200;padding-bottom:8px">Itaú BBA | Real Estate - Daily News (${dateStr})</h2>\n`;
+
+    // Relatórios IBBA no topo, formato igual notícias
+    if (pdfs.length > 0) {
+      pdfs.forEach(p => {
+        html += `<p style="margin:8px 0"><a href="${p.url}" style="color:#000;font-weight:bold;text-decoration:none">${p.title}</a></p>\n`;
+      });
+      html += `<br>\n`;
+    }
+
+    html += `<p style="font-style:italic;color:#6b6b6b;margin:16px 0 8px;font-weight:bold">Últimas Notícias</p>\n`;
+
+    if (hb.length > 0) {
+      html += `<h3 style="color:#FF6200;margin:16px 0 8px;text-transform:uppercase;letter-spacing:0.5px;font-size:14px">HOMEBUILDERS</h3>\n`;
+      hb.forEach(n => {
+        const prefix = n.isOpinion ? 'Opinião/ ' : '';
+        html += `<p style="margin:8px 0"><a href="${n.url}" style="color:#000;font-weight:bold;text-decoration:none">${prefix}${n.headline}</a></p>\n`;
+      });
+    }
+    if (mp.length > 0) {
+      html += `<h3 style="color:#FF6200;margin:16px 0 8px;text-transform:uppercase;letter-spacing:0.5px;font-size:14px">MALLS &amp; PROPERTIES</h3>\n`;
+      mp.forEach(n => {
+        const prefix = n.isOpinion ? 'Opinião/ ' : '';
+        html += `<p style="margin:8px 0"><a href="${n.url}" style="color:#000;font-weight:bold;text-decoration:none">${prefix}${n.headline}</a></p>\n`;
+      });
+    }
+    if (re.length > 0) {
+      html += `<h3 style="color:#FF6200;margin:16px 0 8px;text-transform:uppercase;letter-spacing:0.5px;font-size:14px">REAL ESTATE</h3>\n`;
+      re.forEach(n => {
+        const prefix = n.isOpinion ? 'Opinião/ ' : '';
+        html += `<p style="margin:8px 0"><a href="${n.url}" style="color:#000;font-weight:bold;text-decoration:none">${prefix}${n.headline}</a></p>\n`;
+      });
+    }
+
+    html += `<p style="font-style:italic;color:#6b6b6b;margin:24px 0 0">IBBA | Real Estate Team</p>\n</div>`;
+    return html;
+  }
+}
+
+// =============================================================
+// MODAL
+// =============================================================
+let currentFormat = 'whatsapp';
+function openModal() { document.getElementById('modal').classList.add('open'); renderPreview(); }
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function switchTab(format, btn) {
+  currentFormat = format;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderPreview();
+}
+function renderPreview() {
+  document.getElementById('preview').textContent = buildClippingText(currentFormat);
+}
+function copyText() {
+  const txt = buildClippingText(currentFormat);
+  navigator.clipboard.writeText(txt).then(() => {
+    const msg = document.getElementById('copiedMsg');
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 2000);
+  });
+}
+function openWhatsApp() {
+  const txt = buildClippingText('whatsapp');
+  window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+}
+
+// =============================================================
+// INIT
+// =============================================================
+const today = new Date();
+const daysShort = ['dom','seg','ter','qua','qui','sex','sáb'];
+const monthsShort = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+document.getElementById('dateBadge').textContent = `${daysShort[today.getDay()]}, ${today.getDate()}/${monthsShort[today.getMonth()]}`;
+document.getElementById('summaryDate').textContent = `${today.getDate()}/${monthsShort[today.getMonth()]}`;
+
+renderNews();
+updatePdfCount();
+</script>
+</body>
+</html>
