@@ -252,49 +252,58 @@ header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
 .manual-item .remove { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 20px; }
 .manual-item .remove:hover { color: var(--red); }
 
-/* Botão Atualizar agora */
-.atualizar-box {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--gray-light);
-  text-align: center;
+/* Botão Atualizar agora — no header */
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
 }
-.btn-atualizar {
-  width: 100%;
+.header-actions .date-badge {
+  margin-bottom: 0;
+}
+.btn-atualizar-header {
   background: var(--lime);
   color: var(--black);
-  padding: 13px 14px;
-  border-radius: 10px;
+  padding: 10px 18px;
+  border-radius: 8px;
   border: none;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   font-family: inherit;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
-.btn-atualizar:hover { background: #91b820; }
-.btn-atualizar:disabled { background: var(--gray); color: white; cursor: not-allowed; }
-.atualizar-status {
-  font-size: 12px;
-  color: var(--orange);
-  margin-top: 6px;
-  font-weight: 600;
-  min-height: 16px;
-}
-.atualizar-info {
+.btn-atualizar-header:hover { background: #91b820; }
+.btn-atualizar-header:disabled { background: var(--gray); color: white; cursor: not-allowed; }
+.atualizar-status-header {
   font-size: 11px;
-  color: var(--muted);
-  margin-top: 6px;
+  color: var(--white);
+  background: rgba(255, 98, 0, 0.85);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  min-height: 12px;
+  text-align: center;
 }
-.config-link {
+.atualizar-status-header:empty { display: none; }
+.config-link-header {
   font-size: 10px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  display: inline-block;
-  margin-top: 4px;
+  text-align: center;
 }
-.config-link:hover { color: var(--orange); text-decoration: underline; }
+.config-link-header:hover { color: var(--lime); text-decoration: underline; }
+
+/* Mobile: header vira coluna, botões empilham */
+@media (max-width: 600px) {
+  .header-actions { align-items: stretch; width: 100%; }
+  .btn-atualizar-header { width: 100%; justify-content: center; }
+}
 code {
   background: var(--gray-light);
   padding: 1px 5px;
@@ -417,7 +426,12 @@ code {
       <h1>Clipping Diário <span class="accent">·</span> Real Estate</h1>
       <div class="subtitle">Itaú BBA | Real Estate Team</div>
     </div>
-    <div class="date-badge" id="dateBadge">__DATA_STR__</div>
+    <div class="header-actions">
+      <div class="date-badge" id="dateBadge">__DATA_STR__</div>
+      <button class="btn-atualizar-header" onclick="atualizarAgora()" id="atualizarBtn">↻ Atualizar agora</button>
+      <div id="atualizarStatus" class="atualizar-status-header"></div>
+      <a href="#" onclick="configurarToken(); return false;" class="config-link-header">configurar token</a>
+    </div>
   </header>
 
   <div class="grid">
@@ -521,12 +535,6 @@ code {
           <button class="btn btn-primary" onclick="openModal()" id="generateBtn" disabled>Gerar clipping</button>
           <button class="btn btn-success" onclick="exportarDecisoes()" id="learnBtn">Salvar decisões pro aprendizado</button>
           <button class="btn btn-secondary" onclick="abrirHistorico()" id="histBtn">Histórico (<span id="histCount">0</span>)</button>
-          <div class="atualizar-box">
-            <button class="btn btn-atualizar" onclick="atualizarAgora()" id="atualizarBtn">↻ Atualizar agora</button>
-            <div id="atualizarStatus" class="atualizar-status"></div>
-            <div class="atualizar-info">Última atualização: <span id="ultimaAtualizacao">__DATA_STR__</span></div>
-            <a href="#" onclick="configurarToken(); return false;" class="config-link">configurar token</a>
-          </div>
         </div>
       </div>
     </div>
