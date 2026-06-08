@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Clipping Diário - Real Estate (2026-06-05)</title>
+<title>Clipping Diário - Real Estate (2026-06-08)</title>
 <style>
 :root {
   --black: #000000;
@@ -386,7 +386,7 @@ code {
       <div class="subtitle">Itaú BBA | Real Estate Team</div>
     </div>
     <div class="header-actions">
-      <div class="date-badge" id="dateBadge">2026-06-05</div>
+      <div class="date-badge" id="dateBadge">2026-06-08</div>
       <button class="btn-atualizar-header" onclick="atualizarAgora()" id="atualizarBtn">↻ Atualizar agora</button>
       <div id="atualizarStatus" class="atualizar-status-header"></div>
       <a href="#" onclick="configurarToken(); return false;" class="config-link-header">configurar token</a>
@@ -481,7 +481,7 @@ code {
           <h2>Resumo do clipping</h2>
         </div>
         <div class="card-body card-body-padded">
-          <div class="summary-row"><span class="label">Data</span><span class="value" id="summaryDate">2026-06-05</span></div>
+          <div class="summary-row"><span class="label">Data</span><span class="value" id="summaryDate">2026-06-08</span></div>
           <div class="summary-row"><span class="label">Relatórios IBBA</span><span class="value" id="summaryReports">0</span></div>
           <div class="summary-divider"></div>
           <div class="summary-row"><span class="label">Mantidas</span><span class="value" id="summaryKeep">0</span></div>
@@ -569,9 +569,9 @@ code {
 </div>
 
 <script>
-const NOTICIAS = [{"i": 0, "t": "Mercado hoje: Americanas (AMER3) vê avanço de acionista, Eztec (EZTC3) revela números de vendas e mais notícias das empresas da Bolsa", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/mercado-hoje-americanas-amer3-eztec-eztc3-empresas-bolsa/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 1, "t": "Desempenho de vendas deve melhorar ainda mais, diz CFO da MRV&Co", "u": "https://www.cnnbrasil.com.br/economia/negocios/desempenho-de-vendas-deve-melhorar-ainda-mais-diz-cfo-da-mrvco/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 2, "t": "Dividendos hoje: Multiplan (MULT3) distribui R$ 130 milhões em proventos; veja valor por ação", "u": "https://www.estadao.com.br/einvestidor/onde-investir/dividendos-hoje-multiplan-mult3-paga-milhoes-acionistas/", "s": "Estadão", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 3, "t": "Na NB Steak, um novo churrasco para os tempos de Ozempic", "u": "https://pipelinevalor.globo.com/google/amp/day-off/noticia/na-nb-steak-um-novo-churrasco-para-os-tempos-de-ozempic.ghtml", "s": "pipelinevalor", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 4, "t": "XP analisa ações de Eztec (EZTC3) e Trisul (TRIS3) após prévia operacional", "u": "https://www.estadao.com.br/einvestidor/onde-investir/eztec-eztc3-trisul-tris3-previa-operacional-analise-xp-investimentos/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 5, "t": "Ibovespa hoje: índice cai e vai para a faixa dos 127 mil pontos", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/ibovespa-hoje-opera-baixa-127-mil-pontos/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 6, "t": "Mercado financeiro hoje: debêntures da Petrobras (PETR4), Azul (AZUL4) fora de índices da B3 e dividendos do Carrefour (CRFB3); os destaques da Bolsa", "u": "https://www.estadao.com.br/einvestidor/cenarios-e-mercado/mercado-financeiro-hoje-petrobras-petr4-azul-azul4-carrefour-crfb3-ibovespa/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 7, "t": "Copasa, Equatorial, Raízen, Vibra, Brava e mais ações para acompanhar hoje", "u": "https://www.infomoney.com.br/mercados/copasa-equatorial-raizen-vibra-brava-e-mais-acoes-para-acompanhar-hoje/amp/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 8, "t": "Venda fracionada de GLP não faz sentido, diz Zylbersztajn", "u": "https://www.cnnbrasil.com.br/infra/venda-fracionada-de-gas-nao-faz-sentido-diz-zylbersztajn/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 9, "t": "À CNN, promotor critica perdão judicial a Monique: \"Queremos nulidade\"", "u": "https://www.cnnbrasil.com.br/nacional/a-cnn-promotor-critica-perdao-judicial-a-monique-queremos-nulidade/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 10, "t": "Betterware conclui aquisição de 100% da Tupperware na América Latina", "u": "https://mercadoeconsumo.com.br/04/06/2026/noticias-varejo/betterware-conclui-aquisicao-de-100-da-tupperware-na-america-latina/", "s": "Mercado&Consumo", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}];
-const STORAGE_KEY = 'dashboard_2026-06-05';
-const MANUAL_KEY = 'dashboard_manual_2026-06-05';
+const NOTICIAS = [];
+const STORAGE_KEY = 'dashboard_2026-06-08';
+const MANUAL_KEY = 'dashboard_manual_2026-06-08';
 const HISTORICO_KEY = 'dashboard_historico_clippings';  // não é por data — acumula tudo
 
 function carregar() {
@@ -790,7 +790,7 @@ function switchTab(format, btn) {
   renderPreview();
 }
 function buildText(format) {
-  const dataStr = '2026-06-05';
+  const dataStr = '2026-06-08';
   const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
   const parts = dataStr.split('-');
   const dateStr = parts.length === 3 ? parts[2] + '/' + meses[parseInt(parts[1])-1] : dataStr;
@@ -860,9 +860,9 @@ function salvarClippingNoHistorico() {
   if (todasKeep.length === 0) return;
   const hist = carregarHistorico();
   // Se já existe entry pra hoje, atualiza (sobrescreve, porque a mais recente é o final do dia)
-  const idxHoje = hist.findIndex(h => h.data === '2026-06-05');
+  const idxHoje = hist.findIndex(h => h.data === '2026-06-08');
   const entry = {
-    data: '2026-06-05',
+    data: '2026-06-08',
     timestamp: new Date().toISOString(),
     whatsapp: buildText('whatsapp'),
     email: buildText('email'),
@@ -1008,7 +1008,7 @@ function exportarDecisoes() {
       sugestao_ia: n.sug,
       decisao: decisoes[n.i],
       manual: false,
-      data: '2026-06-05',
+      data: '2026-06-08',
     }));
   // Manuais: sempre conta como "keep manual" (a IA aprende que essas DEVEM aparecer)
   const decisoesManuais = manuais.map(m => ({
@@ -1019,17 +1019,17 @@ function exportarDecisoes() {
     sugestao_ia: 'NOT_COLLECTED',
     decisao: 'keep',
     manual: true,
-    data: '2026-06-05',
+    data: '2026-06-08',
   }));
   const out = decisoesNoticias.concat(decisoesManuais);
   if (out.length === 0) {
     alert('Você ainda não marcou nenhuma notícia nem adicionou manual.');
     return;
   }
-  const blob = new Blob([JSON.stringify({decisoes: out, data: '2026-06-05'}, null, 2)], {type: 'application/json'});
+  const blob = new Blob([JSON.stringify({decisoes: out, data: '2026-06-08'}, null, 2)], {type: 'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'decisoes-2026-06-05.json';
+  a.download = 'decisoes-2026-06-08.json';
   a.click();
   alert(out.length + ' decisões exportadas (' + decisoesNoticias.length + ' do coletor + ' + decisoesManuais.length + ' manuais). Mande pra mim que eu mergeo no histórico.');
 }
