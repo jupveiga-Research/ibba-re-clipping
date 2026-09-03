@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Clipping Diário - Real Estate (2026-09-02)</title>
+<title>Clipping Diário - Real Estate (2026-09-03)</title>
 <style>
 :root {
   --black: #000000;
@@ -386,7 +386,7 @@ code {
       <div class="subtitle">Itaú BBA | Real Estate Team</div>
     </div>
     <div class="header-actions">
-      <div class="date-badge" id="dateBadge">2026-09-02</div>
+      <div class="date-badge" id="dateBadge">2026-09-03</div>
       <button class="btn-atualizar-header" onclick="atualizarAgora()" id="atualizarBtn">↻ Atualizar agora</button>
       <div id="atualizarStatus" class="atualizar-status-header"></div>
       <a href="#" onclick="configurarToken(); return false;" class="config-link-header">configurar token</a>
@@ -481,7 +481,7 @@ code {
           <h2>Resumo do clipping</h2>
         </div>
         <div class="card-body card-body-padded">
-          <div class="summary-row"><span class="label">Data</span><span class="value" id="summaryDate">2026-09-02</span></div>
+          <div class="summary-row"><span class="label">Data</span><span class="value" id="summaryDate">2026-09-03</span></div>
           <div class="summary-row"><span class="label">Relatórios IBBA</span><span class="value" id="summaryReports">0</span></div>
           <div class="summary-divider"></div>
           <div class="summary-row"><span class="label">Mantidas</span><span class="value" id="summaryKeep">0</span></div>
@@ -569,9 +569,9 @@ code {
 </div>
 
 <script>
-const NOTICIAS = [{"i": 0, "t": "A nova onda de investimentos em casa de campo de luxo no interior de SP | Real Estate", "u": "https://veja.abril.com.br/coluna/real-estate/a-nova-onda-de-investimentos-em-casa-de-campo-de-luxo-no-interior-de-sp/", "s": "VEJA", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 1, "t": "Preços de imóveis sobem acima da inflação mesmo com crédito caro, mostra FipeZap", "u": "https://www.infomoney.com.br/minhas-financas/precos-de-imoveis-sobem-acima-da-inflacao-mesmo-com-credito-caro-mostra-fipezap/amp/", "s": "infomoney.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": false}, {"i": 2, "t": "Conheça o novo condomínio de luxo lançado pela JHSF, com expectativa de R$ 7 bilhões em vendas", "u": "https://www.estadao.com.br/economia/negocios/conheca-o-novo-condominio-de-luxo-lancado-pela-jhsf-com-expectativa-de-r-7-bilhoes-em-vendas/", "s": "Estadão", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 3, "t": "Grife francesa, teatro, rooftop e mais: shopping mais antigo do Brasil prepara novidades aos 60 anos", "u": "https://exame.com/negocios/grife-francesa-teatro-rooftop-e-mais-shopping-mais-antigo-do-brasil-prepara-novidades-aos-60-anos/", "s": "Exame", "c": "MALLS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 4, "t": "Vinci conclui aquisição da plataforma imobiliária da Navi e adiciona R$ 800 milhões", "u": "https://valor.globo.com/google/amp/financas/noticia/2026/09/01/vinci-conclui-aquisio-da-plataforma-imobiliria-da-navi-e-adiciona-r-800-milhes.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "UNCERTAIN", "prio": true}, {"i": 5, "t": "ARZ capta R$ 200 mi para investir crédito imobiliário nos EUA, ‘que aguenta desaforo’", "u": "https://metroquadrado.com/investimentos/arz-capta-r-200-mi-para-investir-credito-imobiliario-nos-eua-que-aguenta-desaforo", "s": "MetroQuadrado", "c": "HOMEBUILDERS", "sug": "UNCERTAIN", "prio": true}, {"i": 6, "t": "Agenda de empresas: Motiva conclui venda de aeroportos; T4F fecha capital", "u": "https://valor.globo.com/google/amp/empresas/noticia/2026/09/02/agenda-de-empresas-motiva-conclui-venda-de-aeroportos-t4f-fecha-capital.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 7, "t": "Casas Bahia aprova fiança de mais de R$ 50 milhões ao Banco Digio; entenda a operação", "u": "https://www.estadao.com.br/em-alta/einvestidor/cenarios-e-mercado/em-recuperacao-judicial-casas-bahia-aprova-garantia-de-mais-de-r-50-milhoes-ao-banco-digio/", "s": "Estadão", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 8, "t": "Retorno de até 7,3%: 5 small caps para investir em setembro, segundo a Ágora", "u": "https://www.moneytimes.com.br/retorno-de-ate-73-5-small-caps-para-investir-em-setembro-segundo-a-agora/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 9, "t": "BB aposta em virada de ação do varejo e faz mudanças na carteira de small caps", "u": "https://www.moneytimes.com.br/bb-aposta-em-virada-de-acao-do-varejo-e-faz-mudancas-na-carteira-de-small-caps/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 10, "t": "Day trade: Compre Prio (PRIO3) e venda Metalúrgica Gerdau (GOAU4) para ganhar até 1,46% hoje (1), segundo a Ágora", "u": "https://www.moneytimes.com.br/day-trade-compre-prio-prio3-e-venda-gerdau-ggbr4-para-ganhar-ate-146-hoje-1o-segundo-a-agora-ceci/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 11, "t": "Raízen, B3, Motiva, EZ Tec, BB, IMC e mais ações para acompanhar hoje", "u": "https://www.infomoney.com.br/mercados/raizen-b3-motiva-ez-tec-bb-imc-e-mais-acoes-para-acompanhar-hoje/", "s": "infomoney.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 12, "t": "Dólar hoje opera perto da estabilidade antes de nova pesquisa eleitoral", "u": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-02092026/", "s": "infomoney.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 13, "t": "Liquidação de títulos se intensifica com temores sobre preços do petróleo e dívida", "u": "https://www.infomoney.com.br/mercados/liquidacao-de-titulos-se-intensifica-com-temores-sobre-precos-do-petroleo-e-divida/", "s": "infomoney.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 14, "t": "Ibovespa chega à 10ª alta seguida, com Petrobras, Vale e Bancos; Dólar cai", "u": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-01092026/", "s": "infomoney.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 15, "t": "Dividendos: 10 ações que mais pagaram proventos em 2026 — e uma chega a dividend yield de 12%", "u": "https://www.moneytimes.com.br/dividendos-10-acoes-que-mais-pagaram-proventos-em-2026-e-uma-chega-a-dividend-yield-de-12-ceci/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 16, "t": "10 ações com potencial de até 65% para investir em setembro, segundo BTG Pactual", "u": "https://www.moneytimes.com.br/10-acoes-com-potencial-de-ate-65-para-investir-em-setembro-segundo-btg-pactual-lmrs/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 17, "t": "Porto (PSSA3), Itaú (ITUB4) e mais: 8 ações para ter na carteira de dividendos em setembro", "u": "https://www.moneytimes.com.br/porto-pssa3-itau-itub4-e-mais-8-acoes-para-ter-na-carteira-de-dividendos-em-setembro-lmrs/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 18, "t": "Genial faz limpa na carteira de small caps: veja as 8 ações escolhidas para setembro", "u": "https://www.moneytimes.com.br/genial-faz-limpa-na-carteira-de-small-caps-veja-as-8-acoes-escolhidas-para-setembro/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 19, "t": "Vorcaro diz a Moraes que tem 'dívida de vida' com ministro e agradece por 'tudo', aponta PF", "u": "https://g1.globo.com/politica/noticia/2026/09/01/vorcaro-diz-a-moraes-que-tem-divida-de-vida-com-ministro-e-agradece-por-tudo-aponta-pf.ghtml", "s": "G1", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 20, "t": "Grupos evangélicos reforçam apoio à reeleição de Lula", "u": "https://www.cnnbrasil.com.br/blogs/jussara-soares/politica/grupos-evangelicos-reforcam-apoio-a-reeleicao-de-lula/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 21, "t": "Kinea: Eleição está mais apertada do que as pesquisas sugerem", "u": "https://www.infomoney.com.br/onde-investir/carta-kinea-agosto-2026-eleicoes/amp/", "s": "infomoney.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 22, "t": "Minha Casa Minha Vida abre inscrições nesta segunda em Miranda; cadastro vai até 30 de setembro", "u": "https://fdr.com.br/2026/09/01/minha-casa-minha-vida-abre-inscricoes-nesta-segunda-em-miranda-cadastro-vai-ate-30-de-setembro/", "s": "fdr.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 23, "t": "HBR Realty Empreendimentos Imobiliarios SA (HBRE3) Comparação de Pares e Ações Semelhantes", "u": "https://br.advfn.com/bolsa-de-valores/bovespa/hbr-realty-empreendiment-on-HBRE3/comparacao-de-pares", "s": "ADVFN", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 24, "t": "Secovi-SP realiza Condo Meeting para lançar novos portais da Enel, Sabesp e Comgás voltados a administradoras", "u": "https://secovi.com.br/secovi-sp-realiza-condo-meeting-para-lancar-novos-portais-da-enel-sabesp-e-comgas-voltados-a-administradoras/", "s": "SECOVI-SP", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 25, "t": "Saiba onde os imóveis mais valorizam em todo o Brasil", "u": "https://www.infomoney.com.br/minhas-financas/saiba-onde-os-imoveis-mais-valorizam-em-todo-o-brasil/amp/", "s": "infomoney.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 26, "t": "Demanda por carregadores de veículos elétricos em condomínios dispara no Brasil", "u": "https://portas.com.br/mercado-imobiliario/carregadores-carros-eletricos-condominios-crescimento-2026/", "s": "portas.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 27, "t": "Da liderança no GLP às soluções que impulsionam a transição energética", "u": "https://www.cnnbrasil.com.br/branded-content/nacional/da-lideranca-no-glp-as-solucoes-queimpulsionam-a-transicao-energetica/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 28, "t": "Por Que o BTG Pactual Prefere FIIs de Recebíveis e Aumentou Exposição a KNCR11 e KNIP11", "u": "https://forbes.com.br/forbes-money/forbes-real-estate/2026/09/carteira-recomendada-fiis-btg-setembro/", "s": "Forbes Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 29, "t": "Sao Carlos Empreendimentos Participacoes Sa (SCAR3) Comparação de Pares e Ações Semelhantes", "u": "https://br.advfn.com/bolsa-de-valores/bovespa/sao-carlos-on-SCAR3/comparacao-de-pares?peers=ASX%5ECWP%2CBOV%5EMTRE3%2CASX%5EPPC%2CNY%5EMMI", "s": "ADVFN", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 30, "t": "Vale, Fleury e Allos pagam dividendo nesta quarta-feira, 2. Veja:", "u": "https://financenews.com.br/2026/09/vale-fleury-e-allos-pagam-dividendo-nesta-quarta-feira-2-veja/", "s": "financenews.com.br", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}];
-const STORAGE_KEY = 'dashboard_2026-09-02';
-const MANUAL_KEY = 'dashboard_manual_2026-09-02';
+const NOTICIAS = [{"i": 0, "t": "EXCLUSIVO. Itaú perto de fechar com a Eztec a maior locação da história de SP", "u": "https://metroquadrado.com/comercial/exclusivo-itau-perto-de-fechar-com-a-eztec-a-maior-locacao-da-historia-de-sp", "s": "MetroQuadrado", "c": "HOMEBUILDERS", "sug": "LIKELY_KEEP", "prio": true}, {"i": 1, "t": "Fundos imobiliários: por que os galpões logísticos estão resistindo melhor à pressão do mercado?", "u": "https://valorinveste.globo.com/produtos/fundos-imobiliarios/noticia/2026/09/03/fundos-imobiliarios-por-que-os-galpoes-logisticos-estao-resistindo-melhor-a-pressao-do-mercado.ghtml", "s": "Valor Investe", "c": "MALLS", "sug": "UNCERTAIN", "prio": true}, {"i": 2, "t": "Bilionários fazem novas doações a candidatos do PSB e União nas eleições de 2026", "u": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/02/bilionarios-fazem-novas-doacoes-a-candidatos-do-psb-e-uniao-nas-eleicoes-de-2026.ghtml", "s": "Valor Econômico", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 3, "t": "Empresário convidado por Lula para jantar no Alvorada doou R$ 100 mil a Nikolas Ferreira", "u": "https://oglobo.globo.com/google/amp/blogs/lauro-jardim/post/2026/09/empresario-convidado-por-lula-para-jantar-no-alvorada-doou-r-100-mil-a-nikolas-ferreira.ghtml", "s": "O GLOBO", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": true}, {"i": 4, "t": "Ativa renova carteira de small caps com duas trocas", "u": "https://www.spacemoney.com.br/investimentos/carteiras-recomendadas/carteira-small-caps-ativa-setembro/", "s": "SpaceMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 5, "t": "Mercado de BH vende 12 mil imóveis, enquanto crédito imobiliário recua 1,4% em Minas", "u": "https://portas.com.br/dados-inteligencia/mercado-de-bh-vende-12-mil-imoveis-enquanto-credito-imobiliario-recua-14-em-minas/", "s": "portas.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 6, "t": "CNJ libera inventário em cartório antes do imposto sobre herança", "u": "https://portas.com.br/investimentos/legislacao-tributacao/cnj-libera-inventario-em-cartorio-antes-do-itcmd-mas-fazendas-estaduais-contestam/", "s": "portas.com.br", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 7, "t": "Quem ganha a corrida presidencial? Citi indica ações para investir no caso de vitória de Lula ou Flávio Bolsonaro", "u": "https://www.moneytimes.com.br/quem-ganha-a-corrida-presidencial-citi-indica-acoes-para-investir-no-caso-de-vitoria-de-lula-ou-flavio-bolsonaro/", "s": "Money Times", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 8, "t": "IA e varejo entram no debate sobre futuro do setor de materiais de construção", "u": "https://www.infomoney.com.br/economia/ia-e-varejo-entram-no-debate-sobre-futuro-do-setor-de-materiais-de-construcao/", "s": "InfoMoney", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 9, "t": "Haddad questiona sigilo de processo de Flávio e critica \"seletividade\"", "u": "https://www.cnnbrasil.com.br/eleicoes/haddad-questiona-sigilo-de-processo-de-flavio-e-critica-seletividade/", "s": "CNN Brasil", "c": "HOMEBUILDERS", "sug": "LIKELY_DROP", "prio": false}, {"i": 10, "t": "LOG Commercial Properties Participacoes SA (LOGG3) Comparação de Pares e Ações Semelhantes", "u": "https://br.advfn.com/bolsa-de-valores/bovespa/log-commercial-on-LOGG3/comparacao-de-pares?peers=T%5ESVI%2CBOV%5EHBOR3%2CBOV%5EMDNE3%2CBOV%5ELAVV3", "s": "ADVFN", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 11, "t": "O turista também deveria fazer parte da área de influência do shopping", "u": "https://mercadoeconsumo.com.br/03/09/2026/artigos/o-turista-tambem-deveria-fazer-parte-da-area-de-influencia-do-shopping/", "s": "Mercado&Consumo", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}, {"i": 12, "t": "FIIs descontados criam oportunidade? Empiricus troca dois fundos na carteira de setembro", "u": "https://www.moneytimes.com.br/fiis-descontados-criam-oportunidade-empiricus-troca-dois-fundos-na-carteira-de-setembro/", "s": "Money Times", "c": "MALLS", "sug": "LIKELY_DROP", "prio": false}];
+const STORAGE_KEY = 'dashboard_2026-09-03';
+const MANUAL_KEY = 'dashboard_manual_2026-09-03';
 const HISTORICO_KEY = 'dashboard_historico_clippings';  // não é por data — acumula tudo
 
 function carregar() {
@@ -790,7 +790,7 @@ function switchTab(format, btn) {
   renderPreview();
 }
 function buildText(format) {
-  const dataStr = '2026-09-02';
+  const dataStr = '2026-09-03';
   const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
   const parts = dataStr.split('-');
   const dateStr = parts.length === 3 ? parts[2] + '/' + meses[parseInt(parts[1])-1] : dataStr;
@@ -860,9 +860,9 @@ function salvarClippingNoHistorico() {
   if (todasKeep.length === 0) return;
   const hist = carregarHistorico();
   // Se já existe entry pra hoje, atualiza (sobrescreve, porque a mais recente é o final do dia)
-  const idxHoje = hist.findIndex(h => h.data === '2026-09-02');
+  const idxHoje = hist.findIndex(h => h.data === '2026-09-03');
   const entry = {
-    data: '2026-09-02',
+    data: '2026-09-03',
     timestamp: new Date().toISOString(),
     whatsapp: buildText('whatsapp'),
     email: buildText('email'),
@@ -1008,7 +1008,7 @@ function exportarDecisoes() {
       sugestao_ia: n.sug,
       decisao: decisoes[n.i],
       manual: false,
-      data: '2026-09-02',
+      data: '2026-09-03',
     }));
   // Manuais: sempre conta como "keep manual" (a IA aprende que essas DEVEM aparecer)
   const decisoesManuais = manuais.map(m => ({
@@ -1019,17 +1019,17 @@ function exportarDecisoes() {
     sugestao_ia: 'NOT_COLLECTED',
     decisao: 'keep',
     manual: true,
-    data: '2026-09-02',
+    data: '2026-09-03',
   }));
   const out = decisoesNoticias.concat(decisoesManuais);
   if (out.length === 0) {
     alert('Você ainda não marcou nenhuma notícia nem adicionou manual.');
     return;
   }
-  const blob = new Blob([JSON.stringify({decisoes: out, data: '2026-09-02'}, null, 2)], {type: 'application/json'});
+  const blob = new Blob([JSON.stringify({decisoes: out, data: '2026-09-03'}, null, 2)], {type: 'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'decisoes-2026-09-02.json';
+  a.download = 'decisoes-2026-09-03.json';
   a.click();
   alert(out.length + ' decisões exportadas (' + decisoesNoticias.length + ' do coletor + ' + decisoesManuais.length + ' manuais). Mande pra mim que eu mergeo no histórico.');
 }
