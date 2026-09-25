@@ -1,0 +1,609 @@
+{
+  "generated_at": "2026-09-25T14:06:38.557965",
+  "window_hours": 24,
+  "total_raw": 464,
+  "total_unique": 364,
+  "total_aprovadas_fonte": 62,
+  "total_aprovadas_final": 28,
+  "by_category": {
+    "HOMEBUILDERS": 18,
+    "MALLS": 10
+  },
+  "by_source": {
+    "Valor Econômico": 2,
+    "Folha de S.Paulo": 1,
+    "Estadão": 3,
+    "ADVFN": 1,
+    "Money Times": 7,
+    "UOL Economia": 1,
+    "Guia do Investidor": 1,
+    "Mercado&Consumo": 1,
+    "SpaceMoney": 1,
+    "O GLOBO": 1,
+    "Exame": 1,
+    "infomoney.com.br": 1,
+    "SECOVI-SP": 1,
+    "G1": 2,
+    "portas.com.br": 1,
+    "financenews.com.br": 2,
+    "InvestNews": 1
+  },
+  "stats_per_keyword": {
+    "Cyrela": 4,
+    "CYRE3": 5,
+    "EZ Tec": 1,
+    "Eztec": 2,
+    "EZTC3": 1,
+    "Even construtora": 0,
+    "EVEN3": 5,
+    "Helbor": 0,
+    "HBOR3": 1,
+    "Mitre Realty": 0,
+    "MTRE3": 0,
+    "Moura Dubeux": 8,
+    "MDNE3": 1,
+    "Melnick": 2,
+    "MELK3": 0,
+    "Lavvi": 0,
+    "LAVV3": 0,
+    "LPS Brasil": 1,
+    "Lopes corretora": 0,
+    "LPSB3": 0,
+    "Trisul": 0,
+    "TRIS3": 0,
+    "Cury construtora": 2,
+    "CURY3": 3,
+    "Direcional Engenharia": 4,
+    "DIRR3": 3,
+    "MRV Engenharia": 4,
+    "MRVE3": 5,
+    "Plano&Plano": 1,
+    "PLPL3": 0,
+    "Construtora Tenda": 4,
+    "TEND3": 4,
+    "imóveis residenciais": 26,
+    "mercado imobiliário residencial": 58,
+    "FGTS habitação": 7,
+    "Minha Casa Minha Vida": 52,
+    "construtora Brasil": 10,
+    "incorporadora imobiliária": 4,
+    "lançamentos imobiliários": 33,
+    "VSO vendas sobre oferta": 0,
+    "INCC": 4,
+    "Caixa habitacional": 12,
+    "crédito imobiliário": 45,
+    "SFH sistema financeiro habitação": 2,
+    "LIG letra imobiliária garantida": 0,
+    "poupança SBPE": 0,
+    "Iguatemi Empresa": 13,
+    "IGTI11": 6,
+    "Allos shoppings resultados": 0,
+    "ALOS3": 0,
+    "Multiplan": 6,
+    "MULT3": 0,
+    "JHSF": 7,
+    "JHSF3": 0,
+    "LOG Commercial Properties": 4,
+    "LOGG3": 3,
+    "BR Properties": 2,
+    "BRPR3": 0,
+    "São Carlos Empreendimentos": 0,
+    "SCAR3": 0,
+    "GLP logística Brasil": 4,
+    "Bresco logística": 0,
+    "BRCO11": 0,
+    "BRC logística": 0,
+    "Prologis Brasil": 0,
+    "Cyrela Commercial Properties": 0,
+    "CCPR3": 0,
+    "JFL Living": 1,
+    "Vitacon": 0,
+    "General Shopping": 1,
+    "GSHP3": 0,
+    "Hines real estate": 0,
+    "HSI gestora imobiliária": 0,
+    "shopping center Brasil": 11,
+    "galpão logístico": 3,
+    "lajes corporativas": 8,
+    "escritórios São Paulo": 53,
+    "fundo imobiliário shopping": 11,
+    "vacância escritórios": 1,
+    "ABL área bruta locável": 8,
+    "cap rate imóveis": 5,
+    "NOI shopping": 2
+  },
+  "ia_ativa": true,
+  "news": [
+    {
+      "title": "Greve na Caixa afeta incorporadoras e já preocupa setor imobiliário - Valor Econômico",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNbC1NM0w2UWlQMWJZUURxSDczUGs5UHpqRlkwdDY5aExLdFJHTXIxQmRlVDhGeElTaGZrRENuaW5LeGJDWTNrQnMwM3VSTl8ya2tPRllBT0p2MFpRXzllaWdjSmRzVmF5RFhDZGF3UkJmWjJ1UUJ5VThLUUVJeVFBN2gyQzkzYWRZNTNVTHMySU14d2d6YUc0ZEFhdDdYZF8xZ0pWR21oc1BXR2VOZHpfS3laa1kwbUNTcElXT1BTNFZNVklaUFdxMno4c2nSAdsBQVVfeXFMTzU5X215OG14V1pKUVZpR3Njb2pYazlRUXFLcTg0aU1mZTF1T2RrYTFNaEZ6SzFFaHc1US1XRHFUUGYtY29kTWFuX3FtRFVSc0wtTkl5NVhIeFJaMHJoXzVyWDkwN1VFamp5OHRsQnhmdk56WlRoeGRxUXRPcUxhU0d4aWQ4aXFtc0ZsSGNRQnhVNDJSVS11cGM5eEU0WWRVeEJaM0hfV2djczRpd2xHMzBJckpTcy00UkJ1WThfQkZBZ3dvazFTQ0l0ekpTX3R5LTA1VGJtLXNoZWFR?oc=5",
+      "source": "Valor Econômico",
+      "pub_date": "2026-09-24T21:17:59+00:00",
+      "search_term": "Minha Casa Minha Vida",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "TST deve julgar dissídio dos trabalhadores da Caixa na terça-feira (29) - Folha de S.Paulo",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPV2s2emk1a3RDcU5rYkdPZk01bmxwWmVwOWZmTnNyTTBuVVhXNEdtd2VUM3ZUb2ZRWFRkMF9XRm51MUFkUUVwSGhCZW5mR2xpckpxSmlOMDU2bUwxVV9mQ1JJMG5qM0M4eWl0SENpbmQwZDIxeGJOTlBITjJWcW1sQTZQYVVXc3cxYlJ1NmhvV2pPQTFxLW1HcWZ1SmNiU2FCWHZXME04V05Iakx4Vmg3Uzgxdm1TVjFtZEpHc093?oc=5",
+      "source": "Folha de S.Paulo",
+      "pub_date": "2026-09-24T20:10:00+00:00",
+      "search_term": "Caixa habitacional",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "Tenda amplia projetos nas faixas mais altas do Minha Casa, Minha Vida - Estadão",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMFlta1MyQ0kzdEtsMXVLYzRfWml1OFZsWU5DMDVlV1R5MjVmbEdJM3pwNGw0c3ZHSG1TMDlWNjh4SnFUWmY1Qnl3RWQwS3BiUFZlakthVXl1VW1hQzUxZVZTdm84TnVaOTkycEFXMVJsNk4wU2xGWEZiSnJ6bTNYbUtJdktQZi1QOVJOZTJqbHl3Z1B5Qm1GemNYcEFOeVR1WUhTWkRkaFJfc3VFQWFXcXcyRmFDU1RrNHd0OFBVVl9tck1VbDlFRg?oc=5",
+      "source": "Estadão",
+      "pub_date": "2026-09-24T15:22:32+00:00",
+      "search_term": "Minha Casa Minha Vida",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "MRV registra na CVM oferta de FII Luggo com potencial de R$ 166 milhões - ADVFN",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVmh6VDJHR0lzQjloUG1pZUxEMUp3Q3RrcEZ4SnMyNEF6SFdVcEdlZUNZWGxpYU90MjZpcFNrcy02RTU4Y0xOR2dEaWFNNXhMRjZkZ3lZakJfaXB4eXlHV1Q0QmF3bF9tTnVPWHo1X0Mtd0pYWEgySlo2MTdJYWxQczFrNG91RkJSdkpja3h5WnZ0eFI5cHN6WDJ1NlU1QVc1VTl0b1JVZlV0UQ?oc=5",
+      "source": "ADVFN",
+      "pub_date": "2026-09-24T14:41:02+00:00",
+      "search_term": "MRV Engenharia",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Ação em disparada de 500%: Com ROE de quase dois Itaú, Tenda (TEND3) é caso 'raro' na bolsa, diz CFO - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPQVBNSkpUR3E0TEpJcGd5cENLRW5KTlJFdUl3eDdqdTlteWFwY0x6SjhaTk5rSjhYS1d2WEN2WEdKcTNCeEd0TkwtVlF6cTVwSXB5ZzBMWm93NWtUaDFvQm1Gb1g2d3M4WkxxTHJLN0M2UGxUZVcyMElCOWxJNEFWdEVyaG1aZDdCTkkyLWtpY0gtbTVDOVVfaWZMMVRVSmxMN2ptRVo5T2Y3YWN6bTZoRVY1S3RweXA0LU93RDBYRUd4cFBHTFVv?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-24T21:02:03+00:00",
+      "search_term": "Construtora Tenda",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "INCC-M desacelera a 0,25% em setembro, após alta de 0,85% em agosto, revela FGV - UOL Economia",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQb0FDQ3Y2NlpoYkFVaTFuMGw4RzVwdjVfYnRCNG54ZUR4aGY2SklHRnBOSnF1Nm5CcDNEcTVGNE9lbVgyb2Znb2pTMW9oTnZSblZLV3Y3dWRfOTZHZk5aZE1udDRoNDlrSFBxX216QXpfV0FRVlpPWmE4d0hvZGVuVXJrSWREbWRrVE50dThXQmpyZi1nZFNLYk5wUUs3bEFtYWprcDhoaDBheTRpX0E1eElpVHV4NHVVNE15MzdFU1l0RzRreTdZWU9yVE1oTkNhS0lyRXNMd3ozdw?oc=5",
+      "source": "UOL Economia",
+      "pub_date": "2026-09-25T11:34:00+00:00",
+      "search_term": "INCC",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "IGTI11 fecha negócio de R$ 876 milhões e vende participação em cinco shoppings - Guia do Investidor",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQUjNvd254U2pYREh3UHFHVTZmVFphSHFuVjZJVklXbmxXQlB6TTNKQzRmR2w2aWRpX09INWFaM0dHd1d5NE42THhtSHkzV1pST0FQemZ6QUtpdjZWckJUc2FVRkcxVUFYYkFDdUpUU0hKcG41emg2UmdUWU9IRTd0cXNkdFdGaE9SRjU5TzI1Zm1RMTJIUFhFcHdCbWhuMV9hUlJSYUh5NkZ0ZjByRXNBdDNJU3NoTXpfN0E?oc=5",
+      "source": "Guia do Investidor",
+      "pub_date": "2026-09-24T21:06:01+00:00",
+      "search_term": "Iguatemi Empresa",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "JHSF inaugura loja de departamento de 4 mil m² em shopping de SP - Mercado&Consumo",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMG9JVmg3NUhTdzhwX3NDZDJNdmtKQ3VoajZfOHZZX2d5UVB5VkxNazdRQXRsTmNwTVB6T241YUVPZ2YwZzBBbksyMmh0UnNaR0hkRTZLR3Jkd05sdHktMjNCMW5HXzFGRlY4T2dPODZmS21SdE5EU09SWmdNRUYzQi1SZHBDYjM4cDZhTzFFdU5OeGpsdm1uQjRuSU9MUldNOUdJdFlFclc0XzhDdGRpTkpDYUFfdWN1OXp2dnN3OHQzQ3Q4NFYxQ9IBzgFBVV95cUxPaEhJZ0dGcVJRLTdIS2laVVgyOFBNcUVmWC1PeWdsa1VWVWU4c3dRdnRwZXhHdWU5ajFKbHRzdXM5MGd6eEx0dDdaU1BWZ1VncnJKNWtpVVZCQnFKV0NvYlI2NWlkQThWVW1ISjBuVGFYVlU4WUV0dHRxU3VzVzRJRnBrc3YxS2ZscHhGSnZzQ3VLTkEwczl1MWIxZUhfT19IQVpYTHNVVGQzb1lpN1hnLW1YUUUwNHJzWUtka2dSdWpkQXBjODN6eUt3SEZiQQ?oc=5",
+      "source": "Mercado&Consumo",
+      "pub_date": "2026-09-25T06:02:42+00:00",
+      "search_term": "JHSF",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_KEEP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Itaú aluga Esther Towers e muda mapa de escritórios de SP - SpaceMoney",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZTJ4VE93NkNnanhQeTBtY1BUcjhiRE5uRnBoYU5MMXoxdkZGRkdHSzc3ZGJwZ0hXM2EtVUpNb2hUallERjlQdVVpRVkzLXBqVlI4eXFnR096cXpIamRudEVoTzJzazh2MWhDVU9hVjFYQmhBZlhPZ0IxRnFzMHRJaHhxSXdxZw?oc=5",
+      "source": "SpaceMoney",
+      "pub_date": "2026-09-24T20:39:09+00:00",
+      "search_term": "Eztec",
+      "category": "MALLS",
+      "sugestao_ia": "UNCERTAIN",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Dividendo à vista? Fundo imobiliário vende lajes corporativas por R$ 114 milhões e estima ganho de R$ 0,66 por cota - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQZVlqTFVRbjVBOENMcmVNSzg5SjNYcjhBUXVTX2otbmJTT25xdHZIcnh5MVV0a213aUF5VWdqMHR0YlYzYmxSMHBfTzloZUYzRHBNRFhTNm1PNlZOUGZoREFRMGdaLXZSNWJBZkdTVnp6ZFptZ1c0cWtCM3BxWWZ0MlVfQzBjc3MwZ2pIYlVKQjVfY3RXa1I4WTlKS09zMS1qdVNsMnBJTjl1WGlHa0M0eXZoQkhTR2VvVHFrYTVVQzlpN0cwejdyZTRqQ1JuUVhXWl93MTVmZE5WamI3REoyTw?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-25T12:13:00+00:00",
+      "search_term": "lajes corporativas",
+      "category": "MALLS",
+      "sugestao_ia": "UNCERTAIN",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Fundo imobiliário vende galpões e reinveste recursos em projeto para o Mercado Livre; IFIX recua - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPUmxlSzgxbk04SUpaX2c2VGRuRkRseWI5Zk1UaFFWQS02a095cHVXUVE5SXo1cXU2M3I4eE1TNDdEQ1U5bHMwVndzZG9NR1MwbFFUV0pWYTY4cjctVU5oN04tQmpvZ1ZZMWVzV0lLSThaTzNoRUpGWnBBd0FXUWZfdVlrdlB2bU5zMHFyTjB4b2RYZGZGeDB2NzFObEtCUWJuM1RScGYzWG9BU25qV05tYUg0N0JwWGJQcVY5T25HQ0NfZ0kxdDVTUWJHVQ?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-25T10:54:00+00:00",
+      "search_term": "ABL área bruta locável",
+      "category": "MALLS",
+      "sugestao_ia": "UNCERTAIN",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "“Em um país com tantas oscilações de mercado, é preciso ter agilidade para mudar de curso se for necessário” - Valor Econômico",
+      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNY08xbGhXRVZyNTBHQlBaVnVTbVFWTUtTZ01Vakw1eGcybkNWV2dwLThEOTd2Zng1cG85YVdEOXM1d1kxTWRyYVdhVnBFNXlvb3NuSnM2bmF4c0phUUhObWM3VWN0NUFMLUZLNk9UYWd0VGtzZVg5ckNjNTk2a1gwQUYyWm40bkFqTXl2ZEFROXpSRWpoZkcwOXVRalFGVFlURGRBOVFQSWlGNm9LN3pyM3RmSU5iVVpGSGFyZmlfV2s3WDFzcDhkN0NfSUw1RmQ0VEotM1RIZnhmN2FRZGFRaG9NTkYtbEUwckxSLXBtX3BSdkczWFV3Y0lKLTdaakRreVc5WWxFUGtQc2RQOEZOLdIBnwJBVV95cUxNU1pCNkxZZWpWMHNXYndSQUJ1bWJDSThXa1VLQ0hDLU80UVEteWFSby1RVHRwSm9wNTdZdXEwNXBzZmk5RFNxVVhLRThpS1Qzd01YdXNrVm9qYnd5Q1NNY1FqXzFIY010M0x0R3JGNHJhREdRZ213Q2hxaDNTOE53cTFYQ0xqWHNWQ3Z5TmQ3aDJ1SWo5TnR6VDI2NWdFYUVDWlAwaHFSX1FwaFBJdzVDOVdlYTZLek5lQVlMcktrLW45VXllS2s5bHJDVHMtNW5zMkV5cXVNNEdnalF5MWpIUlUyVXdoYW1hZkNESUsxYWhJOXp0TDVOaVNuQ3d3MEM1aEJQNzlUT1dJdTVIQUN2YXphSWh4ZGMwODVQWjhCbw?oc=5",
+      "source": "Valor Econômico",
+      "pub_date": "2026-09-25T10:51:28+00:00",
+      "search_term": "incorporadora imobiliária",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "Huawei lança cinco novos relógios e fone de ouvido no Brasil; confira especificações e preços - Estadão",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQajg0ZTJVZDlQczJsOFhnNVMxR3VOUzFQR0ZMbkFQQ1Y2Zm1LY0xwX2N4bTBSQ3laS3FMcWNWUVZVSHVWVzlIWUlMeWk3R01EUXpnQjJndmRzUkhucHM2blpZLVl6OU9fMW85MkdZVllzSlRjUXFzZVBRV1NYeGg3d1ZrOWRvV25FcHpzMGotcEd4QmpFRmhoNUhxZjBZMXZmWVVCdExGUlA5RlpuZzdGcllwR3ZaZkdvdlVzcG9udnoxQkdQT3habTdEZ2o0ZDJqR2040gHYAUFVX3lxTE04Y0p0STE1X0hoTlAzcHpIVFJvNUxPb05iLW4wMk5PWUtJR05hNXg2UjVueWUyTUZpU0QtelBLM01iNUdxRnV4MnEyZFlMTHY4THg4QkUwTXBTM1k4U2J2MzlLUzRhVHpsejVmckFZTTJ3SnhONk1XMEdCTXp5SVNhOXl2R25JNG02VnhSVHh1NVcxVVR3MjQwZHRlN3VnOTBoc3QzRzVXalBhb19ydTVzWWsyeGVQYTNZblhIaFJKVDFTS2N3Ym9UaDNxS0U4bERyQjhfczVsSA?oc=5",
+      "source": "Estadão",
+      "pub_date": "2026-09-24T23:51:15+00:00",
+      "search_term": "shopping center Brasil",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "Sophia Martins analisa imóveis menores e o m2 cada vez mais valorizado no Brasil - O GLOBO",
+      "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQNEZRb055VjhudFlCcnYzd1QzcTU0RDlPT3NMdkEtY0t5QkVqMExLazIzWUxqRFhuNHpFZGVoeE8zdHhoR1dPRmxDSHVSUWtzczlCcTc5UWNkaUVoT0pId3FFaG4zWWhhUlpGRFlkRTdJM19PVUNRQUR4TWtOUW1wWDJPb2NYblVCVmJYLWJWVmhNS1h0R2Y5TzN5QWdjMWxISmFvOGhaMk5yVUxTZFBaazRRamluaEhiaVBGSjdMdDRJc0FhdExhUzVlVG1HZkJ3ZDR4NkJ3UldQa1Vnbno5MUxZRmI4dDhyOGlSZzB6Q2xWcFZlVnFDenhyONIB-wFBVV95cUxQNEZRb055VjhudFlCcnYzd1QzcTU0RDlPT3NMdkEtY0t5QkVqMExLazIzWUxqRFhuNHpFZGVoeE8zdHhoR1dPRmxDSHVSUWtzczlCcTc5UWNkaUVoT0pId3FFaG4zWWhhUlpGRFlkRTdJM19PVUNRQUR4TWtOUW1wWDJPb2NYblVCVmJYLWJWVmhNS1h0R2Y5TzN5QWdjMWxISmFvOGhaMk5yVUxTZFBaazRRamluaEhiaVBGSjdMdDRJc0FhdExhUzVlVG1HZkJ3ZDR4NkJ3UldQa1Vnbno5MUxZRmI4dDhyOGlSZzB6Q2xWcFZlVnFDenhyOA?oc=5",
+      "source": "O GLOBO",
+      "pub_date": "2026-09-24T14:52:27+00:00",
+      "search_term": "lançamentos imobiliários",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "As Melhores empresas | As empresas que figuram nos rankings de MELHORES E MAIORES - Exame",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVldPeFVfcVpDVW9BYnIyaGprcC1IaFhZTVhmMTd4NEp1RTdkLUxHOVl5aW51TlFQWW8zMVhUcHFhQTB1SDRJUGF0OE1weXBMTzRxcDNKVldyQVlRZFBqcmZKWFVOcUh5SktHVkFtdEJtNFFiYXYyTjhZNjZOQzIzbkk4TGIzTjJ2azFQS0t6UVZUTEZpSGZNX3J0RThPUQ?oc=5",
+      "source": "Exame",
+      "pub_date": "2026-09-25T00:49:06+00:00",
+      "search_term": "Cury construtora",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "CURY3, TEND3, DIRR3: O céu está nublado para as incorporadoras do segmento econômico; veja em qual investir - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOWmZ1SGxIZGFLMVI2aHdNeHFnMGVITDBLakRva1hodXN1Z2lXQV9WTUgyMnRReUdLdUR3UHRxUkI5amVBNG1wZ2J5N3NVY1NJLS1Bdy1JcVFYbTlZWmhCejZmUDZwZDBZV05tcnRHQ0NzeGdkOGZyUk1QdVJZMlJubUQyLW5tdHZkUlBPVml0ZHVhbFVRTXdFT1lxTjJaNGpRM3BPZWlyLUhfaTA?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-25T13:25:00+00:00",
+      "search_term": "Cyrela",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Apenas 13 empresas da B3 mantiveram o ROE em alta desde 2022; veja a lista - infomoney.com.br",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPQXM4a0VoZ2p2VXM1NVU0SFdkR1FMMGhWSkdlV3AxdU9COEJTS3duSzdJTlh5eGp4eVNmZEg4SmVUR0hNZXpacUtIS1NqV29fRFdzSlhMMTNEMVVLR0RLbGloN1R4OE9fZ3J2TDJJMG14VkNhMDZzcGR3a09ZeHRaZTFaNER0a0N0UmlSMU01RVctMzBFTVZkaWtGSTlTeDY4WnBOQXJGZ1RjeXpiSGduMjBn0gG3AUFVX3lxTE1zV2hkNk91VjNwODZ3a1pBOXdiajlFVEZTQzVfcWtWQnRxOVdNb3AzNHhhaG1aMW5MVHZRMC1Rd1JwckRHOGo3eUlDUWhOZDJuWGxVSWxVdjJDVE9SSGdGVkNRNDBHaEdYWlpidG15bUVEYTYtcjNMY0ZTMVQ5bnQ4amcwdGcwNFdPSjFfQkJDZHhLemltRTNFbjJIODQxa3hHTXQ1RjhWM0lESE1ZYkJpOFZSOUpyMA?oc=5",
+      "source": "infomoney.com.br",
+      "pub_date": "2026-09-24T15:45:31+00:00",
+      "search_term": "Moura Dubeux",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Tempo real: Ibovespa cai com IPCA-15 mais forte que o esperado; dólar tem leve alta - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5OeGJKOTdETG85LXBqR1cta0JXX0tBWFk0R19rQlF2LW05bmVuTWttVDBucFBkV2Y3RXR3YUZITm82Ul90UXZSbWxKOWF5NGU3OXlHSW5xYlVIQTNQU3JwY2drN1ZvRnZnT2NB?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-25T13:17:22+00:00",
+      "search_term": "CURY3",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Setor imobiliário debate soluções baseadas na natureza para enfrentar mudanças climáticas nas cidades - SECOVI-SP",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPYi1aNHRvdktpS3hCa05oUDhwWW9sZWszelh0NGZZQjgyS29pemhSTEo2UHBkOC1Pb21YY2xNbDR1MkhuS0pzRGpKMi10UXpEaVpVeHBDTGRBeXJGdFdacHBNQWlmdWdsXzkzbFRfaWhjTTZicmtoM0I4SmJvdVVLQnNTQk9iVmVBa1UxQmZzeUFPdVlEd3FQUGRGUllkX1hIQ1JNellUcjVGcjEtNjhrbUxUbzMyZjBwYmNqYWM1WkF0UQ?oc=5",
+      "source": "SECOVI-SP",
+      "pub_date": "2026-09-24T21:12:20+00:00",
+      "search_term": "lançamentos imobiliários",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Além da estética, usabilidade ganha espaço nos apartamentos de alto padrão - G1",
+      "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxORzYtWEF1Ync1bGF3TEN0RGRaOEFHcTAtOEdzSWdzWS1rTm1COWZxLUhJbTJTQjZRWDJPMWE0OHlqdVJLcjl6VmZDN0hJYkFSUWg1Yml4T3htVzRzLVN3Q2lrRU92c3dPV0RrWWlXSmJ6MjFZcHZzOWI5aUxWSGdsXzlGNjlpV0VZUFMwWkIxcUthZnk3LVBWemxoTk9iZjVCQl9iNGJkYVdWaVNIM2JDTmtLb0ZRa3JIR3NqQlBOOEo2RXlVeWZsRzc1OUJMa2V3R2Q0UlE5LWF1a2RXTW1Gb08xZnRWd3NTamFiZHJoWklHeHRYbm84XzdZM0hVRzQ1VjhZNHNTdnhoSTktZk82SXQ5QzE1cFpk0gGnAkFVX3lxTE40QV9Fc2ZCZjdmYjhjaThQWExEell4WlozVWprY1FYdWZFYmpoeTdqa1V1cDhicUt5c3NIam85b1FPWi1DX0ZpSm5vRGNxSmRFRVpKWXY1OTdMaTh3SGVlV0RzXzFFdmtiNk5uM3NxNWl1YUpPbGxTM3dmSkxWNHpUSlloc1hlbUd4SE1aLXdfeHI4VkxadWp2eHZFM0VUOURTQURvdkNMQ1ZaOExXVjRzeG1UdF96MGwweW1VTmJDRk5BcGJ1cXloLUpzWVloTzUyQkFMX3RucUFpQ19qMHpNd1VOaXg1SER3NDJSRVhHa1FYb3E4YkxIWlp2dF8wTFZQTmdGdDdiTVMwV19WU2FKUTdzak84U0docmdTWk9PRjdTWHZjQlU?oc=5",
+      "source": "G1",
+      "pub_date": "2026-09-24T14:19:35+00:00",
+      "search_term": "lançamentos imobiliários",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Cézar Haik: o futuro do mercado imobiliário não está sendo escrito só nos EUA - portas.com.br",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTTBvd2U0MUFZOUxKekRPUnZGSkQySFNyM0NGTzE4a1JXY3FOdXBpV1prdG5hYVE1QzlYZGR1NzFtYV9Hc0xUR2ZNRjl5N1NGcTNCT2FJSlpFR2lnSDVrNllyVkttdmxWQXdRTDdGMEZVclppTGFqeWE0XzNaeldoRnBuaUtfX2NkWHdFcUVZOFNhNzdSYUpvcGlNYVExMW9J?oc=5",
+      "source": "portas.com.br",
+      "pub_date": "2026-09-24T14:19:01+00:00",
+      "search_term": "crédito imobiliário",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "'O problema é o risoto em 6 vezes sem juros': Galípolo explica preocupação com a oferta predatória de crédito - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRUJDYmlpWDJlZVRkS09rVEl6N2psSTU5TTdhM2ZFUXVpTFpaRGRaemU2WTd3NURnTmExY1hNdXpLY1kxS2dqdWVrdG5wT3l5SHRHU2ZmbXVuUzVKcGc2YjR3VXNJcmU1Q2hnRlJBYzB4WC0zZGkzY2U5R0Rhc0xmWURlNDFtQXdUaFpGTVpONmtXWG9hNmc2NHpDdGJoeFBvM19BM1ZaQQ?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-24T16:09:00+00:00",
+      "search_term": "crédito imobiliário",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Ibovespa futuro, dólar e notícias corporativas - financenews.com.br",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQX2l2SG9LWWQzWWY5NDlVWWNoamZxVGRkanF2ZVZvTm9KTk0yLUdmd3FqX2ZDR0JWazB2Vm5YbVg4V0s1YVVyZWswWkw4NkxUczM2ckJJb1k4NU1LbXJSWExaTXozZ2drc1hPWlNPY0ZpWFJZYmlWUlF3X2tNUURDcWNIVG41eC1HbjdBSW9n?oc=5",
+      "source": "financenews.com.br",
+      "pub_date": "2026-09-24T14:36:06+00:00",
+      "search_term": "LOG Commercial Properties",
+      "category": "HOMEBUILDERS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Fundos imobiliários têm desconto médio de 16%; ainda vale investir em FIIs? - Estadão",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQWlFYUmxqVWVzN0VpbWllZlFLTHhaRlVSeXlYempIaFBrVVZBM1d5Q3ZfcEZTYjN2MHBlWXVrUDFrNkJGdFZYQTJYRW9OZGJydmVvUmdnXzNqc29aWGJON1NSXzhFRTZCVEJHLUxIMTY2WnYyZmJfSURzWXc0cmpEWlNQWjlzdXdYV0RKVXRvb3Nqc0gyTmV5T1VKUlVtZmlPR21FczYxazF6RkhHeUhLTlF2bldoN0xuTmIzMWFhdml4b0JlY3lsalFXOHRqUQ?oc=5",
+      "source": "Estadão",
+      "pub_date": "2026-09-25T08:30:00+00:00",
+      "search_term": "crédito imobiliário",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": true
+    },
+    {
+      "title": "Atualização: Yduqs, Multiplan, Petrobras e outros destaques corporativos - financenews.com.br",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSVJ4LVVCSS1GWnY2NTRPQ2VKZ3ZsNm9Uc2ZCNlMzM0xoa2lNVHp5TXdSZlBqY2RIVjI2VmNYQzRnZk56RXJsTW5WRVo5WXZXcHcxTFAtSmxEUVh3dVJRbkpHM0ZzaVdnNHVTbi1MVDcwM2l6eDlweUtHY0Zya214T29PX0o3cjZ3MEc4QVJFVkZhTkhJdURRakw0TDVQMmpUcGpUTnJUdWU?oc=5",
+      "source": "financenews.com.br",
+      "pub_date": "2026-09-24T16:47:08+00:00",
+      "search_term": "MRVE3",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Paulo Ricardo, RP Folia e churrascada: o que fazer no fim de semana na região de Ribeirão Preto e Franca - G1",
+      "link": "https://news.google.com/rss/articles/CBMinAJBVV95cUxPY1g4NlNuYnJGa2poYi1GVEpzZXRNai15VHRSSzZOSXFPYUFTa2Qwd1ZzZWhMWHhVcGQxcjdTc3ZDdEI1NXBMM1Bwa0h6bUJRekhnck1FLU1FaG8ySFBsUWkxNE5SQXRwclBrVlE1MUhraHpHZi1KYk04bzl4VzlOTzBxZGl6UU1jM3JrRkp5Y0tvTkFaeVVYWDBaNUFxZDZOQlIwMlowaTdBSUZpc243QzlKX2ctQVdHaE51d1hKNE5mZlZMc0YyZzZ1enNTZXRnUkkzV0RuNk5xbmh6UlRIdHhFMG5VSFU1OVBpMDRZcG1lUTNNTmlXZ1VTc3RPc2lxTXlrRnVyNjRvVGJjX2g4dEtwSmd0dl9za3JkWtIBnAJBVV95cUxPY1g4NlNuYnJGa2poYi1GVEpzZXRNai15VHRSSzZOSXFPYUFTa2Qwd1ZzZWhMWHhVcGQxcjdTc3ZDdEI1NXBMM1Bwa0h6bUJRekhnck1FLU1FaG8ySFBsUWkxNE5SQXRwclBrVlE1MUhraHpHZi1KYk04bzl4VzlOTzBxZGl6UU1jM3JrRkp5Y0tvTkFaeVVYWDBaNUFxZDZOQlIwMlowaTdBSUZpc243QzlKX2ctQVdHaE51d1hKNE5mZlZMc0YyZzZ1enNTZXRnUkkzV0RuNk5xbmh6UlRIdHhFMG5VSFU1OVBpMDRZcG1lUTNNTmlXZ1VTc3RPc2lxTXlrRnVyNjRvVGJjX2g4dEtwSmd0dl9za3JkWg?oc=5",
+      "source": "G1",
+      "pub_date": "2026-09-25T03:00:00+00:00",
+      "search_term": "Multiplan",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "FIIs usam cotas para comprar imóveis: entenda os riscos - InvestNews",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUnlVYTh1WmY2WXlSTVE3aVJvMGY1MkZWLTNQTjdzUlpmVUJOVHFRUmthc0FLYlhmWUJhMWNRNjVyY2hMSWFZeGVxMnRkQUdCTGdIMU5yTHZZRmpOeDk0LTJURGZXWlZfR3ZKMXBVRlZKWnRJWXotUUg5OWpObHV6VUpyc9IBgwFBVV95cUxPUnlVYTh1WmY2WXlSTVE3aVJvMGY1MkZWLTNQTjdzUlpmVUJOVHFRUmthc0FLYlhmWUJhMWNRNjVyY2hMSWFZeGVxMnRkQUdCTGdIMU5yTHZZRmpOeDk0LTJURGZXWlZfR3ZKMXBVRlZKWnRJWXotUUg5OWpObHV6VUpycw?oc=5",
+      "source": "InvestNews",
+      "pub_date": "2026-09-25T08:00:00+00:00",
+      "search_term": "lajes corporativas",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    },
+    {
+      "title": "Institucional reduz posição em FIIs e vende R$ 266 milhões em uma semana; pessoa física e estrangeiros compram - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNMWk4TThxbDd2dElLdE5RYmEwQ1ZLYnRCcjUwTk1URlg4SEp3Zm9jNjAwVmI1bElTRjJEYVliWlIxNzNrb2h3bUVUeG1vU3lmdS1nd3A0YWdNZHVCMnFYRFhPbmZna01OeFdMc2M2eGFiOW0tU19zZW1hWVhoSi1HY19fdEN1eWRRRUNLOVZPSWNtQ2NnQWVtbzVyeUJISm9jVmpEZDVyZk1YTFRzenpJRWFUQVI4dE9fTlZ1dU1ZWjhYbWFmb0FSRWlPaTNOc2toUjNCYUIyNUxsWkJD?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-24T18:26:00+00:00",
+      "search_term": "lajes corporativas",
+      "category": "MALLS",
+      "sugestao_ia": "LIKELY_DROP",
+      "fonte_prioritaria": false
+    }
+  ],
+  "descartadas_por_classif": [
+    {
+      "title": "Os Cinco Imóveis Mais Caros de Paris, com Preços de até R$ 400 Milhões - Forbes Brasil",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPc2VuMlFqQW0wYVdhUXNsNDhlLWc0Q1puUjF1WmJKSXdUS3V6MDRkSkV1SkJsbHh2VmhDdmdCdWZLbnhMVTBKWnpvNmEzN1lvcTE2bzQ3dUlvOXlFZWFiNGhCSTM3aGhZZHZ1aFF5LXkyVWNOUkdKOG14NlBVXzdFeXVwM0xNLWEwTGdRX2txSGYzRnda?oc=5",
+      "source": "Forbes Brasil",
+      "pub_date": "2026-09-25T08:00:00+00:00",
+      "search_term": "imóveis residenciais",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Do Luxo À Classe Média: Como o Multifamily Quer Reinventar o Aluguel no Brasil - Forbes Brasil",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMzliWFFOM1ZfaWZzVHJ0RG5KNy0ycmtkRTdXRnpkTmFUd1RpUC16NGtiLS1URDRCeDJleHF2Z29kUWtUV1R3Z1VrVDR0R1JGQ0Nfajh0VVotblNaaHZDQm1FV0VDMkg1ZmJSRWJVZGJHWFpSMmVUaFktUHJBcTRyTG1DcFNTdVVNcGR5cDJFWWJwU2xDY1B1eHNMYmRxMGFSbTl3Q2Z4Y0hxYThCSTBMRFEwSm5uSUd3WUJWVjJR?oc=5",
+      "source": "Forbes Brasil",
+      "pub_date": "2026-09-25T08:00:00+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Secovi-SP debate conversão no mercado imobiliário em novo Encontro das Imobiliárias - SECOVI-SP",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPdEU1bkROWkJObTRuMjlxQTNfQWdEZmlVOVg2bUtWOEt6RFZlZE1XbGd0VFpsYmstYlM0YWVHUkdhTlAzRHBOYkhrOU5fbExTTlR2ek43aGZaY0hHNEZ3R0NrVDRCR1VHcFNhZDBCVl95ZHdkbGVRRVhpaGl0X1VoUUJpc0hTTTJ4U2JYOFlQUWdyczR2Yl9jNDdObWRsa28zVGw3NDVsTjRLUQ?oc=5",
+      "source": "SECOVI-SP",
+      "pub_date": "2026-09-24T20:02:39+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "As vendas de casas novas nos EUA aumentaram 6,4% em agosto - ADVFN",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPSklsQzlLV3R1UmJzQkZybUhtb2lNcS1KMWVqRFF6Rm1Ub2QxT3VOeDNLUXZoNkY3Q0VuWU5VMFVvaWo1MXF4amNpSTN0Y3RzZ2JLVlhERE5BdUxaekM5b1R3OE1MLXdUZkRaMlZZQVVveGFuYmdWU2NyT1BVWThHb20zdVZBZ004NHJJelh1YVVJM2cwOE1LZg?oc=5",
+      "source": "ADVFN",
+      "pub_date": "2026-09-24T18:41:51+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Compactos completos driblam a concorrência na capital paulista - Valor Econômico",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOQjl4V2stWUxJUWtZWmt0bmVFODFfaDNUdmRZOWtma2w2aEJlcjdFdFhncmk0bXJxcFQwSkFRdEcyN1RHZThKZzRfTDJmRjU1ZGdabUE5S1V4alJMVUhhaWRTMkpBdHVKaWFoWTJzTzRzR2xoY3Y1ODVROEdweXhKNHpFcU1ORWRvc3hnQXlxNFVmdkE0OVIyUnFkQlFQVHVHVU04NnA2RnpJUzdyWjAzNmo4VGlma1l6SWMxQ1RpUWJkMWc3NDN2aDV3UEUteVB5WUU3NG43a9IB5gFBVV95cUxNakVyRVJhbi1ybmRxSGd1SzBVMnNhWnBhaW85ODhFSHg4NW8yaDhKOW1nQkUteEc1a1cwdkpDZlZXVHFyZjdrYThSYzdROHJCYk02UER5UkNEWUEwMzBhb2FvTEd4X3hPNHoxV0wyZjE3eUIzLTZUQkFUZlB3dnNDaHlkZXI0NUlSU21IZmVqN1R2TUE4dlpwTExpR1R4ejFaU1dVLXpHNGJkeWxOdGs5dFVOM2gxWjhjUE1sQXhkQnhnTVk4M2dmYmhWSEtXUXZsZEx4OXZKc3FpNjRscWRINFFyRDQtQQ?oc=5",
+      "source": "Valor Econômico",
+      "pub_date": "2026-09-25T10:41:26+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Magazine Luiza (MGLU3): S&P reafirma rating ‘brAA-’ e vê recuperação das vendas com ajuda de Mercado Livre e Casas Bahia - Money Times",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNZ3hKQTZWWVJqWks3N2djVjA4cnJhd3ZsS3NyamNNNTdmRXJMaGktQ3UxYlE5cDN2RlV5YWRIbHlFeVhGeE1BWVIxSGpFQ2U4UVpNYlJnWldyaDk3YnM0N3NFZVhYb0NwR3dZeEVjemdQaU92N3ZHRm9wUTRPLUhiWWphaTBIRTFDMFN2WjhXVWVselI4ZXVyMHlXT0VSVTFRMDZ0VDhhdmRkcVBkVE9xWGV2dkVYM3EzVEhIekNDOGVvSlVRZVB6dUFPSXAySl9sbkdMUlhsM2RRSDlKdFFFOTY4TQ?oc=5",
+      "source": "Money Times",
+      "pub_date": "2026-09-25T11:07:00+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Como incorporar uma varanda a um apartamento com planta antiga | Real Estate - VEJA",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaUhUWDY5VkdiZE1Ya3hzS3ViNDZkWHNRZllMb3VjblIwRy1Gb1pzVjFJLXJReTlnd25oZWtYV3k2QW1wcDhZNUdfazdPQ0I2aGxMcW5ta3hmbi1PbTdMOEMxdHowcDVnUW1CSHloRVRzbWw2UWU0c0RIWnlXLWdpUkEzWGM3aElTTjYyV3QxNnZvXzRmV0dJem5RcEZrcWNyaUJJcEFPV0lOZzBq?oc=5",
+      "source": "VEJA",
+      "pub_date": "2026-09-24T15:23:26+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "O dramático despejo da idosa de 87 anos que expõe a gravidade da crise de moradia na Espanha - G1",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSUk4bE8tMTZDdF9BNlAyaTFlRmJDLVJJdG41WjBaMFNTWFBEUlUwV1plbGhacWZrTWxKQ0pfVEg4QWhRYVdvajZuLVVSVFlOYWkteFU0SmREZmFHa1JmMENBb3RqRzJwZGc1WHlXcTBzWk83OEY1RlA2X1BEUi1yRnhpY1MzY2RULUg4ZWEyTEN1S0xWSlRRcU16QXBXUXZCbHBVd0RLNnJKWVMtMlRPSHJVUk81VGphZXNhNElvMElNTjNYNDdHRDJta2k3N1RscmM0aXkyOTdoT1810gHrAUFVX3lxTE1CaWtNN29PXzdraFYwT083MlhWRU9INm9IN0Qwc0R4aUNTWndyVEJqSElUU0lhNmlybHJIMlhOR3lvWllVZm9LSmRoWjZqUnZtUTR6Wjc0NUpwRkxVVWdKRzVKbjdXZEk4Mzk5Z2NFeE9SRUZIaWxpQXM1bHBpdDFfUFZmcDhBV3JPSmQ5WDAyNFRSNEh5eFJVY29lSmdyYmNhclpiUXlJc1JtVXFSRm9hN0oxaXRVdkdQamxhNFYtdU9FVDFmUmdleFltcTVhTlhtTDkyM1N0dFYzbTA2eDgyWHpPbkY5dUd1eDg?oc=5",
+      "source": "G1",
+      "pub_date": "2026-09-25T07:00:00+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Mansão de Selena Gomez é vendida por R$ 27,9 milhões; veja o que o imóvel oferece - Globo",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPN09hS1JWWDktelBkOHRzcUVYaldmdlhoaXYyREpDQWhSUERwVE5yY3NBakNlbTNqRnBLRkd1MFY1bFZuMVhIY3lnV0J4QkJuUk9nbE4xQUlXODNfZFM2TXk0cTE0OEZGR3Uza05NRWVWQV93ZE5Fcm1HQ3YtYnFTdk1Oa1o1UEdpaUxmRWlmOVlXcmo0eTJESkVkdUxxV2I3ZV9paFBnRFRZTG9YR3hfNnUtdjh2OE5Rem51UG56YVd5OERkbzJmaFAwdlVvX0nSAd4BQVVfeXFMT2dwcGFleV8ySGhHeGlnUjVPSmpmZndqVWdCSzVzWUNlRzZoNi0xUjktWmZnSkJXRk5zeldFclZ3elcxbml5bUc0UTBFUk9tWmltZ280NFJ2UlcxdTRSMl9kOHJ5QnRJbFFUTmYxWGMwNHpXRmNOcVdKWVYzczBXR29hSE53d1F1NVBCV3FfX2k2T3dFX2h1bmtmZC1YTC1aejVVaHhpYXUtNFpWV0ozOV9TVnBWVDFEREpzNFJqcUZxbVpfaE9oRmhhUThJQ19mR3REa1ZDanNJa2x3Y3BB?oc=5",
+      "source": "Globo",
+      "pub_date": "2026-09-24T19:11:23+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Vendas de casas novas nos EUA têm melhor resultado em oito meses - CNN Brasil",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOa2lYZjh4NExTWVdhTUE2dmQ0YjRLZlBNVlNmazBUN05NbktlRDQwQVk2d195VHFqT0ZnZDByMlRxak1NV1lrNGh3VmtlZkpzRHczYXNScDlpd2d6MExGekRtdGp6ZllTYzZScHo0bWl4cDFkaDAweTJOSzB5SzRzRFlYV0lVRFBqMU5HYWxjUkJLTFBPRGFOQ25TVmtfWXZ4ZHd5NGFPemt6N2luenBCX3BhR2tpMUdXTXBrZ2lFTUw?oc=5",
+      "source": "CNN Brasil",
+      "pub_date": "2026-09-24T14:49:16+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Nova dívida da Casas Bahia aperta ainda mais o caixa da varejista - VEJA",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNaDU1WTlMdGY2N2pJeWJLLXBnZXlLcEticWwwZVNJMlRWMmdBLW1ZeHhfdzBINkFrd0l1MEJGWGRHOU12S2NvRmIyT1JZYXphN3h4QkctU3lkNjVwdUFSTUVXTlloTjlINDkzbFJselAyQmt5cVdRSmItMTd6b1M1c3Y0Xy10cVI0c21zVnNZQmx1aFNFM01nMFM3S2JhSGpLQzNB?oc=5",
+      "source": "VEJA",
+      "pub_date": "2026-09-25T14:00:32+00:00",
+      "search_term": "mercado imobiliário residencial",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Samuel Rosa e Joyce Alane na Sala SP, Vanessa da Mata, Tasha & Tracie, Fernando & Sorocaba e mais: veja o que fazer em SP - G1",
+      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNNENpRlpOdjl6YmxiY2xvNE1yeFBFNGJPMlBRb0J2YjZvMDFtZ0lpZUJzRlBCbmdFUGplX3I5UDRsUzVuN05lZW9wS1NSTzFLTW9SMU5OQ0pNWDBhNzFIRU1zY25GYjdvSkd0b0JmeWN0YTRWdnBRZWVqanY4aFQ3WVJQR0E3cmZSaGE1dkhKako3LVNDa3hGUkp0UGZtVjRBOVBxN2w2aFIxcmtxcmFSTmJNQW5LSmRZMm9HWGViekpGclFjNUpKM3BnTkFpdUhYalBtaHlQdWp4R2toM1ZQSUFaZzNhQkd4M0xDTFUwc29vc0ZzUmJLUEo3TF94Umcyb0l4REJHbG1ZYXRm0gGbAkFVX3lxTE1ScXlsaFVUdlZZemc4Y2JhVzR2bFZUMmVZa2E1M2Y5ZGE4QVV1ck1CdVRBbHRNWU00dXQ1a3FmbUlRQ2R5QkpUUDJzY2VBTnlaX0I3X3FjYk1uTTRaNC1kMWFfRjBIeHVuNlVXUlJfYkozZG1wX1BhS2lGVW02WXFMM2NsQ2t6X0NGRHNVTTNnZ3gtV2NxMmpNNHN2R0lNWU1uUVNfc05GLXhmLXNmdzFubWhPNlZ5Vnc2ZnN3dGk0Njlpb0llOXEwM1NWREJlU01pUG1nRGg3V2loZ3lRUG1aVkhUY01KRDJVU2tPejJkZEFkNWtqU2pEbnd3LXJIRFVBeGIwbmk5aVU5VVRzNkFnUDVBZ2JobTBodzg?oc=5",
+      "source": "G1",
+      "pub_date": "2026-09-25T03:00:01+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Imagens registram criminosos fugindo do escritório de Milton Leite após invasão - Estadão",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWXBkdnMwMFgyWTRsYjl2Mkx3dU5sSFg3TkRqNDJyTmhZVWtDWm1yU3NlRmQzMjFEWjFyYXJOMm8ybWRFanZHQXFjbmxBeFRJOXpucmtHTEs0SFhGNGdpbUZtNEpNNWs2SFpCdy1zS3hyeUcycmpiOWhxOXpjdzhwTmxUUXRXcHAxeEdhcHVSckhrQ3dHdTU1cklPMW52MGE1ajBRSjd5Q2R0bUFuNnVTWF9DSGVhUGY5SGNRNlVXYUl3WDJHNVEtNg?oc=5",
+      "source": "Estadão",
+      "pub_date": "2026-09-25T07:21:38+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Trabalhadores dos Correios de SP decidem encerrar greve - Folha de S.Paulo",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQZGhPOXJfRUNmc2diS3VIV0Znc2dZTmtfekd3WV9xSl9mV2JObEJkRXEzNkVpTUlGeS1IUFhUV1lUMEhLanhSeU1NYXhIeThiUTMzNndQRFpPcEhBWmtxMF9qVmJVUnI3WXk4RTc2YmJPNG5Bak1yWTVMdnJsTlJJa083MmhqaHlabFh2Z0dfb1JscmFwSWpZMnMyMkZTM282V1dnWWRMbUo4amM?oc=5",
+      "source": "Folha de S.Paulo",
+      "pub_date": "2026-09-25T00:46:00+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Escritório de Milton Leite é invadido na zona sul de SP; criminosos deixam R$ 19 mil e levam DVR - Estadão",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQQ293S0JYaXhXelBXZFQzRWUwc3BuaVZPTXBGVDBMX0JzUXcxZXhVVVZ2TlNDZGM0VEotQ004UUNmd0FLTGZtMVd4S0h3ZjRPUHBoUVdyRnhPNG5vMnBTVFdBWGYwVzl1dFkyUU4yWlFnRmhXRWZwQTk3NnBDdFlCUFlKeFlCbTBmTlJNOW5aS2F0dXRzQXRQREJvNzJnNlZsYUh1aTR4ZEIyMUNBOGNzaHVXQUxCYVN2R3V3QkJIZlhzUnNiYWZOZW1SQTczU0U0M05OQUVURUtSTFNC?oc=5",
+      "source": "Estadão",
+      "pub_date": "2026-09-24T22:09:37+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Filarmônica de Berlim chegará ao Brasil sem medo da sombra de Karajan - O GLOBO",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNY2VKWGs4OTZmQjk2WHJHVGpGeGtWcGtKVHdDd2lqeGVqUkJkVllmb2NnOWItRGZ4bk0yRmJkS1hIUVlpYUJPUElZRUljUHdJdmVldXRPSmNEd3VyZER5ZUctbWxtd2VtSWxYUm5jOGlaZVFna2JNREk2Wl9LSzhpTWpYNkhOaEota2M0Mk5ISmpxRlA4TzBIWWtkeWIzUkx0LUNWamVydjFiTmNhZlJaWEtIangtUVdHTUh3SHZDeWpMNzYwODVwbXVQZ1ZEdm9Dcks5Z9IB1AFBVV95cUxNY2VKWGs4OTZmQjk2WHJHVGpGeGtWcGtKVHdDd2lqeGVqUkJkVllmb2NnOWItRGZ4bk0yRmJkS1hIUVlpYUJPUElZRUljUHdJdmVldXRPSmNEd3VyZER5ZUctbWxtd2VtSWxYUm5jOGlaZVFna2JNREk2Wl9LSzhpTWpYNkhOaEota2M0Mk5ISmpxRlA4TzBIWWtkeWIzUkx0LUNWamVydjFiTmNhZlJaWEtIangtUVdHTUh3SHZDeWpMNzYwODVwbXVQZ1ZEdm9Dcks5Zw?oc=5",
+      "source": "O GLOBO",
+      "pub_date": "2026-09-25T06:30:01+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Huawei, 99 e Enjoei com vagas abertas para áreas de tecnologia no Brasil - Estadão",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTi1FMlZvOHpheFRFUWlCTUpOZEFjVS1ONThjUTQ2N2M5S21YcXZ3MG9HM1pRQzFmRlFBNXF6MnBaa3BqeU5WdzJJeGlnX3ZQM0tOOC1XQmF0S0FYcERIeThaTjdKbmRBci1GSkVsZGpLRjEtTXRsT1FIYVpmU2Rsc3h0NnktXzdkSlRfYmRRczJDMmRkUW43SklremtRWWpGZ0o4MjVDVmVVNE1BUlRYMtIBtgFBVV95cUxOaVZCUlJpM0pxVkMzOGd1T0RsM25rdDgtZTN6cGNWTGUxeU9MVXJzRjVPRG96cWJhanppZ3BTMW5tY2tnOVhsOXNLSzZkVUZ6VnY5RV9wSUFyZ242QjJxYnI3SFlLRlJ3SVRRQ2lnbml1VFVJS09EbklhYlg0Mjl0RkY4ZXZMWkt5R0N6WXBPOS1jdk5PZzFIMmJ0OC1vTDJZS2hqUjc5ald4T3BGaG5wYUNQbTNSQQ?oc=5",
+      "source": "Estadão",
+      "pub_date": "2026-09-24T17:34:29+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Mais diversa, Filarmônica de Berlim traz seu som 'único' a São Paulo - Valor Econômico",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNU1c5VTUxSkkwbDNZMW1vTGpoQU4zaGNoaGtmMkk5SmQxbjktV2NxbjlzdWlPUF9fS3ozelRhV1l0UnU5bjFJcG5nOFdCb2tuQlZKRzhDU0QtU25mZWp5dEpvVks3dE5FVGktZmNuTFhzeDB0cU5OZ1FVUjdlRXpNdVRKZlM3UG1UckFjeDNiVlduTzV0Y051ZUx3NFNIaGx4NmtIZVQ4cVJTVEhkT2pBM3VRYTEycUNhS2VJ0gHKAUFVX3lxTFBGbTZsXzJxMUY3TklGWngxblU5ZEw3UHpVX0VQQ3l0cDdzeThWUkk3TngxZkFOT0daRkxMY0Zwc0FkdEJoMEplOWZtUnNnYUp1VG1XNWd6czlMd0Q3dlBKR2Z5bzZUZHVQUFJXRVozYk5SOGlHY05wN0JWWUZZWExRN1RXTENkdlNhUXV4QzZFYXQwUjVtalpGSHVBTWN1Z1k5MTdseGV1Y18zemVCX3RvMGdZdTUxb01fQnRlRlJCYWhwWXJsM1M3YkE?oc=5",
+      "source": "Valor Econômico",
+      "pub_date": "2026-09-25T13:32:51+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "O que esperar da vinda da Orquestra Filarmônica de Berlim ao Brasil - VEJA",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQV2Z3YldUMmNnU3czaVhxRzV4MkpmNUVuR3Q4d25QSUJ3Q29lTllxWVRCc3Q2TGlYak1Ga1B0cXNhRnJIcGdQSDVOajkxQkhLQ1llbGFEeHRQWHY1Wkw4bF9uV19HY2ZMb2pqek5PVUlTTTRtc254Q1h1Zmd4UXJUNkx2WHZCSFlhbzJwSk1YcFBuUThFTV9WUjlqM1BtWXhJU2hlZQ?oc=5",
+      "source": "VEJA",
+      "pub_date": "2026-09-24T17:46:21+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Governo Lula prepara anúncio de medidas contra endividamento e bets a nove dias das eleições - O GLOBO",
+      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQVVVvbEp3N0UxT0Y1cDJmbU9vRFdXNTZGQjAtYVZrSHoxQURIR0d0MHlaampJVjEtamZiYUVfdVhHR2NSSkY3WmdqdG0zUEV3Z1A3Q0FPMk5jV21oQ20yZWczN3UzSUNXSHJHVlEzZnFydWhXYWZwMGI2b3Nod09XdHV4NnkxSl9uU1Rpd2o5ODRfY3NCdklTOVByNFEwZFhxaER1aHJNWUVzSlJoNGhOaUtzZmZLMWNkdjhjSUZDV0lvN2d6OTNUUWVwcjh0d0ZPdzVEaVRWMXhjX191N0E40gHuAUFVX3lxTFBHU2ppcURJVHNiZEp4UlFNZVhlS0NnSkgxT0ZIQjhZMXhjbjdxZXUzMjZsYVdOUzVEODQ5aHB4YTlPTFdXVXRBWFozZi1CTmZZYkJQSnc0N2VpZFlXdC1rZ0lPUjM4bFlYT0M3VldmeUpOUjU4bkV3UGFLaXdleU9lOWdCZXpoOGVOVzVTdUY5ZWtpQmtCd25Ma1JscGNHUGZrMG1HUUJjWEpFTkM0Y1FPTTRtaU5tMm9nb05yT3NCUVRzTkVkeGE4SnZxY1kzeFpGM2tVNHhiRXJfNUJMMVlmVVlNbDdPcFNYVGVJcGc?oc=5",
+      "source": "O GLOBO",
+      "pub_date": "2026-09-24T15:51:14+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Com ingressos a partir de R$ 1.600, Filarmônica de Berlim diz buscar novos ouvintes - Folha de S.Paulo",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxORjFBM0dRRG5Pb19oZHh1Y2gtcWtYckhIX3p5NFBIY3NpUTR5dTNYa2JnXzlNUUgxMVVUc1F4VGJHTUNwbjhxWlo4VF9UTjM3NFp3U1U1NXBaNmdvM1JfcktZaWQ1QmxkMXlRbmFoUWU4ODNzbTFDTkcxNTFyMHQxZVZjMzBNejlPWWlQOTFybVA2bk5RamYxaElUdFdkSjZfWkM0OGJLdjZVTVBMNkp0TmVOWnphdjdFaDRaRWRCaWxwMjRFcVdoLUZHSVByOUE?oc=5",
+      "source": "Folha de S.Paulo",
+      "pub_date": "2026-09-24T20:23:00+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Ex-primeira-dama de Cuiabá é transferida para SP 11 dias após AVC - G1",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVTNrN0NNSkpfamlsTFhnUDA0UFkyZE9Ub2ZwSGcydnFCRGNqTkN1cnpCZWpoQ1lQMkJDV254TWZiMUJncGM3NE9JZnQyRzJQLVV2aEQ4cVZjQWtibjN6N3hHakNTLUQyaXdhczZvaDNXeTlNbm9TQk1SNmxDRC1SbnotcUZGNnFvWnpjallCX3VBTGtrMHN5a1RsdlBjanFtNURCQmNmdzFTUlBVcFlYd3NfSWpyYy05MldlbVNLN0xBaTBM0gHTAUFVX3lxTFBLRDNDUk95emtPN0dOTnkwTVRPU1lfYTgxMVhsNWxFU1N1bUtsVFQ4akhOUkdOSUlXUFl4RmVOaWYyM2VCMXRVYVFQT1hkMnFQbk5ZWkw0eWlyQ21vbzd2dk42QWJvX05PN3BMWnBiY0lPWE41MktsVVNySFVvNDVrNzVlWi1VZXVtdHhuanBFVDIzM0xDQWl0MFprcXl5NEkzWDdkNEN6ZUF4dnlDRTJhWVBqNlA3Sk9DeUcxaUs0NkFlUDg2bW14NFhRM08tN1h1UG8?oc=5",
+      "source": "G1",
+      "pub_date": "2026-09-24T17:09:19+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Dono de escritório onde Isabelle Caracristi foi estagiária afirma que ela relatou se sentir ‘sufocada’ por dinâmica de trabalho - G1",
+      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPZTZpeW1CaFFMdHdwLW1iQVlIcG9MbENPTkRBcDFtN0NYcURKV3Q2VW9DZmRLenFCY1hQcTFtSjdGVC1LM1RlMHQydkpYX01WaHRaUVBfM1VoZG9sWEZsMEdXNm1mbmtXenB0S3F6emtlNnNHbFZIcVNyV3A4WEl1RzVBcmMwaEZaVExQc2c5VzNybThUZ1k2ZXczbko1U05qV2pJNlB2V0JfYVcyMElOMUhRUlJHQUpwaEh1UF9YMjQ2S0RRX09vQ25pb1pDVDZLTUNEMXpOTWpIWmtiVWJSVTBFUXoxcmpUWjFUVWcwdEw2aG1oOWRIcjNDa1pWeVFUNllCRDJhNHRnblJ20gGbAkFVX3lxTE9tc0l5Y0Vxa0tBUUlvMzVRc1prZGl3cThKWFVrVF9wMEdyRVhDaTR2Tkd4YS1xNV9jSUNQRkpvbllnV3Z0Wm1QN2Jzd3VuTGg4QzRXOGRsUTNEUUJNWUw3eUhqVXRqd2ZHb2NsWk93Zk11ZTFIem1tdTk4RVhDTUhWVncwdE5tMDhUZE0wXzZ0V3dERnJhSVlwdzU0bmg4cVR0akk2UW9ZbnRpOEhmUVJ4SU5ibkp1dmRQZ2F5OERlZ2ZsOEV0cFVULUE5WWVvSnEtVjJ2U1pSd3JjRHJqWmVBTGlSU1BhdEc5U3AzWHZjaEdVb0VQZG5CbzdIV2VkMURrWUFFLVNDeEgwNUVzcDVWRFdPbW1pRlJFcmc?oc=5",
+      "source": "G1",
+      "pub_date": "2026-09-24T14:36:00+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "The Office: conheça as 15 versões já lançadas da série - Estadão",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPWE9ULVFEUlc1Y3REQU5mOXFtaFg2MjlMYVVCQXpJTHRCSDFZTXV2WHM5M2hoTU94TF9UeW9LZ09TOGNtaVdXaDNPakZBXzlYclJucXlGd0w3Qi1RRk5ZY0xXTjg0OUp0TzVSWDJoQVlGdG9DMlM4WjJFcW40d0Q3Rnp3eWVneTRaUnZnUHVHR2tpT0RtRTlVX2VMY3bSAaIBQVVfeXFMUDJFNy1DSW5mZmZvS3BWc3hYRTc3LS03Mk5sWU9faHotWGttbG95Tl8wdFhIemYwZ2UtU0ptczZxdHB4X2RxTFVZUkZsSGdxbHF5YUg3cXhmMjFhTVBQOTk3SjBvQlRsZTNJcFVPd1VXcHpHdDJkWEdnT1hnYnF5NWoxWm11WllpR2pRaEEtT2RjNnZuSTlYbkhFa0lQNHB2WjZn?oc=5",
+      "source": "Estadão",
+      "pub_date": "2026-09-24T21:32:02+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "Ex-deputado Jalser Renier é alvo da PF em operação contra lavagem de dinheiro em Roraima - G1",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNc2hNVTdsZW5KUG9oRXl6TE4xeDBqM3dHLWlMUEdmSkNEYlVRNlY1QVRiMXZpbHJNSnhVU05oQTVwU3lkWnEzOFROLThkdEJuT3RJRzBsVVFqUDg3RGdMaWJEc3hmblpHTjBUY3AyMHpuTVNabkpvbG5DSmVYSTNReGsxMkZwSVVYSGo4SHc5UWx5NHVXTXBfWnd1ZXRJUXVoY19iQmJhS25aYmU1eFVEZS1pTlVsWGpSWGfSAcgBQVVfeXFMTll1c2E4c0NqY2JoT1IwM1Z1S1hEMFRna0VBeHFfakNETFpqajJTTlJPdWJBOUd2aWRqYzNlU3RMNWhld2RpeWloMk9nZ1d0Q3c4U0FHWHJSRVdrQ2dkZkVDUzY1ZGdma2twUW02N3NSeHk1VkcwdHhOX2FIWXROMU9uNUt5a3ZmanlfZXl4Q0NyNG9yVkQ1ZE9JVENwbDlsY21va0Z1ZURPM04xanRscFRXaGpSYjF1VzJYWjZaTHB6R2ZSX1hMTzk?oc=5",
+      "source": "G1",
+      "pub_date": "2026-09-24T14:52:56+00:00",
+      "search_term": "escritórios São Paulo",
+      "category": "DESCARTAR"
+    },
+    {
+      "title": "A mudança fiscal que vai deixar os imóveis de NYC ainda mais caros",
+      "link": "https://metroquadrado.com/residencial/a-mudanca-fiscal-que-vai-deixar-os-imoveis-de-nyc-ainda-mais-caros",
+      "source": "MetroQuadrado",
+      "pub_date": "2026-09-24T18:49:00+00:00",
+      "search_term": "[RSS direto] MetroQuadrado",
+      "category": "DESCARTAR"
+    }
+  ],
+  "descartadas_por_ia": []
+}
